@@ -1,0 +1,235 @@
+{
+  "captureId": "45261179",
+  "heldOut": true,
+  "predictionSha256": "c9806c24d0bd35ffc6bad357a53e5de9dcd4a5f59421eac2d5ea8b1e8d2435f5",
+  "predictionFreezeRecord": {
+    "captureId": "45261179",
+    "predictionSha256": "c9806c24d0bd35ffc6bad357a53e5de9dcd4a5f59421eac2d5ea8b1e8d2435f5",
+    "predictionFrozenUtc": "2026-08-23T21:00:19+00:00",
+    "gtReadUtc": null,
+    "note": "Written before any CA-1M gt/ asset was opened by the evaluator."
+  },
+  "groundTruthReadUtc": "2026-08-23T21:21:36+00:00",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "surfaceDistancesComparable": true,
+  "surfaceDistancesNotComparableReason": null,
+  "roomHeightMethodNote": "Measured in laser space and compared with an internal model scalar, so neither side passes through the ARKit-to-laser alignment.",
+  "alignment": {
+    "solvedFrom": "published ARKit pose and CA-1M laser pose for the same timestamp; never fitted to the prediction",
+    "pairsUsed": 280,
+    "pairsAvailable": 280,
+    "inlierFraction": 1.0,
+    "rotationResidualP90_deg": 1.462,
+    "translationResidualP90_m": 0.0502,
+    "directionCheck": {
+      "cameraFrameDepth_m": 1.111,
+      "cameraFramePoint": [
+        0.0006,
+        0.009,
+        1.111
+      ],
+      "laserSpacePoint": [
+        0.4889,
+        -1.0914,
+        63.396
+      ],
+      "canonicalPoint": [
+        1.0836,
+        -0.0915,
+        -0.5442
+      ],
+      "heightAboveCanonicalFloor_m": -0.0915
+    }
+  },
+  "coverage": {
+    "framesUsed": 60,
+    "pixelStride": 2,
+    "pixelsConsidered": 2949120,
+    "pixelsUnregistered": 568390,
+    "unregisteredFraction": 0.1927,
+    "pointsUsed": 2380730
+  },
+  "storeyHeightFromLaser": {
+    "established": true,
+    "frame": "laser scanner (gravity-aligned, +z up)",
+    "alignmentFree": true,
+    "floorBandCentre_m": 62.2643,
+    "ceilingBandCentre_m": 64.621,
+    "storeyHeight_m": 2.3436,
+    "floorPlanePoints": 41238,
+    "ceilingPlanePoints": 69271,
+    "floorCeilingTilt_deg": 0.197
+  },
+  "alignmentUncertainty": {
+    "rotationResidualP90_deg": 1.462,
+    "impliedHorizontalBandSmear_cm": 16.57,
+    "note": "The laser reference is carried into the prediction's frame by a transform solved from pose pairs. Its rotation residual tilts the cloud, which smears the horizontal floor and ceiling bands by roughly the figure above across the room. Errors of that order are not separable from alignment."
+  },
+  "roomHeightError": {
+    "model_m": 2.344722,
+    "laserReference_m": 2.3436,
+    "absoluteError_cm": 0.112,
+    "assignmentGate": "at most 1.5 cm",
+    "result": "pass"
+  },
+  "surfaceDistances": [
+    {
+      "surfaceId": "wall-001",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 49746,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 11.177,
+      "mean_cm": 11.379,
+      "p90_cm": 22.517,
+      "max_cm": 24.998,
+      "signedMedian_cm": 11.177,
+      "scored": true
+    },
+    {
+      "surfaceId": "wall-002",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 243924,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 5.967,
+      "mean_cm": 9.063,
+      "p90_cm": 21.503,
+      "max_cm": 25.0,
+      "signedMedian_cm": 5.675,
+      "scored": true
+    },
+    {
+      "surfaceId": "wall-003",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 560803,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 1.094,
+      "mean_cm": 5.613,
+      "p90_cm": 20.77,
+      "max_cm": 24.999,
+      "signedMedian_cm": -0.67,
+      "scored": true
+    },
+    {
+      "surfaceId": "wall-004",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "coplanarWith": "wall-003",
+      "laserPointsInBand": 560803,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 1.094,
+      "mean_cm": 5.613,
+      "p90_cm": 20.77,
+      "max_cm": 24.999,
+      "signedMedian_cm": -0.67,
+      "scored": true
+    },
+    {
+      "surfaceId": "wall-005",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 466912,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 4.316,
+      "mean_cm": 8.248,
+      "p90_cm": 20.982,
+      "max_cm": 25.0,
+      "signedMedian_cm": 3.908,
+      "scored": true
+    },
+    {
+      "surfaceId": "wall-006",
+      "type": "wall",
+      "observationState": "inferred",
+      "scored": false,
+      "laserPointsInBand": 0,
+      "reason": "this surface carries no fitted plane; it is an inferred closure, and there is nothing to measure a distance to"
+    },
+    {
+      "surfaceId": "wall-007",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 21883,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 0.673,
+      "mean_cm": 1.622,
+      "p90_cm": 3.572,
+      "max_cm": 24.992,
+      "signedMedian_cm": -0.069,
+      "scored": true
+    },
+    {
+      "surfaceId": "wall-008",
+      "type": "wall",
+      "observationState": "inferred",
+      "scored": false,
+      "laserPointsInBand": 0,
+      "reason": "this surface carries no fitted plane; it is an inferred closure, and there is nothing to measure a distance to"
+    },
+    {
+      "surfaceId": "wall-009",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "coplanarWith": "wall-001",
+      "laserPointsInBand": 49746,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 11.177,
+      "mean_cm": 11.379,
+      "p90_cm": 22.517,
+      "max_cm": 24.998,
+      "signedMedian_cm": 11.177,
+      "scored": true
+    },
+    {
+      "surfaceId": "floor-001",
+      "type": "floor",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 290309,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 7.641,
+      "mean_cm": 7.713,
+      "p90_cm": 19.202,
+      "max_cm": 25.0,
+      "signedMedian_cm": 7.641,
+      "scored": true
+    },
+    {
+      "surfaceId": "ceiling-001",
+      "type": "ceiling",
+      "observationState": "directly_observed",
+      "laserPointsInBand": 441848,
+      "bandHalfWidth_m": 0.25,
+      "restrictedToRoomFootprint": true,
+      "median_cm": 2.56,
+      "mean_cm": 6.429,
+      "p90_cm": 18.634,
+      "max_cm": 25.0,
+      "signedMedian_cm": -1.904,
+      "scored": true
+    }
+  ],
+  "failures": {
+    "surfacesWithoutLaserSupport": 2,
+    "surfaceIds": [
+      "wall-006",
+      "wall-008"
+    ]
+  },
+  "measurements_m": {
+    "wall_length": 2.444292,
+    "room_length": 4.304816,
+    "room_width": 2.185838,
+    "room_height": 2.344722,
+    "floor_area": 8.346597
+  }
+}

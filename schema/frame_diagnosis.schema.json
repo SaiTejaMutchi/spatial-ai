@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "frame_diagnosis.schema.json",
+  "title": "Ingestion frame diagnosis",
+  "description": "A bounded opinion about why a capture's vertical axis could not be resolved deterministically. It carries no transform, no axis the deterministic layer did not already find plausible, and no measurement. It is evidence for a human, never an instruction to the pipeline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assessment", "reason", "recommendation", "confidence"],
+  "properties": {
+    "assessment": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "A short label for what the evidence looks like."
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "Why, in terms of the supplied evidence only."
+    },
+    "recommendation": {
+      "type": "string",
+      "enum": [
+        "accept_declared_axis",
+        "accept_single_plausible_candidate",
+        "route_to_human_review",
+        "reject_capture"
+      ],
+      "description": "A closed set. Every value routes through the deterministic rule; none applies a transform."
+    },
+    "recommendedAxis": {
+      "type": ["string", "null"],
+      "enum": ["+x", "-x", "+y", "-y", "+z", "-z", null],
+      "description": "Optional, and only ever one of the candidates the deterministic layer already scored as physically plausible. Ignored otherwise."
+    },
+    "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+  }
+}

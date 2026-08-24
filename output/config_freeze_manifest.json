@@ -1,0 +1,121 @@
+{
+  "manifestVersion": "0.1",
+  "state": "PARAMETERS_FROZEN",
+  "generatedUtc": "2026-08-23T21:46:44+00:00",
+  "statement": "The final capture must traverse exactly this configuration. Only a connector format repair, or an independently reproducible source-neutral bug fix, is permitted afterwards, and each must be logged with its benchmark-leakage rationale.",
+  "antiOverfittingChecks": [
+    {
+      "check": "no hardcoded scene identifiers in processing code",
+      "passed": true,
+      "detail": "clean"
+    },
+    {
+      "check": "source-specific paths appear only inside connectors",
+      "passed": true,
+      "detail": "clean"
+    },
+    {
+      "check": "every geometry parameter records rationale, source, and calibrated=false",
+      "passed": true,
+      "detail": "40 parameters documented"
+    },
+    {
+      "check": "no parameter was tuned on the secondary validation scene",
+      "passed": true,
+      "detail": "secondary scene 41418135 drove no parameter"
+    },
+    {
+      "check": "all scenes ran on one geometry configuration",
+      "passed": true,
+      "detail": {
+        "dev_41418135": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "dev_47333462": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0"
+      }
+    },
+    {
+      "check": "only geometry produced measurements; damage[] and scope[] are empty",
+      "passed": true,
+      "detail": "clean"
+    },
+    {
+      "check": "no provider or model was selected without operator approval",
+      "passed": true,
+      "detail": "AI_MODEL_APPROVED=True, provider=groq, model=qwen/qwen3.6-27b"
+    }
+  ],
+  "allChecksPassed": true,
+  "configurations": {
+    "config/geometry_config_v0.1.json": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+    "config/confidence_rules_v0.1.json": "22e50f2f3ab17b4a6d21aac8328f940871c1a5021b80b0ed8acf399e058cdea7",
+    "config/reference_extraction_v0.1.json": "53bc9586f5d978fd74f95577328fbdbb3ab3010bbb833d3683850123ba83b33a",
+    "config/ai_model_config.json": "785c80cdb2e956f45b0fe6bdc09d8819a472a74fc2419a6907926836fde81c88",
+    "config/ingestion_frame_config_v0.1.json": "f344425f26681dbf8868615845082fea71f96e6906a54238f256af994b14eda2",
+    "schema/spatial_model.schema.json": "298b1371479948f91e4aa94f73ae6ab980e584b13cb3fc67de257339662d24c9",
+    "schema/ai_assessment.schema.json": "bf2bb655c8df7571ea14a8b96c2c8894135eafd30bf48d30396078ee9f892d7f",
+    "schema/frame_diagnosis.schema.json": "551be56694711bd36a5cafa35c38695735c267bdbc4185ca2d29f66a8c7c3947",
+    "prompts/spatial_verifier_v0.1.txt": "6a6231b5fde68c82890e160d339a708235b33f73844f7ca3dfa4b58a9705859d",
+    "prompts/loss_proposal_v0.1.txt": "ce00bb9b5d40df39a03d827b7993308399d1402b956f241200630be170fb2440",
+    "prompts/frame_diagnosis_v0.1.txt": "2ac2e5193958d6625dfe707e8857ff07674c34e4fccd7b02204fe5b99820dbcc"
+  },
+  "codeModules": {
+    "pipeline/contracts/normalized_capture.py": "dceaceefff186f70a5da0183ca9716a50f318d0b1ea3f6689a2120f757015003",
+    "pipeline/contracts/validate.py": "005691460bb65abf859d888a1a7db4f7122b045b046628a9666402b9d96defcd",
+    "pipeline/contracts/validate_model.py": "98c2ee0283370765754b72071c598360ad523fe8b08c8029613b14612d32d176",
+    "pipeline/contracts/frame_resolution.py": "c6739026bba1e975eb26ec020e17b44822eb1331705a60fe10389d3448e4f958",
+    "pipeline/contracts/ingestion_outcome.py": "904487a861c4f6778c1e9088f65f70dea5f97f58bab9f3ad0f7a962adcab514d",
+    "pipeline/connectors/arkitscenes.py": "95f81cf2391460411e4571b20c153fa50ea75cdc3d6ef9f8e3d231a2130cc690",
+    "pipeline/connectors/stray_scanner.py": "346e081aa1373a7878a379f44ef3b13af6da30d161ae826ea64334ea09399111",
+    "pipeline/connectors/unity_obj.py": "8085a94f7d2ccaa05ee6e99e6a0691672fdfae13cb4efa47c3def048da858e3e",
+    "pipeline/geometry/frame.py": "637d35af98533c85e9db7625d0355f2db3cfd315c88dfad578504b618cac6f4f",
+    "pipeline/geometry/points.py": "ea8e496ce70777f03c687117eac24c00e0f4454a169f1c74cbc023c21bc7715a",
+    "pipeline/geometry/planes.py": "0e93b2b595d213e4ce196601c6c6a4bffd85ec0d6fffcf5004c3966aa78a1a23",
+    "pipeline/geometry/envelope.py": "3d5d7f5b7cac5a3d521aad91ab49b00698b9495db9a4cdb7c404ebdd518389e4",
+    "pipeline/geometry/openings.py": "16a7541a665d28e281325b1732a768fdeba7cdad65c3622d4cff9ce820448a57",
+    "pipeline/geometry/model.py": "7d9a8654c7adfde707ad8cdf9012745a073ddd643d0fc446b61ac22987e82389",
+    "pipeline/geometry/confidence.py": "445d70694e0dfa6150dadf3927fbd6747370bc368dca7616b11620b6c2b23ff4",
+    "pipeline/rendering/floorplan.py": "0000d7f9216cc0f354b8165eb8f300c660d8cdefeedd355825b9a9bbd5cb8c8a",
+    "pipeline/rendering/model_3d.py": "1d509b7e3788f061877331d0a7f7a69e92dda4bf60b9dc61f0ebee615a26c926",
+    "pipeline/benchmark/ground_truth.py": "aba1e1ce50283af0986ef3d6fc32d429d09c83e3a4a32a795e3e861153458ffa",
+    "pipeline/benchmark/compare.py": "62b514788790fef223b163855aa05442faba46dcd3ea627684c25e5d6975e6ff",
+    "pipeline/benchmark/reference.py": "4c7f5a1135f150b5f833a5cba32203492090a6cdbb9e5a277eb5966342c2ea89",
+    "pipeline/evidence/select.py": "4dca99d0da2427d3b5cb14ed42450a2c0e3c0f9b271956a3988e3d6f7f42037c",
+    "pipeline/ai/verifier.py": "75829651d5ce284ad2b7d6fbc4487ee8385109ff14e3cd5f4da3e96d160dc519",
+    "pipeline/ai/frame_diagnosis.py": "d5a2114a12be3be57dbfb7c37bdf855c80e581fa251b8cf581f1bf4c790a21e5",
+    "pipeline/loss_preview/preview.py": "30ad9bcec201f8eb591daf38d94e10eb3845b4f18195d6ac206195a6ba43cbc3"
+  },
+  "contractVersions": {
+    "normalizedCapture": "normalized_capture/0.2",
+    "spatialModelSchema": "0.1",
+    "aiAssessmentSchema": "0.1",
+    "geometryConfig": "geometry_config_v0.1",
+    "confidenceRules": "confidence_rules_v0.1",
+    "referenceExtraction": "reference_extraction_v0.1",
+    "aiModelConfig": "ai_model_config_v0.1",
+    "spatialVerifierPrompt": "spatial_verifier_v0.1",
+    "lossProposalPrompt": "loss_proposal_v0.1"
+  },
+  "fixtures": [
+    {
+      "sceneId": "47333462",
+      "role": "PRIMARY_TUNING",
+      "visitId": "467138",
+      "tuningPermission": "This is the only scene on which the single predetermined geometry sweep permitted by the plan may be run."
+    },
+    {
+      "sceneId": "41418135",
+      "role": "SECONDARY_VALIDATION",
+      "visitId": "416418",
+      "tuningPermission": "NO_TUNING. This scene is run once with the frozen configuration produced on PRIMARY_TUNING. It must never influence a parameter value."
+    }
+  ],
+  "notProvenByThisFreeze": [
+    "Stray Scanner export compatibility.",
+    "Measurement accuracy against independent tape references.",
+    "Generalization to arbitrary homes.",
+    "Calibrated confidence.",
+    "Track B damage intelligence or Track C scope generation.",
+    "Held-out performance."
+  ],
+  "frozenAt": "2026-08-23T07:00:12+00:00",
+  "note": "The configuration was already frozen; this run re-verified the checks and re-recorded hashes without restamping the freeze time."
+}

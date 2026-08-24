@@ -1,0 +1,112 @@
+{
+  "modelId": "model-278317ef-dfb7-5537-b814-a1d098bcce9b",
+  "scanId": "8653a2142b",
+  "classification": "final_private_capture",
+  "units": "meters",
+  "upAxis": "y",
+  "floorOffsetApplied_m": 0.0,
+  "note": "Every OBJ group name is a surface ID from spatial_model.json. Materials encode observation state.",
+  "surfaces": {
+    "wall-001": {
+      "objGroup": "wall-001",
+      "type": "wall",
+      "observationState": "inferred",
+      "material": "inferred",
+      "confidenceLabel": "unresolved",
+      "dimensions": {
+        "width_m": 1.305357,
+        "height_m": 2.671629
+      }
+    },
+    "wall-002": {
+      "objGroup": "wall-002",
+      "type": "wall",
+      "observationState": "inferred",
+      "material": "inferred",
+      "confidenceLabel": "unresolved",
+      "dimensions": {
+        "width_m": 3.948581,
+        "height_m": 2.671629
+      }
+    },
+    "wall-003": {
+      "objGroup": "wall-003",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "high",
+      "dimensions": {
+        "width_m": 4.229427,
+        "height_m": 2.671629
+      }
+    },
+    "wall-004": {
+      "objGroup": "wall-004",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "high",
+      "dimensions": {
+        "width_m": 0.146791,
+        "height_m": 2.671629
+      }
+    },
+    "wall-005": {
+      "objGroup": "wall-005",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "high",
+      "dimensions": {
+        "width_m": 3.878295,
+        "height_m": 2.671629
+      }
+    },
+    "wall-006": {
+      "objGroup": "wall-006",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "medium",
+      "dimensions": {
+        "width_m": 1.092597,
+        "height_m": 2.671629
+      }
+    },
+    "wall-007": {
+      "objGroup": "wall-007",
+      "type": "wall",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "high",
+      "dimensions": {
+        "width_m": 3.655874,
+        "height_m": 2.671629
+      }
+    },
+    "floor-001": {
+      "objGroup": "floor-001",
+      "type": "floor",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "medium",
+      "dimensions": {
+        "width_m": 5.90773,
+        "height_m": 4.192505
+      }
+    },
+    "ceiling-001": {
+      "objGroup": "ceiling-001",
+      "type": "ceiling",
+      "observationState": "directly_observed",
+      "material": "observed",
+      "confidenceLabel": "high",
+      "dimensions": {
+        "width_m": 5.90773,
+        "height_m": 4.192505
+      }
+    }
+  },
+  "vertexCount": 42,
+  "surfaceCount": 9
+}

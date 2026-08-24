@@ -1,0 +1,160 @@
+[
+  {
+    "scene": "47333462",
+    "frames": {
+      "depth": 3610,
+      "rgb": 3611,
+      "confidence": 3610,
+      "intrinsics": 3611,
+      "poses": 596
+    },
+    "duration_s": 60.13,
+    "depth_range_m": [
+      0.4,
+      8.34
+    ],
+    "intrinsics": {
+      "width": 256,
+      "height": 192,
+      "fx_mean": 212.755,
+      "fy_mean": 212.755,
+      "cx_mean": 126.688,
+      "cy_mean": 92.85,
+      "focal_relative_spread": 0.00352
+    },
+    "pose_match_rate": 0.9906,
+    "camera_centre_extent_m": [
+      3.69,
+      1.35,
+      1.09
+    ],
+    "camera_path_length_m": 18.28,
+    "results": [
+      {
+        "check": "core modalities present",
+        "status": "PASS",
+        "detail": "depth=3610 rgb=3611 confidence=3610 intrinsics=3611 trajectory=True"
+      },
+      {
+        "check": "depth decodes as uint16 at one resolution",
+        "status": "PASS",
+        "detail": "dtypes=['uint16'] shapes=[(192, 256)]"
+      },
+      {
+        "check": "depth is metrically plausible for an indoor room",
+        "status": "PASS",
+        "detail": "observed valid range 0.40-8.34 m over 25 sampled frames"
+      },
+      {
+        "check": "confidence uses documented ARKit levels",
+        "status": "PASS",
+        "detail": "observed levels [0, 1, 2]"
+      },
+      {
+        "check": "RGB decodes at one resolution",
+        "status": "PASS",
+        "detail": "shapes=[(192, 256, 3)]"
+      },
+      {
+        "check": "intrinsics are one stable camera model inside the image",
+        "status": "PASS",
+        "detail": "size=256x192 fx=212.755 fy=212.755 cx=126.688 cy=92.850 focal_spread=0.35% (limit 2%)"
+      },
+      {
+        "check": "trajectory is monotonic in time",
+        "status": "PASS",
+        "detail": "596 poses over 59.5 s at ~10.0 Hz"
+      },
+      {
+        "check": "depth frames have nearby poses",
+        "status": "PASS",
+        "detail": "99.1% of 3610 depth frames within 50 ms of a pose (max gap 600 ms)"
+      },
+      {
+        "check": "camera moved enough to give parallax",
+        "status": "PASS",
+        "detail": "camera-to-world path length 18.28 m (min 3.0), camera centre extent [3.69, 1.35, 1.09] m"
+      }
+    ],
+    "ok": true
+  },
+  {
+    "scene": "41418135",
+    "frames": {
+      "depth": 3214,
+      "rgb": 3215,
+      "confidence": 3214,
+      "intrinsics": 3215,
+      "poses": 527
+    },
+    "duration_s": 53.53,
+    "depth_range_m": [
+      0.4,
+      7.23
+    ],
+    "intrinsics": {
+      "width": 256,
+      "height": 192,
+      "fx_mean": 212.536,
+      "fy_mean": 212.536,
+      "cx_mean": 126.327,
+      "cy_mean": 96.303,
+      "focal_relative_spread": 0.00422
+    },
+    "pose_match_rate": 0.9832,
+    "camera_centre_extent_m": [
+      2.05,
+      2.26,
+      0.35
+    ],
+    "camera_path_length_m": 14.77,
+    "results": [
+      {
+        "check": "core modalities present",
+        "status": "PASS",
+        "detail": "depth=3214 rgb=3215 confidence=3214 intrinsics=3215 trajectory=True"
+      },
+      {
+        "check": "depth decodes as uint16 at one resolution",
+        "status": "PASS",
+        "detail": "dtypes=['uint16'] shapes=[(192, 256)]"
+      },
+      {
+        "check": "depth is metrically plausible for an indoor room",
+        "status": "PASS",
+        "detail": "observed valid range 0.40-7.23 m over 25 sampled frames"
+      },
+      {
+        "check": "confidence uses documented ARKit levels",
+        "status": "PASS",
+        "detail": "observed levels [0, 1, 2]"
+      },
+      {
+        "check": "RGB decodes at one resolution",
+        "status": "PASS",
+        "detail": "shapes=[(192, 256, 3)]"
+      },
+      {
+        "check": "intrinsics are one stable camera model inside the image",
+        "status": "PASS",
+        "detail": "size=256x192 fx=212.536 fy=212.536 cx=126.327 cy=96.303 focal_spread=0.42% (limit 2%)"
+      },
+      {
+        "check": "trajectory is monotonic in time",
+        "status": "PASS",
+        "detail": "527 poses over 52.6 s at ~10.0 Hz"
+      },
+      {
+        "check": "depth frames have nearby poses",
+        "status": "PASS",
+        "detail": "98.3% of 3214 depth frames within 50 ms of a pose (max gap 916 ms)"
+      },
+      {
+        "check": "camera moved enough to give parallax",
+        "status": "PASS",
+        "detail": "camera-to-world path length 14.77 m (min 3.0), camera centre extent [2.05, 2.26, 0.35] m"
+      }
+    ],
+    "ok": true
+  }
+]

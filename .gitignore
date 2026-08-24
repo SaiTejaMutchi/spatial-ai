@@ -1,0 +1,67 @@
+# Operating-system and editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Internal documentation — never publish
+docs/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.mobileprovision
+
+# Python / Node generated state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+
+# Spatial POC generated/private data
+outputs/*
+!outputs/README.md
+samples/private/
+samples/iphone-actual/
+samples/**/raw/
+samples/**/laser_scanner_point_clouds/
+*.scanbundle
+*.ply
+*.db
+*.db-wal
+*.db-shm
+!samples/public_results.db
+
+# Local agent scratch
+.claude/
+
+# Local Unity / MR workspaces — not the Spatial AI POC surface
+Unity_Meshing/
+MR_01/
+
+# Fixture identity and validation records stay tracked
+!samples/arkitscenes/fixture_spec.json
+!samples/arkitscenes/fixture_manifest.json
+!samples/arkitscenes/fixture_validation.json
+!samples/arkitscenes/laser_scanner_point_clouds_mapping.csv
+
+# Unity generated state and builds (source Assets/Packages/ProjectSettings remain eligible)
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Pp]rofiler[Cc]aptures/
+**/.utmp/
+*.csproj
+*.sln
+*.user
+
+# Local archives and scratch exports
+tmp/
+*.zip

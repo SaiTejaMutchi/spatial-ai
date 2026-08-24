@@ -1,0 +1,94 @@
+{
+  "configId": "ingestion_frame_v0.1",
+  "schemaVersion": "0.1",
+  "calibrated": false,
+  "frozen": false,
+  "tuningPolicy": "These parameters gate which vertical axis an ingested capture is normalized onto. They are physical plausibility bounds taken from building convention and sensor range, not values fitted to any capture. None may be tuned on a benchmark fixture, and none participates in any measured quantity: the frame decision selects an orientation, and every dimension is still produced by frozen geometry afterwards.",
+  "notes": [
+    "This configuration belongs to the ingestion layer and is deliberately separate from geometry_config_v0.1.json, which is frozen. Changing a bound here can change which capture is accepted; it cannot change what a accepted capture measures.",
+    "A candidate axis is verified against observed structure rather than trusted. Verification answers one question only: is this orientation physically coherent as a room.",
+    "Gravity is not inferred from camera attitude. Doing so assumes a fixed relationship between the image axes and the device's physical orientation, which does not hold across interface orientations and is the defect this layer exists to catch. Orientation evidence comes from observed structure and from the shape of the camera trajectory, both of which are independent of that convention."
+  ],
+  "parameters": {
+    "verification_frame_count": {
+      "value": 64,
+      "units": "frames",
+      "rationale": "Coverage adequacy, not a decision threshold. A sweep over one ARKitScenes and one Stray capture showed the storey-height estimate settling to within about 5 mm of the frozen pipeline's own result from roughly 32 frames upward, and becoming unreliable below that as the ceiling goes under-sampled in a larger room. 64 sits inside the settled region for both and still costs a fraction of a reconstruction. Frames are picked at evenly spaced positions rather than by a fixed stride, which can resonate with a periodic sweep and miss a whole surface.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "verification_depth_min_m": {
+      "value": 0.3,
+      "units": "m",
+      "rationale": "Excludes near-field returns from the operator's own body, which are not room structure. Matches the same physical argument used downstream, but is applied here only to decide orientation.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "verification_depth_max_m": {
+      "value": 5.0,
+      "units": "m",
+      "rationale": "The published effective range of the iPhone/iPad LiDAR sensor. Beyond it, returns are too sparse and noisy to support a floor or ceiling band.",
+      "sourceCategory": "published_reference",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "height_bin_m": {
+      "value": 0.05,
+      "units": "m",
+      "rationale": "Histogram bin for the vertical axis. Coarser than typical floor flatness and far finer than a storey, so a floor and a ceiling fall in distinct bins under any correct orientation.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_horizontal_support_fraction": {
+      "value": 0.02,
+      "units": "fraction",
+      "rationale": "A band must hold at least this share of observed points to count as a floor or ceiling. A wrong orientation smears points across the axis and produces no band this dense; a correct one concentrates them.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "plane_slab_m": {
+      "value": 0.06,
+      "units": "m",
+      "rationale": "Half-thickness of the slab used to score a candidate floor or ceiling band. Wide enough to absorb sensor noise and floor covering, narrow enough that a wall cannot masquerade as a horizontal plane.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_room_height_m": {
+      "value": 2.0,
+      "units": "m",
+      "rationale": "Below the minimum habitable ceiling height in common residential building codes. A candidate axis producing a shorter room is not describing a room.",
+      "sourceCategory": "published_reference",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "max_room_height_m": {
+      "value": 4.5,
+      "units": "m",
+      "rationale": "Generous upper bound covering vaulted and double-height residential spaces. A candidate exceeding it is describing something other than one storey.",
+      "sourceCategory": "published_reference",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "max_trajectory_vertical_ratio": {
+      "value": 0.8,
+      "units": "ratio",
+      "rationale": "Handheld room scans change camera height much less than they travel horizontally. A candidate vertical axis whose camera-path extent exceeds 80% of the larger horizontal camera-path extent is describing a walk, not gravity. The ratio is scale-free, so a one-metre closet with typical bob still passes. Sign is not taken from this check.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_support_margin": {
+      "value": 1.5,
+      "units": "ratio",
+      "rationale": "The winning candidate's horizontal support must exceed the next candidate's by this factor for the decision to be unambiguous. Below it the capture is reported as ambiguous and routed to review rather than resolved silently.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    }
+  }
+}

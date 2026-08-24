@@ -1,0 +1,21 @@
+{
+  "candidateId": "candidate-003",
+  "surfaceId": "wall-003",
+  "geometry": {
+    "width_m": 1.1,
+    "height_m": 1.2,
+    "sillHeight_m": 0.4,
+    "producer": "geometry_pipeline"
+  },
+  "imageRegion": {
+    "x0": 0.3125,
+    "y0": 0.3646,
+    "x1": 0.7031,
+    "y1": 0.8854
+  },
+  "images": {
+    "context": "context.png",
+    "crop": "crop.png",
+    "confirm": "confirm.png"
+  }
+}

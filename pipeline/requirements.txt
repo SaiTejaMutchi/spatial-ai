@@ -1,0 +1,24 @@
+# Source-neutral pipeline dependencies.
+# Pinned loosely: targets reproducibility of results, not of wheels.
+
+numpy>=1.26,<2.5
+pillow>=10.0
+scipy>=1.10.0
+
+# Colour decoding for Stray Scanner's rgb.mp4. Optional: without it the
+# connector records RGB as unavailable rather than failing the capture.
+opencv-python>=4.8
+
+# Schema validation for the Spatial AI Verifier and canonical model.
+jsonschema>=4.0
+
+# Local service and API
+fastapi>=0.100.0
+uvicorn>=0.20.0
+pydantic>=2.0.0
+starlette>=0.27.0
+python-multipart>=0.0.9
+httpx>=0.24.0
+
+# Test-only
+pytest>=7.4

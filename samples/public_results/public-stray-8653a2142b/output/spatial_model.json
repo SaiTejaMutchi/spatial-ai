@@ -1,0 +1,1379 @@
+{
+  "schemaVersion": "0.1",
+  "modelId": "model-278317ef-dfb7-5537-b814-a1d098bcce9b",
+  "scan": {
+    "id": "public-stray-8653a2142b",
+    "capturedAt": null,
+    "device": "iOS",
+    "units": "meters",
+    "classification": "public_sample",
+    "sourceType": "stray_scanner",
+    "connector": "StrayScannerConnector"
+  },
+  "coordinateSystem": {
+    "source": "canonical",
+    "upAxis": "y",
+    "planAxes": [
+      "x",
+      "z"
+    ],
+    "handedness": "right",
+    "frame": {
+      "sourceWorldFrame": "arkit_session",
+      "canonicalFrame": {
+        "units": "meters",
+        "handedness": "right",
+        "upAxis": "y",
+        "planAxes": [
+          "x",
+          "z"
+        ]
+      },
+      "sourceUpAxis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "upAxisDeterminedBy": "declared",
+      "sourceToCanonical": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "floorOriginApplied": false,
+      "roomAxisAlignmentApplied": false,
+      "diagnostics": {
+        "declaredUpAxis": "+y",
+        "poseEstimate": {
+          "method": "min_scatter_of_camera_right_axes",
+          "poseCount": 69,
+          "eigenvalueRatio": 0.004966188058146258,
+          "agreementWithMeanCameraDownDeg": 43.179
+        },
+        "poseEstimatedUpAxis": [
+          -0.678588,
+          -0.013178,
+          -0.7344
+        ],
+        "declaredVsEstimatedDeg": 90.755,
+        "toleranceDeg": 10.0,
+        "declarationVerified": true,
+        "note": "declared axis '+y' was kept because ingestion structure verification already accepted it. The pose-derived estimate differs by 90.76 deg and is diagnostic only.",
+        "rotationDeterminant": 1.0,
+        "residualUpErrorDeg": 0.0,
+        "ingestionFrameResolution": {
+          "outcome": "verified",
+          "axis": "+y",
+          "basis": "declared_verified",
+          "declaredAxis": "+y",
+          "declaredVerified": true,
+          "candidates": [
+            {
+              "axis": "+y",
+              "floorDetected": true,
+              "ceilingDetected": true,
+              "floorHeightM": -1.03,
+              "ceilingHeightM": 1.6632,
+              "roomHeightM": 2.6932,
+              "floorRmsMm": 27.53,
+              "ceilingRmsMm": 25.47,
+              "horizontalSupportFraction": 0.16744,
+              "verticalStructureFraction": 0.82713,
+              "gravityDisagreementDeg": null,
+              "trajectoryVerticalRatio": 0.1308,
+              "plausible": true,
+              "rejections": []
+            },
+            {
+              "axis": "-y",
+              "floorDetected": true,
+              "ceilingDetected": true,
+              "floorHeightM": -1.6632,
+              "ceilingHeightM": 1.03,
+              "roomHeightM": 2.6932,
+              "floorRmsMm": 25.47,
+              "ceilingRmsMm": 27.53,
+              "horizontalSupportFraction": 0.16744,
+              "verticalStructureFraction": 0.82713,
+              "gravityDisagreementDeg": null,
+              "trajectoryVerticalRatio": 0.1308,
+              "plausible": true,
+              "rejections": []
+            },
+            {
+              "axis": "+z",
+              "floorDetected": false,
+              "ceilingDetected": false,
+              "floorHeightM": null,
+              "ceilingHeightM": null,
+              "roomHeightM": null,
+              "floorRmsMm": null,
+              "ceilingRmsMm": null,
+              "horizontalSupportFraction": 0.0,
+              "verticalStructureFraction": 0.0,
+              "gravityDisagreementDeg": null,
+              "trajectoryVerticalRatio": 1.8896,
+              "plausible": false,
+              "rejections": [
+                "camera-path extent along this axis is 1.89x the larger horizontal camera-path extent, above the 0.80 handheld bound; this axis is describing the walk, not gravity",
+                "no height band holds 2% of the points; this axis does not concentrate the observation into horizontal structure"
+              ]
+            },
+            {
+              "axis": "-z",
+              "floorDetected": false,
+              "ceilingDetected": false,
+              "floorHeightM": null,
+              "ceilingHeightM": null,
+              "roomHeightM": null,
+              "floorRmsMm": null,
+              "ceilingRmsMm": null,
+              "horizontalSupportFraction": 0.0,
+              "verticalStructureFraction": 0.0,
+              "gravityDisagreementDeg": null,
+              "trajectoryVerticalRatio": 1.8896,
+              "plausible": false,
+              "rejections": [
+                "camera-path extent along this axis is 1.89x the larger horizontal camera-path extent, above the 0.80 handheld bound; this axis is describing the walk, not gravity",
+                "no height band holds 2% of the points; this axis does not concentrate the observation into horizontal structure"
+              ]
+            },
+            {
+              "axis": "+x",
+              "floorDetected": false,
+              "ceilingDetected": false,
+              "floorHeightM": null,
+              "ceilingHeightM": null,
+              "roomHeightM": null,
+              "floorRmsMm": null,
+              "ceilingRmsMm": null,
+              "horizontalSupportFraction": 0.0,
+              "verticalStructureFraction": 0.0,
+              "gravityDisagreementDeg": null,
+              "trajectoryVerticalRatio": 0.5292,
+              "plausible": false,
+              "rejections": [
+                "no height band holds 2% of the points; this axis does not concentrate the observation into horizontal structure"
+              ]
+            },
+            {
+              "axis": "-x",
+              "floorDetected": false,
+              "ceilingDetected": false,
+              "floorHeightM": null,
+              "ceilingHeightM": null,
+              "roomHeightM": null,
+              "floorRmsMm": null,
+              "ceilingRmsMm": null,
+              "horizontalSupportFraction": 0.0,
+              "verticalStructureFraction": 0.0,
+              "gravityDisagreementDeg": null,
+              "trajectoryVerticalRatio": 0.5292,
+              "plausible": false,
+              "rejections": [
+                "no height band holds 2% of the points; this axis does not concentrate the observation into horizontal structure"
+              ]
+            }
+          ],
+          "notes": [
+            "the source declared '+y' and the observed structure supports it: floor and ceiling 2.6932 m apart"
+          ]
+        }
+      }
+    }
+  },
+  "rooms": [
+    {
+      "id": "room-001",
+      "footprint": [
+        [
+          2.219972,
+          -0.791559
+        ],
+        [
+          2.167587,
+          0.512746
+        ],
+        [
+          -1.780994,
+          0.512746
+        ],
+        [
+          -3.424131,
+          -3.384453
+        ],
+        [
+          -3.424131,
+          -3.531244
+        ],
+        [
+          0.145706,
+          -5.046974
+        ],
+        [
+          0.759347,
+          -4.142975
+        ]
+      ],
+      "footprintEdgeStates": [
+        "inferred",
+        "inferred",
+        "directly_observed",
+        "directly_observed",
+        "directly_observed",
+        "directly_observed",
+        "directly_observed"
+      ],
+      "observationState": "partially_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "partially_observed",
+          "rmsResidual_m": 0.010735314516890904,
+          "coverageFraction": 0.7122,
+          "contributingFrames": 39,
+          "observedPerimeterFraction": 0.7122,
+          "inferredEdgeCount": 2,
+          "wallsSelected": 6
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      },
+      "orientationRad": -0.401526
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "wall-001",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 1.305357,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "offset_m": 0.0
+      },
+      "observationState": "inferred",
+      "confidence": {
+        "label": "unresolved",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "inferred",
+          "rmsResidual_m": null,
+          "coverageFraction": null,
+          "contributingFrames": null
+        },
+        "ruleTriggered": "unresolved-inferred-geometry"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "floor_extent_closure_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": null,
+        "note": "No wall plane bounds the room on this side. The edge follows the observed floor extent and is reported as inferred closure, not as an observed wall.",
+        "footprintEdge": {
+          "start": [
+            2.219972,
+            -0.791559
+          ],
+          "end": [
+            2.167587,
+            0.512746
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "wall-002",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 3.948581,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "offset_m": 0.0
+      },
+      "observationState": "inferred",
+      "confidence": {
+        "label": "unresolved",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "inferred",
+          "rmsResidual_m": null,
+          "coverageFraction": null,
+          "contributingFrames": null
+        },
+        "ruleTriggered": "unresolved-inferred-geometry"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "floor_extent_closure_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": null,
+        "note": "No wall plane bounds the room on this side. The edge follows the observed floor extent and is reported as inferred closure, not as an observed wall.",
+        "footprintEdge": {
+          "start": [
+            2.167587,
+            0.512746
+          ],
+          "end": [
+            -1.780994,
+            0.512746
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "wall-003",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 4.229427,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          0.921448344,
+          0.0,
+          -0.388500899
+        ],
+        "offset_m": -1.840297
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.01283297372984945,
+          "coverageFraction": 0.9899425287356322,
+          "contributingFrames": 40,
+          "inlierCount": 341533,
+          "maxResidual_m": 0.029999
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "plan_hough_vote_then_levelled_total_least_squares_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "wall-001",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 341533,
+          "contributingFrames": 40,
+          "rmsResidual_m": 0.012833,
+          "maxResidual_m": 0.029999,
+          "coverageFraction": 0.989943
+        },
+        "planeDiagnostics": {
+          "votePeakCount": 4211,
+          "voteOrientationDeg": 157.0,
+          "voteOffset_m": 1.8338,
+          "fitTiltFromVerticalDeg": 0.2338,
+          "coarseSupportCount": 9788,
+          "horizontalSpan_m": 5.7454
+        },
+        "footprintEdge": {
+          "start": [
+            -1.780994,
+            0.512746
+          ],
+          "end": [
+            -3.424131,
+            -3.384453
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "wall-004",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 0.146791,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          0.921448344,
+          0.0,
+          -0.388500899
+        ],
+        "offset_m": -1.840297
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.01283297372984945,
+          "coverageFraction": 0.9899425287356322,
+          "contributingFrames": 40,
+          "inlierCount": 341533,
+          "maxResidual_m": 0.029999
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "plan_hough_vote_then_levelled_total_least_squares_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "wall-001",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 341533,
+          "contributingFrames": 40,
+          "rmsResidual_m": 0.012833,
+          "maxResidual_m": 0.029999,
+          "coverageFraction": 0.989943
+        },
+        "planeDiagnostics": {
+          "votePeakCount": 4211,
+          "voteOrientationDeg": 157.0,
+          "voteOffset_m": 1.8338,
+          "fitTiltFromVerticalDeg": 0.2338,
+          "coarseSupportCount": 9788,
+          "horizontalSpan_m": 5.7454
+        },
+        "footprintEdge": {
+          "start": [
+            -3.424131,
+            -3.384453
+          ],
+          "end": [
+            -3.424131,
+            -3.531244
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "wall-005",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 3.878295,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          0.390823853,
+          -0.0,
+          0.920465489
+        ],
+        "offset_m": -4.58862
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.013302531850829568,
+          "coverageFraction": 0.8420542635658915,
+          "contributingFrames": 31,
+          "inlierCount": 184424,
+          "maxResidual_m": 0.029998
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "plan_hough_vote_then_levelled_total_least_squares_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "wall-002",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 184424,
+          "contributingFrames": 31,
+          "rmsResidual_m": 0.013303,
+          "maxResidual_m": 0.029998,
+          "coverageFraction": 0.842054
+        },
+        "planeDiagnostics": {
+          "votePeakCount": 2675,
+          "voteOrientationDeg": 67.0,
+          "voteOffset_m": -4.5823,
+          "fitTiltFromVerticalDeg": 0.0588,
+          "coarseSupportCount": 5914,
+          "horizontalSpan_m": 4.2767
+        },
+        "footprintEdge": {
+          "start": [
+            -3.424131,
+            -3.531244
+          ],
+          "end": [
+            0.145706,
+            -5.046974
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "wall-006",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 1.092597,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          -0.827385123,
+          0.0,
+          0.561634987
+        ],
+        "offset_m": -2.955112
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.017427141476356416,
+          "coverageFraction": 0.38425925925925924,
+          "contributingFrames": 10,
+          "inlierCount": 4929,
+          "maxResidual_m": 0.029998
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "plan_hough_vote_then_levelled_total_least_squares_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "wall-008",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 4929,
+          "contributingFrames": 10,
+          "rmsResidual_m": 0.017427,
+          "maxResidual_m": 0.029998,
+          "coverageFraction": 0.384259
+        },
+        "planeDiagnostics": {
+          "votePeakCount": 360,
+          "voteOrientationDeg": 146.0,
+          "voteOffset_m": -2.9479,
+          "fitTiltFromVerticalDeg": 0.1197,
+          "coarseSupportCount": 423,
+          "horizontalSpan_m": 1.7328
+        },
+        "footprintEdge": {
+          "start": [
+            0.145706,
+            -5.046974
+          ],
+          "end": [
+            0.759347,
+            -4.142975
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "wall-007",
+      "roomId": "room-001",
+      "type": "wall",
+      "dimensions": {
+        "width_m": 3.655874,
+        "height_m": 2.671629
+      },
+      "plane": {
+        "normal": [
+          -0.916720916,
+          0.0,
+          0.399528174
+        ],
+        "offset_m": -2.351345
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.01314474027966244,
+          "coverageFraction": 0.6012820512820513,
+          "contributingFrames": 25,
+          "inlierCount": 160855,
+          "maxResidual_m": 0.03
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "plan_hough_vote_then_levelled_total_least_squares_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "wall-003",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 160855,
+          "contributingFrames": 25,
+          "rmsResidual_m": 0.013145,
+          "maxResidual_m": 0.03,
+          "coverageFraction": 0.601282
+        },
+        "planeDiagnostics": {
+          "votePeakCount": 2441,
+          "voteOrientationDeg": 156.0,
+          "voteOffset_m": -2.3742,
+          "fitTiltFromVerticalDeg": 0.4326,
+          "coarseSupportCount": 5928,
+          "horizontalSpan_m": 6.4568
+        },
+        "footprintEdge": {
+          "start": [
+            0.759347,
+            -4.142975
+          ],
+          "end": [
+            2.219972,
+            -0.791559
+          ]
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "floor-001",
+      "roomId": "room-001",
+      "type": "floor",
+      "dimensions": {
+        "width_m": 5.90773,
+        "height_m": 4.192505
+      },
+      "plane": {
+        "normal": [
+          -0.005699831,
+          0.999981391,
+          0.002174809
+        ],
+        "offset_m": -1.029335
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.010735314516890904,
+          "coverageFraction": 0.31394009216589863,
+          "contributingFrames": 39,
+          "inlierCount": 94117,
+          "maxResidual_m": 0.029998
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "gravity_aligned_height_histogram_structural_selection_trimmed_tls_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "floor-001",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 94117,
+          "contributingFrames": 39,
+          "rmsResidual_m": 0.010735,
+          "maxResidual_m": 0.029998,
+          "coverageFraction": 0.31394
+        },
+        "planeDiagnostics": {
+          "histogramPeakHeight_m": -1.0276,
+          "tiltFromUpDeg": 0.2295,
+          "planCoverage": 0.4,
+          "pointsBeforeTrim": 96868,
+          "pointsAfterTrim": 70616
+        }
+      },
+      "damage": []
+    },
+    {
+      "id": "ceiling-001",
+      "roomId": "room-001",
+      "type": "ceiling",
+      "dimensions": {
+        "width_m": 5.90773,
+        "height_m": 4.192505
+      },
+      "plane": {
+        "normal": [
+          0.003767938,
+          0.999977959,
+          -0.005466613
+        ],
+        "offset_m": 1.642239
+      },
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.013205418370928382,
+          "coverageFraction": 0.5513824884792626,
+          "contributingFrames": 63,
+          "inlierCount": 193684,
+          "maxResidual_m": 0.029999
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "gravity_aligned_height_histogram_structural_selection_trimmed_tls_v0.1",
+        "geometryConfigId": "geometry_config_v0.1",
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "sourcePlaneId": "ceiling-001",
+        "semanticHypothesisSource": null,
+        "fitDiagnostics": {
+          "inlierCount": 193684,
+          "contributingFrames": 63,
+          "rmsResidual_m": 0.013205,
+          "maxResidual_m": 0.029999,
+          "coverageFraction": 0.551382
+        },
+        "planeDiagnostics": {
+          "histogramPeakHeight_m": 1.6324,
+          "tiltFromUpDeg": 0.1517,
+          "planCoverage": 0.8969,
+          "pointsBeforeTrim": 204718,
+          "pointsAfterTrim": 149239
+        }
+      },
+      "damage": []
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening-unresolved-001",
+      "surfaceId": null,
+      "type": "unresolved",
+      "dimensions": null,
+      "observationState": "unresolved",
+      "confidence": {
+        "label": "unresolved",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "unresolved",
+          "rmsResidual_m": null,
+          "coverageFraction": null,
+          "contributingFrames": null
+        },
+        "ruleTriggered": "unresolved-no-evidence"
+      },
+      "provenance": {
+        "geometrySource": "geometry_pipeline",
+        "algorithm": "wall_occupancy_gap_search_v0.1",
+        "reason": "No opening was resolved. 5 directly observed wall surfaces were searched for gaps that are wide and tall enough to be architecture, nearly empty of wall returns, and surrounded by supported wall. Openings are recorded as unresolved rather than estimated.",
+        "wallsExamined": 5,
+        "rejectedCandidates": [
+          {
+            "surfaceId": "wall-003",
+            "reason": "no empty region on this wall is at least 0.4 m by 0.4 m, so nothing on it could be an opening"
+          },
+          {
+            "surfaceId": "wall-004",
+            "reason": "no empty region on this wall is at least 0.4 m by 0.4 m, so nothing on it could be an opening"
+          },
+          {
+            "surfaceId": "wall-005",
+            "reason": "only 20% of the wall cells to the left, right and above the gap carry support, below the 50% required; this is the edge of the observed region rather than a hole through the wall",
+            "gapWidth_m": 0.6,
+            "gapHeight_m": 2.1,
+            "borderSupportFraction": 0.1979
+          },
+          {
+            "surfaceId": "wall-006",
+            "reason": "only 29% of the wall cells to the left, right and above the gap carry support, below the 50% required; this is the edge of the observed region rather than a hole through the wall",
+            "gapWidth_m": 0.6,
+            "gapHeight_m": 2.4,
+            "borderSupportFraction": 0.287
+          },
+          {
+            "surfaceId": "wall-007",
+            "reason": "only 6% of the wall cells to the left, right and above the gap carry support, below the 50% required; this is the edge of the observed region rather than a hole through the wall",
+            "gapWidth_m": 2.4,
+            "gapHeight_m": 2.05,
+            "borderSupportFraction": 0.0562
+          }
+        ]
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "measurement-wall-001-length",
+      "type": "wall_length",
+      "entityId": "wall-001",
+      "value_m": 1.305357,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "inferred",
+      "confidence": {
+        "label": "unresolved",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "inferred",
+          "rmsResidual_m": null,
+          "coverageFraction": null,
+          "contributingFrames": null
+        },
+        "ruleTriggered": "unresolved-inferred-geometry"
+      }
+    },
+    {
+      "id": "measurement-wall-002-length",
+      "type": "wall_length",
+      "entityId": "wall-002",
+      "value_m": 3.948581,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "inferred",
+      "confidence": {
+        "label": "unresolved",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "inferred",
+          "rmsResidual_m": null,
+          "coverageFraction": null,
+          "contributingFrames": null
+        },
+        "ruleTriggered": "unresolved-inferred-geometry"
+      }
+    },
+    {
+      "id": "measurement-wall-003-length",
+      "type": "wall_length",
+      "entityId": "wall-003",
+      "value_m": 4.229427,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.01283297372984945,
+          "coverageFraction": 0.9899425287356322,
+          "contributingFrames": 40,
+          "inlierCount": 341533,
+          "maxResidual_m": 0.029999
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      }
+    },
+    {
+      "id": "measurement-wall-004-length",
+      "type": "wall_length",
+      "entityId": "wall-004",
+      "value_m": 0.146791,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.01283297372984945,
+          "coverageFraction": 0.9899425287356322,
+          "contributingFrames": 40,
+          "inlierCount": 341533,
+          "maxResidual_m": 0.029999
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      }
+    },
+    {
+      "id": "measurement-wall-005-length",
+      "type": "wall_length",
+      "entityId": "wall-005",
+      "value_m": 3.878295,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.013302531850829568,
+          "coverageFraction": 0.8420542635658915,
+          "contributingFrames": 31,
+          "inlierCount": 184424,
+          "maxResidual_m": 0.029998
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      }
+    },
+    {
+      "id": "measurement-wall-006-length",
+      "type": "wall_length",
+      "entityId": "wall-006",
+      "value_m": 1.092597,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.017427141476356416,
+          "coverageFraction": 0.38425925925925924,
+          "contributingFrames": 10,
+          "inlierCount": 4929,
+          "maxResidual_m": 0.029998
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      }
+    },
+    {
+      "id": "measurement-wall-007-length",
+      "type": "wall_length",
+      "entityId": "wall-007",
+      "value_m": 3.655874,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "high",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.01314474027966244,
+          "coverageFraction": 0.6012820512820513,
+          "contributingFrames": 25,
+          "inlierCount": 160855,
+          "maxResidual_m": 0.03
+        },
+        "ruleTriggered": "high-direct-strong-support"
+      }
+    },
+    {
+      "id": "measurement-room-length",
+      "type": "room_length",
+      "entityId": "room-001",
+      "value_m": 5.90773,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "partially_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "partially_observed",
+          "rmsResidual_m": 0.010735314516890904,
+          "coverageFraction": 0.7122,
+          "contributingFrames": 39,
+          "observedPerimeterFraction": 0.7122,
+          "inferredEdgeCount": 2,
+          "wallsSelected": 6
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      }
+    },
+    {
+      "id": "measurement-room-width",
+      "type": "room_width",
+      "entityId": "room-001",
+      "value_m": 4.192505,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "partially_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "partially_observed",
+          "rmsResidual_m": 0.010735314516890904,
+          "coverageFraction": 0.7122,
+          "contributingFrames": 39,
+          "observedPerimeterFraction": 0.7122,
+          "inferredEdgeCount": 2,
+          "wallsSelected": 6
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      }
+    },
+    {
+      "id": "measurement-room-height",
+      "type": "room_height",
+      "entityId": "room-001",
+      "value_m": 2.671629,
+      "unit": "m",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "directly_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "directly_observed",
+          "rmsResidual_m": 0.010735314516890904,
+          "coverageFraction": 0.31394009216589863,
+          "contributingFrames": 39,
+          "floorHeight_m": -1.027679,
+          "ceilingHeight_m": 1.636131,
+          "limitingSurface": "floor-001"
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      }
+    },
+    {
+      "id": "measurement-floor-area",
+      "type": "floor_area",
+      "entityId": "room-001",
+      "value_m": 21.392849,
+      "unit": "m2",
+      "producer": "geometry_pipeline",
+      "referenceAvailable": false,
+      "observationState": "partially_observed",
+      "confidence": {
+        "label": "medium",
+        "calibrated": false,
+        "method": "rule_based_heuristic_v0.1",
+        "rulesVersion": "confidence_rules_v0.1",
+        "inputs": {
+          "observationState": "partially_observed",
+          "rmsResidual_m": 0.010735314516890904,
+          "coverageFraction": 0.7122,
+          "contributingFrames": 39,
+          "observedPerimeterFraction": 0.7122,
+          "inferredEdgeCount": 2,
+          "wallsSelected": 6
+        },
+        "ruleTriggered": "medium-direct-partial-support"
+      }
+    }
+  ],
+  "evidence": [],
+  "aiAssessments": [
+    {
+      "schemaVersion": "0.1",
+      "status": "completed",
+      "model": "qwen/qwen3.6-27b",
+      "promptVersion": "spatial_verifier_v0.1",
+      "generatedAt": "2026-08-23T19:30:58+00:00",
+      "roomTypeHypothesis": "office",
+      "findings": [],
+      "usage": {
+        "inputTokens": 3187,
+        "outputTokens": 861
+      },
+      "notRunReason": null,
+      "provider": "groq"
+    }
+  ],
+  "damage": [],
+  "scope": [],
+  "provenance": {
+    "generatedUtc": "2026-08-23T19:30:55+00:00",
+    "capture": {
+      "contractVersion": "normalized_capture/0.2",
+      "sourceType": "stray_scanner",
+      "sourceId": "8653a2142b",
+      "classification": "final_private_capture",
+      "connector": "StrayScannerConnector",
+      "connectorVersion": "0.1",
+      "frameCount": 69,
+      "excludedFrameCount": 0
+    },
+    "captureIntrinsics": {
+      "depth": {
+        "width": 256,
+        "height": 192,
+        "fx": 178.30229333333332,
+        "fy": 178.30229333333332,
+        "cx": 128.53002666666666,
+        "cy": 95.56941333333333,
+        "derivation": "rescaled_from:rgb"
+      },
+      "rgb": {
+        "width": 1920,
+        "height": 1440,
+        "fx": 1337.2672,
+        "fy": 1337.2672,
+        "cx": 963.9752,
+        "cy": 716.7706,
+        "derivation": "source:camera_matrix.csv"
+      }
+    },
+    "geometryConfigId": "geometry_config_v0.1",
+    "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+    "confidenceRulesId": "confidence_rules_v0.1",
+    "confidenceRulesHash": "22e50f2f3ab17b4a6d21aac8328f940871c1a5021b80b0ed8acf399e058cdea7",
+    "pointCloud": {
+      "framesUsed": 69,
+      "framesAvailable": 69,
+      "frameStride": 1,
+      "pixelsExamined": 3391488,
+      "retainedAfterNoReturnFilter": 3391488,
+      "retainedAfterRangeFilter": 3374710,
+      "retainedAfterConfidenceFilter": 2788340,
+      "confidenceFilterApplied": true,
+      "retainedFractionOfPixels": 0.822158,
+      "pointsBeforeVoxelDownsample": 2788340,
+      "pointsAfterVoxelDownsample": 1616282,
+      "contributingFrames": 69,
+      "canonicalExtentM": [
+        6.1905,
+        2.9531,
+        7.604
+      ],
+      "canonicalBoundsM": {
+        "min": [
+          -3.5341,
+          -1.1126,
+          -5.822
+        ],
+        "max": [
+          2.6564,
+          1.8405,
+          1.7821
+        ]
+      }
+    },
+    "planeSelection": {
+      "wallCandidates": 11,
+      "wallsSelected": 6,
+      "wallsExcluded": 5,
+      "footprintVertices": 7,
+      "observedPerimeterFraction": 0.7122,
+      "inferredEdgeCount": 2,
+      "floorObservedBounds": {
+        "min": [
+          -3.4241,
+          -5.7568
+        ],
+        "max": [
+          2.22,
+          0.5127
+        ]
+      },
+      "convexSimplification": "The footprint is the intersection of the selected walls' interior half-planes and is therefore convex. A non-convex room would be reported as its convex envelope; this is a stated simplification of the POC, not a measurement of the room."
+    },
+    "excludedWalls": [
+      {
+        "wallId": "wall-006",
+        "reason": "only 87.5% of floor points lie inside this plane, below the 95% required of a boundary wall; it stands within the room rather than bounding it",
+        "floorInteriorFraction": 0.8745,
+        "inlierCount": 68442
+      },
+      {
+        "wallId": "wall-004",
+        "reason": "describes the same side of the room as wall-005, which carries stronger evidence (support x coverage)",
+        "floorInteriorFraction": 1.0,
+        "inlierCount": 87217
+      },
+      {
+        "wallId": "wall-007",
+        "reason": "describes the same side of the room as wall-003, which carries stronger evidence (support x coverage)",
+        "floorInteriorFraction": 0.9862,
+        "inlierCount": 5027
+      },
+      {
+        "wallId": "wall-009",
+        "reason": "describes the same side of the room as wall-003, which carries stronger evidence (support x coverage)",
+        "floorInteriorFraction": 0.9996,
+        "inlierCount": 3052
+      },
+      {
+        "wallId": "wall-011",
+        "reason": "describes the same side of the room as wall-001, which carries stronger evidence (support x coverage)",
+        "floorInteriorFraction": 1.0,
+        "inlierCount": 1814
+      }
+    ],
+    "openingSearch": {
+      "wallsExamined": 5,
+      "candidatesFound": 0,
+      "candidatesRejected": 5,
+      "rejected": [
+        {
+          "surfaceId": "wall-003",
+          "reason": "no empty region on this wall is at least 0.4 m by 0.4 m, so nothing on it could be an opening"
+        },
+        {
+          "surfaceId": "wall-004",
+          "reason": "no empty region on this wall is at least 0.4 m by 0.4 m, so nothing on it could be an opening"
+        },
+        {
+          "surfaceId": "wall-005",
+          "reason": "only 20% of the wall cells to the left, right and above the gap carry support, below the 50% required; this is the edge of the observed region rather than a hole through the wall",
+          "gapWidth_m": 0.6,
+          "gapHeight_m": 2.1,
+          "borderSupportFraction": 0.1979
+        },
+        {
+          "surfaceId": "wall-006",
+          "reason": "only 29% of the wall cells to the left, right and above the gap carry support, below the 50% required; this is the edge of the observed region rather than a hole through the wall",
+          "gapWidth_m": 0.6,
+          "gapHeight_m": 2.4,
+          "borderSupportFraction": 0.287
+        },
+        {
+          "surfaceId": "wall-007",
+          "reason": "only 6% of the wall cells to the left, right and above the gap carry support, below the 50% required; this is the edge of the observed region rather than a hole through the wall",
+          "gapWidth_m": 2.4,
+          "gapHeight_m": 2.05,
+          "borderSupportFraction": 0.0562
+        }
+      ],
+      "resolutionPolicy": "Geometric gap evidence alone cannot resolve an opening. The plan requires wall support around the gap plus RGB or AI corroboration; ARKitScenes publishes no structured opening semantics and the Spatial AI Verifier is not_run without operator model approval, so every candidate remains unresolved and carries no dimensions."
+    },
+    "confidenceStatement": "Confidence labels are evidence-quality heuristics, not calibrated probabilities or confidence intervals.",
+    "trackBCStatement": "damage[] and scope[] are intentionally empty attachment points. Damage detection and restoration scope are not implemented.",
+    "evidenceSelection": {
+      "available": true,
+      "framesConsidered": 69,
+      "framesWithVisibleGeometry": 55,
+      "viewsSelected": 3,
+      "minVisibilityThreshold": 0.15,
+      "surfacesCovered": [
+        "ceiling-001",
+        "floor-001",
+        "wall-003",
+        "wall-004",
+        "wall-005",
+        "wall-006",
+        "wall-007"
+      ],
+      "surfacesWithoutEvidence": [],
+      "selectionRule": "Greedy set cover over measured surface visibility, capped at 8 views, then topped up to at least 3 by choosing views furthest in time from those already selected.",
+      "occlusionNote": "Visibility is geometric only. A surface hidden behind furniture still counts as visible, because judging occlusion is exactly what the verifier is being asked to do.",
+      "privacyNote": "These are public ARKitScenes development frames. A final private capture requires operator approval before any frame is sent to a model, and that gate lives in the AI configuration."
+    },
+    "aiReview": {
+      "aiModelConfigId": "ai_model_config_v0.1",
+      "aiModelConfigHash": "785c80cdb2e956f45b0fe6bdc09d8819a472a74fc2419a6907926836fde81c88",
+      "promptVersion": "spatial_verifier_v0.1",
+      "promptSha256": "6a6231b5fde68c82890e160d339a708235b33f73844f7ca3dfa4b58a9705859d",
+      "evidenceViewCount": 3,
+      "approved": true,
+      "geometryDigestBefore": "5c44767997059833087aa3ded61f9b9980e496521c0321a8f090479e5b631a60",
+      "evidenceFrameIdsPrepared": [
+        "frame-000007",
+        "frame-000012",
+        "frame-000068"
+      ],
+      "imagesPrepared": 3,
+      "imagesSent": 1,
+      "evidenceFrameIds": [
+        "frame-000007"
+      ],
+      "imageLimit": 3,
+      "groqImagesPerRequest": 1,
+      "latencyMs": 2460,
+      "validationResult": "accepted",
+      "findingsAccepted": 9,
+      "findingsRejected": 0,
+      "exactModel": "qwen/qwen3.6-27b",
+      "rejectionPolicy": "A finding that cites an unknown surface or an unsupplied evidence frame is dropped. It is not repaired, and it is not allowed through with a warning.",
+      "geometryDigestAfter": "5c44767997059833087aa3ded61f9b9980e496521c0321a8f090479e5b631a60"
+    }
+  }
+}

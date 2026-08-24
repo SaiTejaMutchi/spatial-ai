@@ -1,0 +1,29 @@
+{
+  "conditionId": "condition-model-001",
+  "surfaceId": "wall-002",
+  "conditionClass": "staining",
+  "evidenceFrameIds": [
+    "frame-000064"
+  ],
+  "normalizedImageRegion": {
+    "x0": 0.2,
+    "y0": 0.2,
+    "x1": 0.8,
+    "y1": 0.8
+  },
+  "modelProposedRegion": {
+    "x0": 0.0,
+    "y0": 0.0,
+    "x1": 1.0,
+    "y1": 1.0
+  },
+  "provenance": {
+    "aiProducer": "qwen/qwen3.6-27b",
+    "provider": "groq",
+    "promptVersion": "visible_condition_v0.1",
+    "promptSha256": "3e29bf32a003113c1315b2b6de704dd19feec16eb7378b4800da259fc3d6c25a",
+    "quantityProducer": "geometry_pipeline",
+    "aiProducerNote": "The VLM proposed a visible condition and an image region. It did not measure area. Geometry registered the region."
+  },
+  "note": "Model-proposed region only. Quantity is never stored here; geometry recomputes it at attach/registration time."
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f6f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1216" media="(prefers-color-scheme: dark)">
+<title>Spatial AI</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/styles.css?v=16">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="app">
+  <header class="topbar" id="topbar"></header>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<div id="live" class="sr-only" role="status" aria-live="polite"></div>
+
+<dialog class="viewer" id="viewer" aria-label="Evidence viewer"></dialog>
+<dialog class="viewer" id="export" aria-label="Export artifacts"></dialog>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "/vendor/three/three.module.js",
+    "three/addons/": "/vendor/three/addons/"
+  }
+}
+</script>
+<script src="/app.js?v=19" type="module"></script>
+</body>
+</html>

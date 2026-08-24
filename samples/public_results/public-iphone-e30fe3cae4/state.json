@@ -1,0 +1,125 @@
+{
+  "scanId": "public-iphone-e30fe3cae4",
+  "status": "complete",
+  "label": "Sanitized iPhone review example",
+  "classification": "public_review_example",
+  "sourcePath": null,
+  "sourceType": "stray_scanner",
+  "connector": "StrayScannerConnector",
+  "stages": [
+    {
+      "name": "upload_received",
+      "state": "complete",
+      "detail": "accepted e30fe3cae4 without preprocessing",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:18:17+00:00"
+    },
+    {
+      "name": "source_detected",
+      "state": "complete",
+      "detail": "recognised as stray_scanner",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:18:17+00:00"
+    },
+    {
+      "name": "connector_validation",
+      "state": "complete",
+      "detail": "882 frames retained, 0 excluded",
+      "startedAt": "2026-08-23T22:30:09+00:00",
+      "finishedAt": "2026-08-23T22:31:12+00:00"
+    },
+    {
+      "name": "frame_alignment",
+      "state": "complete",
+      "detail": "matched by timestamp within 50 ms",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:31:12+00:00"
+    },
+    {
+      "name": "normalized_capture",
+      "state": "complete",
+      "detail": "NORMALIZED_CAPTURE_VALID",
+      "startedAt": "2026-08-23T22:31:12+00:00",
+      "finishedAt": "2026-08-23T22:31:13+00:00"
+    },
+    {
+      "name": "geometry",
+      "state": "complete",
+      "detail": "22 wall candidates, floor=yes, ceiling=yes",
+      "startedAt": "2026-08-23T22:31:13+00:00",
+      "finishedAt": "2026-08-23T22:32:11+00:00"
+    },
+    {
+      "name": "canonical_model",
+      "state": "complete",
+      "detail": "10 surfaces, 12 measurements",
+      "startedAt": "2026-08-23T22:32:12+00:00",
+      "finishedAt": "2026-08-23T22:32:12+00:00"
+    },
+    {
+      "name": "floorplan",
+      "state": "complete",
+      "detail": "generated from spatial_model.json",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:33:43+00:00"
+    },
+    {
+      "name": "model_3d",
+      "state": "complete",
+      "detail": "10 named surfaces",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:33:43+00:00"
+    },
+    {
+      "name": "benchmark",
+      "state": "not_applicable",
+      "detail": "Not published in the public catalog.",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:33:43+00:00"
+    },
+    {
+      "name": "ai_review",
+      "state": "complete",
+      "detail": "10 findings (offline Qwen import)",
+      "startedAt": "2026-08-23T22:59:31+00:00",
+      "finishedAt": "2026-08-23T23:05:08+00:00"
+    },
+    {
+      "name": "loss_preview",
+      "state": "complete",
+      "detail": "Not published in the public catalog.",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:35:13+00:00"
+    },
+    {
+      "name": "complete",
+      "state": "complete",
+      "detail": "all stages finished",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T22:35:13+00:00"
+    }
+  ],
+  "currentStage": "complete",
+  "failureClass": null,
+  "error": null,
+  "createdAt": "2026-08-23T22:18:17+00:00",
+  "updatedAt": "2026-08-23T23:05:08+00:00",
+  "summary": {
+    "modelSha256": "d81e5e2ddb7c37a690aa112b5f01009c802f38f2fa1f4b80adce638e5af9dac9",
+    "surfaceCount": 10,
+    "evidenceViews": 3,
+    "roomLength_m": 7.391838,
+    "roomWidth_m": 4.011635,
+    "roomHeight_m": 2.65616,
+    "floorArea_m2": 27.552378,
+    "observedPerimeterFraction": 1.0,
+    "aiStatus": "completed",
+    "unresolvedOpenings": 2,
+    "confirmedOpenings": 0,
+    "normalizedFrameCount": 882,
+    "accuracyClaim": "none",
+    "accuracyReason": "Tape comparison is not published. Geometry numbers are the model, not a scored accuracy result.",
+    "aiFindingCount": 10
+  },
+  "publishedExample": true
+}

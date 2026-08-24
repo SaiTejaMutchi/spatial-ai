@@ -1,0 +1,9 @@
+{
+  "label": "DEVELOPMENT CONDITION FIXTURE",
+  "isRealDamageEvidence": false,
+  "evaluationOnly": true,
+  "purpose": "Development Visible Condition Grounding. The stain is a labelled synthetic fixture. A live model must still propose the region; geometry registers that region onto a real surface using the real evidence pose.",
+  "sourceNote": "cartoon 128px development fixture plus an overlay copy of a real registered evidence frame. The live model is sent the cartoon, which survives Groq's 128px JPEG TPM encode; registration still uses the real evidence pose and surface plane.",
+  "image": "stained_evidence.png",
+  "intendedConditionClass": "staining"
+}

@@ -1,0 +1,28 @@
+{
+  "label": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION",
+  "notOfficialStructured3D": true,
+  "reason": "Official Structured3D download requires a human-signed terms agreement. This fixture is a tiny locally authored synthetic render used only to exercise the semantic evaluation protocol.",
+  "cases": [
+    {
+      "id": "case-door-001",
+      "candidateId": "candidate-001",
+      "surfaceId": "wall-001"
+    },
+    {
+      "id": "case-window-001",
+      "candidateId": "candidate-002",
+      "surfaceId": "wall-002"
+    },
+    {
+      "id": "case-occlusion-001",
+      "candidateId": "candidate-003",
+      "surfaceId": "wall-003"
+    },
+    {
+      "id": "case-empty-001",
+      "candidateId": "candidate-004",
+      "surfaceId": "wall-004"
+    }
+  ],
+  "privilegedGroundTruth": "samples/ai_semantic_eval/*/labels.json is evaluator-only"
+}

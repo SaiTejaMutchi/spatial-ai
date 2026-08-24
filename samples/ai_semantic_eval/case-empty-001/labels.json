@@ -1,0 +1,6 @@
+{
+  "semanticClass": "scan_gap",
+  "labelSource": "fixture_author_held_out",
+  "evaluationOnly": true,
+  "datasetLabel": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION"
+}

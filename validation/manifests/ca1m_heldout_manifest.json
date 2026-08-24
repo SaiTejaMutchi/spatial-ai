@@ -1,0 +1,56 @@
+{
+  "manifestId": "ca1m_heldout_v0.1",
+  "frozenUtc": "2026-08-23T21:06:25+00:00",
+  "frozenBeforeAnyErrorWasComputed": true,
+  "split": "CA-1M val",
+  "valListSha256": "895580c85ac12aa7f8a907fe898e5cf8e7249976f39c41202c2670b97ab60d97",
+  "selectionRule": "The first five entries of Apple's published data/val.txt, in Apple's own file order, excluding 45261179 which was consumed by the one-sample acceptance gate. The order was not sorted, filtered by size, or inspected for room type, and no capture was swapped after any error was seen. The ledger asks for a diverse selection across room types; that diversity cannot be chosen without first looking at the captures, which would break the freeze, so it is not claimed.",
+  "heldOut": true,
+  "heldOutRationale": "These are ARKitScenes Validation-split captures. The geometry configuration was frozen against Training scene 47333462, and neither this capture set nor the Validation split contributed to any parameter.",
+  "gateCapture": "45261179",
+  "mobileInputs": [
+    "lowres_wide",
+    "lowres_depth",
+    "confidence",
+    "lowres_wide_intrinsics",
+    "lowres_wide.traj"
+  ],
+  "mobileInputSource": "ARKitScenes Validation. CA-1M publishes no mobile camera pose; dataset.py fixes the wide sensor RT to the identity.",
+  "evaluatorOnlyInputs": [
+    "*.gt/RT.json",
+    "*.gt/depth.png",
+    "*.wide/instances.json",
+    "world.gt/instances.json"
+  ],
+  "geometryConfig": "config/geometry_config_v0.1.json",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "parameterChangePolicy": "No selected scene may drive a geometry threshold change. No geometry parameter was modified for this run.",
+  "license": "CA-1M is CC-BY-NC-ND. Raw archives stay local and are git-ignored.",
+  "captures": [
+    {
+      "captureId": "45662921",
+      "ca1mUrl": "https://ml-site.cdn-apple.com/datasets/ca1m/val/ca1m-val-45662921.tar",
+      "arkitscenesBase": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Validation/45662921"
+    },
+    {
+      "captureId": "47115543",
+      "ca1mUrl": "https://ml-site.cdn-apple.com/datasets/ca1m/val/ca1m-val-47115543.tar",
+      "arkitscenesBase": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Validation/47115543"
+    },
+    {
+      "captureId": "45261143",
+      "ca1mUrl": "https://ml-site.cdn-apple.com/datasets/ca1m/val/ca1m-val-45261143.tar",
+      "arkitscenesBase": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Validation/45261143"
+    },
+    {
+      "captureId": "45261615",
+      "ca1mUrl": "https://ml-site.cdn-apple.com/datasets/ca1m/val/ca1m-val-45261615.tar",
+      "arkitscenesBase": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Validation/45261615"
+    },
+    {
+      "captureId": "42897545",
+      "ca1mUrl": "https://ml-site.cdn-apple.com/datasets/ca1m/val/ca1m-val-42897545.tar",
+      "arkitscenesBase": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Validation/42897545"
+    }
+  ]
+}

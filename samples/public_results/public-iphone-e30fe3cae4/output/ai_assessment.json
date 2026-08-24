@@ -1,0 +1,135 @@
+{
+  "assessment": {
+    "schemaVersion": "0.1",
+    "status": "completed",
+    "model": "qwen/qwen3.6-27b",
+    "promptVersion": "spatial_verifier_v0.1",
+    "generatedAt": "2026-08-23T23:05:08+00:00",
+    "roomTypeHypothesis": "bedroom",
+    "findings": [
+      {
+        "surfaceId": "wall-001",
+        "status": "verified",
+        "semanticAgreement": true,
+        "reason": "The photograph shows a substantial wall surface in the expected room position, with part of it occupied by a window.",
+        "evidenceFrameIds": [
+          "frame-000128"
+        ],
+        "occlusionDescription": "Furniture and curtains cover portions of the wall.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-002",
+        "status": "verified",
+        "semanticAgreement": true,
+        "reason": "The supplied views show a wall surface in this part of the room that is visually consistent with the recorded type.",
+        "evidenceFrameIds": [
+          "frame-000289",
+          "frame-000881"
+        ],
+        "occlusionDescription": "The open door and nearby furnishings obscure part of the wall.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-003",
+        "status": "review_recommended",
+        "semanticAgreement": true,
+        "reason": "Wall material is visible around the doorway, but the photographs do not let me distinguish this narrow surface confidently from the adjacent wall segment.",
+        "evidenceFrameIds": [
+          "frame-000289",
+          "frame-000881"
+        ],
+        "occlusionDescription": "The doorway and open door limit the visible wall area.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-004",
+        "status": "review_recommended",
+        "semanticAgreement": true,
+        "reason": "A narrow wall or return surface is visually plausible here, but its identity relative to the adjacent wall segment is ambiguous in the photographs.",
+        "evidenceFrameIds": [
+          "frame-000289",
+          "frame-000881"
+        ],
+        "occlusionDescription": "The door assembly obscures and visually divides the narrow wall surfaces.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-005",
+        "status": "verified",
+        "semanticAgreement": true,
+        "reason": "The photographs show an extended wall surface in this portion of the room that is consistent with a wall.",
+        "evidenceFrameIds": [
+          "frame-000289",
+          "frame-000881"
+        ],
+        "occlusionDescription": "The open door, bed, and nearby furniture cover portions of the wall.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-006",
+        "status": "review_recommended",
+        "semanticAgreement": true,
+        "reason": "A clear window opening is visible in the scene, but the photograph does not support assigning that opening specifically to this wall rather than the adjacent unresolved-opening surface.",
+        "evidenceFrameIds": [
+          "frame-000128"
+        ],
+        "occlusionDescription": "Curtains and furniture obscure portions of the surrounding wall.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-007",
+        "status": "review_recommended",
+        "semanticAgreement": true,
+        "reason": "A clear window opening is visible in the scene, but the photograph does not support assigning that opening specifically to this wall rather than the adjacent unresolved-opening surface.",
+        "evidenceFrameIds": [
+          "frame-000128"
+        ],
+        "occlusionDescription": "Curtains and furniture obscure portions of the surrounding wall.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "wall-008",
+        "status": "verified",
+        "semanticAgreement": true,
+        "reason": "The visible surface is consistent with a wall in the photographed room.",
+        "evidenceFrameIds": [
+          "frame-000128"
+        ],
+        "occlusionDescription": "Furniture covers part of the lower wall.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "floor-001",
+        "status": "verified",
+        "semanticAgreement": true,
+        "reason": "The supplied photographs clearly show a carpeted floor surface throughout the room.",
+        "evidenceFrameIds": [
+          "frame-000128",
+          "frame-000289",
+          "frame-000881"
+        ],
+        "occlusionDescription": "The bed, chair, furniture, bicycle, and open door cover portions of the floor.",
+        "openingObservation": "cannot_tell"
+      },
+      {
+        "surfaceId": "ceiling-001",
+        "status": "verified",
+        "semanticAgreement": true,
+        "reason": "The photograph shows a ceiling surface above the room that is visually consistent with the recorded type.",
+        "evidenceFrameIds": [
+          "frame-000128"
+        ],
+        "occlusionDescription": null,
+        "openingObservation": "cannot_tell"
+      }
+    ],
+    "usage": null,
+    "notRunReason": null,
+    "provider": "qwen_offline"
+  },
+  "rejectedFindings": [],
+  "diagnostics": {
+    "importSource": "public_catalog"
+  }
+}

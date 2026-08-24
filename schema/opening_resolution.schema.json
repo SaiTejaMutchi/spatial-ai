@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-ai.local/schema/opening_resolution_v0.1.json",
+  "title": "Opening Resolver response 0.1",
+  "description": "AI may classify a nominated opening candidate. additionalProperties is false so a model cannot smuggle a dimension.",
+  "type": "object",
+  "required": ["candidateId", "surfaceId", "semanticClass", "evidenceStatus",
+               "evidenceFrameIds", "reason"],
+  "additionalProperties": false,
+  "properties": {
+    "candidateId": {"type": "string", "minLength": 1},
+    "surfaceId": {"type": "string", "minLength": 1},
+    "semanticClass": {
+      "enum": ["door", "window", "open_passage", "occlusion", "scan_gap",
+               "insufficient_evidence"]
+    },
+    "evidenceStatus": {
+      "enum": ["supported", "unsupported", "insufficient_evidence"]
+    },
+    "evidenceFrameIds": {
+      "type": "array", "minItems": 1, "items": {"type": "string"}
+    },
+    "reason": {"type": "string", "minLength": 1, "maxLength": 600},
+    "model": {"type": ["string", "null"]},
+    "provider": {"type": ["string", "null"]},
+    "usage": {"type": ["object", "null"]}
+  }
+}

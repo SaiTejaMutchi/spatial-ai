@@ -1,0 +1,49 @@
+{
+  "configId": "reference_extraction_v0.1",
+  "schemaVersion": "0.1",
+  "calibrated": false,
+  "purpose": "Thresholds for extracting reference geometry from independent survey data. Versioned separately from geometry_config_v0.1.json on purpose: if the reference inherited the pipeline's own thresholds, agreement between them would be partly circular.",
+  "independence": [
+    "No value here may be copied from geometry_config_v0.1.json.",
+    "No value here may be chosen after seeing a comparison result.",
+    "Reference extraction never writes back into the pipeline or its outputs."
+  ],
+  "parameters": {
+    "point_stride": {
+      "value": 50,
+      "units": "count",
+      "rationale": "Every 50th point of each FARO scan. A survey scan carries tens of millions of returns; roughly 850,000 per scan is far more than a floor or ceiling plane needs, and streaming at a stride keeps a 1.9 GB file out of memory.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "height_bin_m": {
+      "value": 0.005,
+      "units": "m",
+      "rationale": "Bin width for the reference height histogram. Half the pipeline's bin, because survey data is an order of magnitude more precise than phone LiDAR and the reference should not be blurred to the pipeline's resolution.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "min_slab_support_fraction": {
+      "value": 0.002,
+      "units": "fraction of points",
+      "rationale": "Minimum share of returns in a height slab for it to count as a horizontal structure candidate.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "min_storey_height_m": {
+      "value": 2.0,
+      "units": "m",
+      "rationale": "Floor-to-ceiling separations below this are not a habitable storey. Guards against pairing a floor with a worktop or a stair landing.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "max_storey_height_m": {
+      "value": 4.0,
+      "units": "m",
+      "rationale": "Upper bound on a single storey, guarding against pairing a floor with the ceiling of the storey above where a scan sees through a stairwell.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "level_axis_tolerance_deg": {
+      "value": 2.0,
+      "units": "degrees",
+      "rationale": "Maximum angle between a scan's vertical axis and the visit frame's vertical before the frame can no longer be treated as levelled. Bounded by the error it induces rather than by taste: a 2 degree tilt shortens a 2.6 m floor-to-ceiling measurement by 2.6*(1-cos 2deg) = 1.6 mm, an order of magnitude below the assignment's 1.5 cm ceiling-height gate. The realised tilt is reported per scan so the induced error is visible.",
+      "sourceCategory": "engineering_constraint"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "rulesId": "confidence_rules_v0.1",
+  "schemaVersion": "0.1",
+  "method": "rule_based_heuristic_v0.1",
+  "calibrated": false,
+  "statement": "Confidence labels are evidence-quality heuristics, not calibrated probabilities or confidence intervals. No weighted score is used: the first matching rule below decides the label, and the raw inputs that triggered it are recorded alongside every label.",
+  "inputSelection": {
+    "used": ["observationState", "rmsResidual_m", "coverageFraction", "contributingFrames"],
+    "recordedButNotUsed": ["inlierCount", "maxResidual_m"],
+    "rationale": "Residual, coverage, and the number of distinct contributing observations are independent of point density, so a label means the same thing whatever frame stride or voxel size produced the cloud. Raw inlier count is density-dependent and therefore recorded as a diagnostic rather than used as a rule input."
+  },
+  "rules": [
+    {
+      "id": "unresolved-no-evidence",
+      "label": "unresolved",
+      "when": "observationState is 'unresolved', or no supporting plane evidence exists",
+      "rationale": "Absent required evidence, the honest label is unresolved. Never substitute a low or medium label for missing evidence."
+    },
+    {
+      "id": "unresolved-inferred-geometry",
+      "label": "unresolved",
+      "when": "observationState is 'inferred'",
+      "rationale": "Inferred closure is a geometric convenience, not an observation. It carries no evidence quality to describe."
+    },
+    {
+      "id": "high-direct-strong-support",
+      "label": "high",
+      "when": "observationState is 'directly_observed' and rmsResidual_m <= 0.025 and coverageFraction >= 0.50 and contributingFrames >= 10",
+      "rationale": "All three evidence dimensions pass simultaneously: the surface is flat to within roughly the sensor's own depth noise, over half of its own bounding rectangle is actually occupied, and it was seen from at least ten distinct camera positions so the fit is not a single-viewpoint artefact."
+    },
+    {
+      "id": "medium-direct-partial-support",
+      "label": "medium",
+      "when": "observationState is 'directly_observed' or 'partially_observed', and rmsResidual_m <= 0.05 and coverageFraction >= 0.25 and contributingFrames >= 3",
+      "rationale": "Moderate, explicitly bounded evidence: the fit is still planar and the surface was seen more than once, but coverage or residual falls short of the high bar, commonly because furniture or occlusion hid part of the surface."
+    },
+    {
+      "id": "low-weak-support",
+      "label": "low",
+      "when": "the surface is observed but fails the medium thresholds",
+      "rationale": "Real evidence exists but is weak in residual, coverage, or observation diversity. The label exists to flag the surface for review, not to rank it numerically."
+    }
+  ],
+  "thresholds": {
+    "high_max_rms_residual_m": {
+      "value": 0.025,
+      "rationale": "Slightly above the plane inlier distance in geometry_config_v0.1.json, so a surface whose realised scatter fills its own inlier band does not qualify as high.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "high_min_coverage_fraction": {
+      "value": 0.50,
+      "rationale": "More than half of the surface's own bounding rectangle must be occupied before its extent is treated as well observed.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "high_min_contributing_frames": {
+      "value": 10,
+      "rationale": "Ten distinct camera positions make a single bad pose or one mis-registered frame unable to determine the fit.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "medium_max_rms_residual_m": {
+      "value": 0.05,
+      "rationale": "Beyond about five centimetres of scatter the surface is no longer behaving like a plane at room scale.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "medium_min_coverage_fraction": {
+      "value": 0.25,
+      "rationale": "Below a quarter occupancy the support is a scatter rather than a surface.",
+      "sourceCategory": "engineering_constraint"
+    },
+    "medium_min_contributing_frames": {
+      "value": 3,
+      "rationale": "At least three viewpoints, so the plane is corroborated rather than observed once.",
+      "sourceCategory": "engineering_constraint"
+    }
+  },
+  "prohibited": [
+    "Presenting any label as a probability, an interval, or an accuracy claim.",
+    "Weighted numeric scores combining these inputs.",
+    "Assigning a label when the inputs required by its rule are absent."
+  ]
+}

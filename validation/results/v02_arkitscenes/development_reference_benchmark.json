@@ -1,0 +1,295 @@
+{
+  "label": "PUBLIC DEVELOPMENT REFERENCE",
+  "isFinalBenchmark": false,
+  "statement": "This is an independent public sanity check against survey-grade laser data. It is not a tape-measure benchmark, and it does not establish accuracy on any real capture.",
+  "generatedUtc": "2026-08-23T21:43:48+00:00",
+  "scene": {
+    "id": "47333462",
+    "role": "PRIMARY_TUNING",
+    "classification": "public_development_fixture"
+  },
+  "referenceSource": {
+    "dataset": "Apple ARKitScenes laser_scanner_point_clouds",
+    "visitDirectory": "samples/arkitscenes/laser_scanner_point_clouds/467138",
+    "independentOfDeviceUnderTest": true,
+    "whyNotTheArkitMesh": "The ARKit mesh is produced by the same reconstruction stack being evaluated, so agreement with it would not evidence accuracy.",
+    "extractionProcedure": "docs/fixture_selection.md section 5",
+    "extractionConfigId": "reference_extraction_v0.1",
+    "extractionConfigHash": "53bc9586f5d978fd74f95577328fbdbb3ab3010bbb833d3683850123ba83b33a"
+  },
+  "frozenParameterSet": {
+    "geometryConfigId": "geometry_config_v0.1",
+    "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+    "frozen": true
+  },
+  "comparisons": [
+    {
+      "measurementId": "reference-room-height",
+      "type": "room_height",
+      "reference_m": 2.635,
+      "model_m": 2.610371,
+      "signedError_m": -0.024629,
+      "absoluteError_cm": 2.4629,
+      "percentError": 0.9347,
+      "assignmentGate": "at most 1.5 cm",
+      "result": "fail",
+      "note": "Floor-to-ceiling separation. Both frames are gravity-aligned, so this comparison needs no horizontal registration.",
+      "extra": {
+        "referenceSource": "ARKitScenes FARO terrestrial laser scans",
+        "referenceScans": [
+          "190170",
+          "190171",
+          "190172"
+        ],
+        "referencePointsSampled": 2536538,
+        "referenceFloor_m": -51.123773,
+        "referenceCeiling_m": -48.488773,
+        "maxScanTiltDeg": 1.1821,
+        "toleranceApplied_m": 0.015
+      }
+    },
+    {
+      "measurementId": "reference-room-length",
+      "type": "room_length",
+      "reference_m": null,
+      "model_m": 5.47558,
+      "signedError_m": null,
+      "absoluteError_cm": null,
+      "percentError": null,
+      "assignmentGate": "at most 1% or 2 cm, whichever is larger",
+      "result": "not_comparable",
+      "note": "ARKitScenes publishes no transform between the ARKit session frame and the FARO visit frame, so this quantity cannot be compared without first solving registration. Only floor-to-ceiling height survives that gap, because it is invariant under any horizontal rigid motion between two gravity-aligned frames."
+    },
+    {
+      "measurementId": "reference-room-width",
+      "type": "room_width",
+      "reference_m": null,
+      "model_m": 3.178463,
+      "signedError_m": null,
+      "absoluteError_cm": null,
+      "percentError": null,
+      "assignmentGate": "at most 1% or 2 cm, whichever is larger",
+      "result": "not_comparable",
+      "note": "ARKitScenes publishes no transform between the ARKit session frame and the FARO visit frame, so this quantity cannot be compared without first solving registration. Only floor-to-ceiling height survives that gap, because it is invariant under any horizontal rigid motion between two gravity-aligned frames."
+    },
+    {
+      "measurementId": "reference-floor-area",
+      "type": "floor_area",
+      "reference_m": null,
+      "model_m": 16.001907,
+      "signedError_m": null,
+      "absoluteError_cm": null,
+      "percentError": null,
+      "assignmentGate": "at most 2% per room",
+      "result": "not_comparable",
+      "note": "ARKitScenes publishes no transform between the ARKit session frame and the FARO visit frame, so this quantity cannot be compared without first solving registration. Only floor-to-ceiling height survives that gap, because it is invariant under any horizontal rigid motion between two gravity-aligned frames."
+    }
+  ],
+  "summary": {
+    "comparisons": 4,
+    "comparable": 1,
+    "notComparable": 3,
+    "gated": 1,
+    "passed": 0,
+    "failed": 1,
+    "meanAbsoluteError_cm": 2.4629,
+    "maxAbsoluteError_cm": 2.4629
+  },
+  "referenceDiagnostics": {
+    "scansUsed": [
+      "190170",
+      "190171",
+      "190172"
+    ],
+    "pointStride": 50,
+    "pointsSampled": 2536538,
+    "levelCheck": [
+      {
+        "scan": "190170",
+        "verticalAxis": [
+          0.008304,
+          -0.018885,
+          0.999787
+        ],
+        "tiltFromVisitVerticalDeg": 1.1821,
+        "inducedHeightErrorPer2p6m_mm": 0.553,
+        "levelled": true
+      },
+      {
+        "scan": "190171",
+        "verticalAxis": [
+          0.001476,
+          0.009483,
+          0.999954
+        ],
+        "tiltFromVisitVerticalDeg": 0.5499,
+        "inducedHeightErrorPer2p6m_mm": 0.12,
+        "levelled": true
+      },
+      {
+        "scan": "190172",
+        "verticalAxis": [
+          -0.006123,
+          -0.000595,
+          0.999981
+        ],
+        "tiltFromVisitVerticalDeg": 0.3525,
+        "inducedHeightErrorPer2p6m_mm": 0.049,
+        "levelled": true
+      }
+    ],
+    "visitFrameUpAxis": "+z",
+    "maxScanTiltDeg": 1.1821,
+    "visitFrameUpAxisEvidence": "Every scan pose preserves the visit frame's vertical axis to within the configured angular tolerance, which is what a tripod-levelled terrestrial scanner produces. The induced height error is reported per scan.",
+    "plausiblePairings": [
+      {
+        "floor_m": -51.1238,
+        "ceiling_m": -48.4888,
+        "separation_m": 2.635,
+        "minSupport": 64091
+      },
+      {
+        "floor_m": -51.1238,
+        "ceiling_m": -48.4688,
+        "separation_m": 2.655,
+        "minSupport": 64091
+      },
+      {
+        "floor_m": -51.1238,
+        "ceiling_m": -48.4538,
+        "separation_m": 2.67,
+        "minSupport": 21997
+      },
+      {
+        "floor_m": -51.0988,
+        "ceiling_m": -48.4888,
+        "separation_m": 2.61,
+        "minSupport": 21991
+      },
+      {
+        "floor_m": -51.0988,
+        "ceiling_m": -48.4688,
+        "separation_m": 2.63,
+        "minSupport": 21991
+      },
+      {
+        "floor_m": -51.0988,
+        "ceiling_m": -48.4538,
+        "separation_m": 2.645,
+        "minSupport": 21991
+      }
+    ],
+    "separationRange_m": [
+      2.61,
+      2.67
+    ],
+    "separationSpread_cm": 6.0,
+    "histogramBin_m": 0.005,
+    "supportThresholdPoints": 5073,
+    "peakCount": 14,
+    "strongestPeaks": [
+      {
+        "height_m": -48.4888,
+        "count": 174699
+      },
+      {
+        "height_m": -48.4688,
+        "count": 126801
+      },
+      {
+        "height_m": -51.1238,
+        "count": 64091
+      },
+      {
+        "height_m": -48.4538,
+        "count": 21997
+      },
+      {
+        "height_m": -51.0988,
+        "count": 21991
+      },
+      {
+        "height_m": -50.1688,
+        "count": 15911
+      },
+      {
+        "height_m": -48.7238,
+        "count": 11413
+      },
+      {
+        "height_m": -50.6088,
+        "count": 7872
+      }
+    ],
+    "selectedFloor_m": -51.1238,
+    "selectedCeiling_m": -48.4888,
+    "referenceConfigId": "reference_extraction_v0.1",
+    "referenceConfigHash": "53bc9586f5d978fd74f95577328fbdbb3ab3010bbb833d3683850123ba83b33a"
+  },
+  "limitations": [
+    "Only floor-to-ceiling height is comparable; see the note on each non-comparable row.",
+    "The FARO reference covers the whole visit, which may include rooms the 60-second video never entered. Without registration it cannot be confirmed that the compared storey is the same room the pipeline reconstructed, so this is a dwelling storey-height check rather than a same-room comparison.",
+    "One scene with one comparable quantity supports no generalization claim.",
+    "Confidence labels elsewhere in the model remain uncalibrated heuristics; nothing here calibrates them."
+  ],
+  "referenceCorrespondence": {
+    "established": false,
+    "plausiblePairings": [
+      {
+        "floor_m": -51.1238,
+        "ceiling_m": -48.4888,
+        "separation_m": 2.635,
+        "minSupport": 64091
+      },
+      {
+        "floor_m": -51.1238,
+        "ceiling_m": -48.4688,
+        "separation_m": 2.655,
+        "minSupport": 64091
+      },
+      {
+        "floor_m": -51.1238,
+        "ceiling_m": -48.4538,
+        "separation_m": 2.67,
+        "minSupport": 21997
+      },
+      {
+        "floor_m": -51.0988,
+        "ceiling_m": -48.4888,
+        "separation_m": 2.61,
+        "minSupport": 21991
+      },
+      {
+        "floor_m": -51.0988,
+        "ceiling_m": -48.4688,
+        "separation_m": 2.63,
+        "minSupport": 21991
+      },
+      {
+        "floor_m": -51.0988,
+        "ceiling_m": -48.4538,
+        "separation_m": 2.645,
+        "minSupport": 21991
+      }
+    ],
+    "separationRange_m": [
+      2.61,
+      2.67
+    ],
+    "separationSpread_cm": 6.0,
+    "finding": "The reference visit supports 6 plausible floor-to-ceiling pairings spanning 6.0 cm. Its ceiling surfaces extend well beyond the footprint the pipeline reconstructed, which is what a whole-dwelling survey looks like. The reference is therefore a building storey statistic, not a measurement of the captured room.",
+    "consequence": "Because the reference's own ambiguity is wider than the discrepancy, it cannot adjudicate that discrepancy, and no geometry parameter was tuned toward it. The comparison is retained as a magnitude check: it shows the pipeline lands within the range of storey heights present in the building, and nothing stronger."
+  },
+  "secondaryValidation": {
+    "policy": "The secondary scene runs once with the same frozen configuration and is never used to change a parameter.",
+    "scenes": {
+      "41418135": {
+        "roomHeight_m": 2.427252,
+        "floorArea_m2": 20.473185,
+        "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+        "referenceAvailable": false,
+        "note": "No FARO reference was retrieved for this visit, by design: the plan caps public validation at one supported quantitative comparison. This scene evidences that the frozen configuration runs unchanged on unseen data, and nothing more."
+      }
+    }
+  }
+}

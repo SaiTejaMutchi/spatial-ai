@@ -1,0 +1,6 @@
+measurement_id,type,tape_1_m,tape_2_m,tape_3_m,instrument,operator,timestamp,notes
+FIXTURE-room-length,room_length,4.000,4.010,3.995,DEVELOPMENT FIXTURE,fixture,2026-01-01T00:00:00Z,invented value
+FIXTURE-room-width,room_width,3.000,2.995,3.005,DEVELOPMENT FIXTURE,fixture,2026-01-01T00:00:00Z,invented value
+FIXTURE-room-height,room_height,2.500,2.500,2.502,DEVELOPMENT FIXTURE,fixture,2026-01-01T00:00:00Z,invented value
+FIXTURE-floor-area,floor_area,12.000,,,DEVELOPMENT FIXTURE,fixture,2026-01-01T00:00:00Z,single reading
+FIXTURE-door-width,opening_width,,,,DEVELOPMENT FIXTURE,fixture,2026-01-01T00:00:00Z,inaccessible endpoint - no reading

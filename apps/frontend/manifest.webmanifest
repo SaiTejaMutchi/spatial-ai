@@ -1,0 +1,10 @@
+{
+  "name": "Spatial AI",
+  "short_name": "Spatial AI",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f6f6f7",
+  "theme_color": "#f6f6f7",
+  "description": "Turn a phone spatial capture into a measured property model with registered visual evidence."
+}

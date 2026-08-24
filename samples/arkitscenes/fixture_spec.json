@@ -1,0 +1,55 @@
+{
+  "classification": "public_development_fixture",
+  "usage_boundary": "Development verification only. These fixtures may establish DEV_COMPLETE. They must never be presented as final evidence, and no measurement claimed from them is a final POC benchmark result.",
+  "dataset": {
+    "name": "ARKitScenes",
+    "owner": "Apple Inc.",
+    "repository": "https://github.com/apple/ARKitScenes",
+    "data_documentation": "https://github.com/apple/ARKitScenes/blob/main/DATA.md",
+    "asset_base_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1",
+    "url_scheme_source": "https://raw.githubusercontent.com/apple/ARKitScenes/main/download_data.py",
+    "license_note": "Apple ARKitScenes is released for research use under the terms stated in the upstream repository. Fixtures are consumed unmodified."
+  },
+  "fixtures": [
+    {
+      "role": "PRIMARY_TUNING",
+      "scene_id": "47333462",
+      "visit_id": "467138",
+      "fold": "Training",
+      "sky_direction": "Left",
+      "selection_rationale": "Selected first and retained under the discovery stop rule: all core modalities decode, the 60 s handheld trajectory spans 7.28 x 3.00 x 4.10 m of room-scale structure, and metadata.csv marks has_laser_scanner_point_clouds=True so an independent non-ARKit reference exists for this exact visit.",
+      "tuning_permission": "This is the only scene on which the single predetermined geometry sweep permitted by the plan may be run.",
+      "assets": {
+        "scene_dir": "samples/arkitscenes/raw/Training/47333462",
+        "trajectory": "samples/arkitscenes/raw/Training/47333462/lowres_wide.traj",
+        "arkit_mesh": "samples/arkitscenes/raw/Training/47333462/47333462_3dod_mesh.ply",
+        "laser_reference_dir": "samples/arkitscenes/laser_scanner_point_clouds/467138"
+      },
+      "asset_urls": {
+        "scene_dir": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/{lowres_wide,lowres_depth,confidence,lowres_wide_intrinsics}.zip",
+        "trajectory": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/lowres_wide.traj",
+        "arkit_mesh": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/47333462_3dod_mesh.ply",
+        "laser_reference_dir": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/467138/{190170,190171,190172}{.ply,_pose.txt}"
+      }
+    },
+    {
+      "role": "SECONDARY_VALIDATION",
+      "scene_id": "41418135",
+      "visit_id": "416418",
+      "fold": "Training",
+      "sky_direction": "Up",
+      "selection_rationale": "Chosen by a predetermined deterministic rule rather than by inspection: the lowest video_id in raw/metadata.csv with fold=Training, has_laser_scanner_point_clouds=True, is_in_threedod=True, and a visit_id different from the primary. No scene was previewed, compared, or swapped for a better-looking result.",
+      "tuning_permission": "NO_TUNING. This scene is run once with the frozen configuration produced on PRIMARY_TUNING. It must never influence a parameter value.",
+      "assets": {
+        "scene_dir": "samples/arkitscenes/raw/Training/41418135",
+        "trajectory": "samples/arkitscenes/raw/Training/41418135/lowres_wide.traj",
+        "arkit_mesh": "samples/arkitscenes/raw/Training/41418135/41418135_3dod_mesh.ply"
+      },
+      "asset_urls": {
+        "scene_dir": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/{lowres_wide,lowres_depth,confidence,lowres_wide_intrinsics}.zip",
+        "trajectory": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/lowres_wide.traj",
+        "arkit_mesh": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/41418135_3dod_mesh.ply"
+      }
+    }
+  ]
+}

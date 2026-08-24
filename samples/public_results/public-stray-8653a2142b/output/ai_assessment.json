@@ -1,0 +1,21 @@
+{
+  "assessment": {
+    "schemaVersion": "0.1",
+    "status": "completed",
+    "model": "qwen/qwen3.6-27b",
+    "promptVersion": "spatial_verifier_v0.1",
+    "generatedAt": "2026-08-23T19:30:58+00:00",
+    "roomTypeHypothesis": "office",
+    "findings": [],
+    "usage": {
+      "inputTokens": 3187,
+      "outputTokens": 861
+    },
+    "notRunReason": null,
+    "provider": "groq"
+  },
+  "rejectedFindings": [],
+  "diagnostics": {
+    "importSource": "public_catalog"
+  }
+}

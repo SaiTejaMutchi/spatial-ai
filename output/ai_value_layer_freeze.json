@@ -1,0 +1,75 @@
+{
+  "manifestVersion": "0.1",
+  "state": "AI_VALUE_LAYER_FROZEN",
+  "generatedUtc": "2026-08-23T14:14:46+00:00",
+  "statement": "The AI value layer is frozen separately from geometry. Geometry config remains PARAMETERS_FROZEN. This freeze does not reopen thresholds, does not claim VLM superiority, and does not complete final iPhone verification.",
+  "provider": "groq",
+  "model": "qwen/qwen3.6-27b",
+  "imageLimit": 3,
+  "imagesPerRequest": 1,
+  "fallbackBehaviour": "not_run",
+  "onAccessFailure": "Record the failure verbatim, emit not_run, leave geometry and every measurement untouched, and let the pipeline continue. AI is never on the critical path for Artifacts 1-11. No substitute provider or model is selected.",
+  "aiConfigHash": "785c80cdb2e956f45b0fe6bdc09d8819a472a74fc2419a6907926836fde81c88",
+  "promptHashes": {
+    "prompts/spatial_verifier_v0.1.txt": "6a6231b5fde68c82890e160d339a708235b33f73844f7ca3dfa4b58a9705859d",
+    "prompts/loss_proposal_v0.1.txt": "ce00bb9b5d40df39a03d827b7993308399d1402b956f241200630be170fb2440",
+    "prompts/opening_resolver_v0.1.txt": "872c5db05641c05f786c6bc351d737cb06bb07445efc8926d8e0656ccb37acf4",
+    "prompts/opening_image_only_v0.1.txt": "760ebbcedb26ee3c8852406b71a987fb0777d38890e8e2c7477d07546223bf0e",
+    "prompts/visible_condition_v0.1.txt": "e89cc5ca1374a703905573cfa9ec22329d251d27fc2c7779c3af01c800ebbafe"
+  },
+  "schemaHashes": {
+    "schema/ai_assessment.schema.json": "bf2bb655c8df7571ea14a8b96c2c8894135eafd30bf48d30396078ee9f892d7f",
+    "schema/opening_resolution.schema.json": "85efffdd615ab77c0eb9f0876b3b24b7fb0e8f228c7ea950177e7f00108c67f3",
+    "schema/visible_condition.schema.json": "af709cf3145f35fa2d5a832a86496c20ee92873b8252db4a09b273cda8c4e7ca"
+  },
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "geometryConfigHashAtT15": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "geometryUntouchedByExtension": true,
+  "t14bChain": {
+    "passed": true,
+    "detail": "model region registered to wall-002 with 6.675155 m\u00b2 producer=geometry_pipeline",
+    "livePromptSha256": "3e29bf32a003113c1315b2b6de704dd19feec16eb7378b4800da259fc3d6c25a"
+  },
+  "structured3dFixture": {
+    "label": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION",
+    "notOfficialStructured3D": true,
+    "caseIds": [
+      "case-door-001",
+      "case-window-001",
+      "case-occlusion-001",
+      "case-empty-001"
+    ],
+    "fileHashes": {
+      "samples/ai_semantic_eval/case-door-001/candidate.json": "ca93bb23f860b78ad55ff758c9c3a1972fce02f31c0cd774f141efeca02e9e7f",
+      "samples/ai_semantic_eval/case-door-001/confirm.png": "83dc2c7ffc241588e941decd3bf209cc3642a1b3c315c5a3ee8cb44565f6f029",
+      "samples/ai_semantic_eval/case-door-001/context.png": "27b901f65ae9737ea8c09dcd6345e1674f9df95da6f24575e81982edbe245afb",
+      "samples/ai_semantic_eval/case-door-001/crop.png": "561d8db94701e5997e696f5d14a608409f4b4b126b71b9c1dd450458b5d25d2a",
+      "samples/ai_semantic_eval/case-door-001/labels.json": "59827dbeebf9761c4ec67e2af7284dc7773dcea8bd54b275259b1881ec4cb338",
+      "samples/ai_semantic_eval/case-empty-001/candidate.json": "0514e829298cbb0c2c7b18c08dcb3de5f36572c4820ff7fc20d885f81ddf530e",
+      "samples/ai_semantic_eval/case-empty-001/confirm.png": "306c9ad58f09ff8a3a4c40712d2c940b2645819cc86229dbe86f3daf6d3d54cb",
+      "samples/ai_semantic_eval/case-empty-001/context.png": "44f6ea564f5fa964a13ee2c32201020056a33780020a4e25b5da037b4e6f84f2",
+      "samples/ai_semantic_eval/case-empty-001/crop.png": "6dfbe6aaa9e99d3ddf1fbc4aac1ffd182acb8d2d63b84b3d1a66384020c63ed6",
+      "samples/ai_semantic_eval/case-empty-001/labels.json": "85caabada8dfd151b7004dafbc88961f26f55da685f83bd2c83bba1ca9646ae1",
+      "samples/ai_semantic_eval/case-occlusion-001/candidate.json": "930a26bc1f416cec05a04f0b189b7db6ae5e74bee76a44c0728c8663ee3b8790",
+      "samples/ai_semantic_eval/case-occlusion-001/confirm.png": "38ed49f35673115c430a9de5ff820859901468caf9e75c93638d2bc26646ac45",
+      "samples/ai_semantic_eval/case-occlusion-001/context.png": "0391b30b84291fce86847cfc91fb216eb8e71ca2b27112cc0955250e0cc05ec2",
+      "samples/ai_semantic_eval/case-occlusion-001/crop.png": "a53d8f6d9fd3b62e929b36c3b8eb7dc82c369d2c4de427bca5213a1f70a58da9",
+      "samples/ai_semantic_eval/case-occlusion-001/labels.json": "04932e458d718995f3732e441de68c45a818d5b76fb12c314dcde3be2a802d0d",
+      "samples/ai_semantic_eval/case-window-001/candidate.json": "be171815c0fc83ec58a0f6dd578eeadded4a9591c6827eb192262765d28470d9",
+      "samples/ai_semantic_eval/case-window-001/confirm.png": "71cee83f54a4d3b533da7baccfb23559998c31eb2b8667b583e307fd9fe85ce3",
+      "samples/ai_semantic_eval/case-window-001/context.png": "bf4ac0b4e7f98bbb54372c021e19c537cd70a6b07a2b0e99ac1044e1669e33a4",
+      "samples/ai_semantic_eval/case-window-001/crop.png": "e9566806084da2f852ee74679a457affa05daab97eddb2885b83fb16d6d591c7",
+      "samples/ai_semantic_eval/case-window-001/labels.json": "1170aa63cd26337db8fec519629a8672f131861bb00f7c6792d8d975b4c70c24",
+      "samples/ai_semantic_eval/manifest.json": "d2cf3e6c979a5e786ab0684d741d854cd6609ab6d8b000401ddb1cc2ae0e22fc"
+    }
+  },
+  "notProvenByThisFreeze": [
+    "real iPhone / Stray capture compatibility",
+    "measurement accuracy or tape benchmark",
+    "generalization beyond the two public scenes and tiny synthetic fixtures",
+    "calibrated AI performance",
+    "that spatial grounding makes the VLM intrinsically better at classification",
+    "Track B damage intelligence or Track C restoration scope"
+  ],
+  "allChecksPassed": true
+}

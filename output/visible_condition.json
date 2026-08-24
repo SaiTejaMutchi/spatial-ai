@@ -1,0 +1,125 @@
+{
+  "label": "DEVELOPMENT CONDITION FIXTURE",
+  "isRealDamageEvidence": false,
+  "valueClaim": "plain image VLM: possible staining here. spatial pipeline: possible staining on a named surface + evidence IDs + registered image polygon + camera pose + surface geometry -> affected area calculated deterministically by geometry -> auditable human-review record. The VLM itself did not measure the affected area.",
+  "modelResponse": {
+    "status": "supported",
+    "conditionClass": "staining",
+    "surfaceId": "wall-002",
+    "evidenceFrameIds": [
+      "frame-000064"
+    ],
+    "reason": "Visible brown discoloration and drip marks on the wall surface consistent with staining.",
+    "model": "qwen/qwen3.6-27b",
+    "provider": "groq",
+    "usage": {
+      "inputTokens": 2393,
+      "outputTokens": 138
+    },
+    "region": {
+      "x0": 0.0,
+      "y0": 0.0,
+      "x1": 1.0,
+      "y1": 1.0
+    }
+  },
+  "proposal": {
+    "conditionId": "condition-model-001",
+    "label": "DEVELOPMENT CONDITION FIXTURE",
+    "isRealDamageEvidence": false,
+    "surfaceId": "wall-002",
+    "status": "proposed_experimental",
+    "conditionClass": "staining",
+    "evidenceFrameIds": [
+      "frame-000064"
+    ],
+    "affectedRegion": {
+      "method": "model_proposed_visual_region",
+      "normalizedImageRegion": {
+        "x0": 0.2,
+        "y0": 0.2,
+        "x1": 0.8,
+        "y1": 0.8
+      },
+      "modelProposedRegion": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.0,
+        "y1": 1.0
+      },
+      "geometryInset": 0.2,
+      "producer": "ai_visible_condition"
+    },
+    "registration": {
+      "status": "registered",
+      "method": "pinhole_ray_cast_to_fitted_surface_plane_v0.1",
+      "surfaceId": "wall-002",
+      "worldCorners_m": [
+        [
+          4.827253,
+          -0.128539,
+          0.61499
+        ],
+        [
+          1.492423,
+          0.565073,
+          0.996906
+        ],
+        [
+          1.276163,
+          -0.11545,
+          1.021673
+        ],
+        [
+          5.216553,
+          -3.183737,
+          0.570406
+        ]
+      ],
+      "affectedArea_m2": 6.675155,
+      "verticalExtent_m": 3.74881,
+      "producer": "geometry_pipeline"
+    },
+    "reviewStatus": "human_review_required",
+    "provenance": {
+      "aiProducer": "qwen/qwen3.6-27b",
+      "provider": "groq",
+      "promptVersion": "visible_condition_v0.1",
+      "promptSha256": "3e29bf32a003113c1315b2b6de704dd19feec16eb7378b4800da259fc3d6c25a",
+      "quantityProducer": "geometry_pipeline",
+      "aiProducerNote": "The VLM proposed a visible condition and an image region. It did not measure area. Geometry registered the region."
+    },
+    "quantity": {
+      "affectedArea_m2": 6.675155,
+      "verticalExtent_m": 3.74881,
+      "producer": "geometry_pipeline",
+      "method": "pinhole_ray_cast_to_fitted_surface_plane_v0.1",
+      "note": "Measured by casting the model-proposed region onto the fitted surface plane through the real camera pose and intrinsics. The VLM did not produce this quantity."
+    }
+  },
+  "diagnostics": {
+    "promptVersion": "visible_condition_v0.1",
+    "promptSha256": "3e29bf32a003113c1315b2b6de704dd19feec16eb7378b4800da259fc3d6c25a",
+    "schemaSha256": "af709cf3145f35fa2d5a832a86496c20ee92873b8252db4a09b273cda8c4e7ca",
+    "aiModelConfigHash": "785c80cdb2e956f45b0fe6bdc09d8819a472a74fc2419a6907926836fde81c88",
+    "generatedAt": "2026-08-23T14:10:35+00:00",
+    "label": "DEVELOPMENT CONDITION FIXTURE",
+    "isRealDamageEvidence": false,
+    "geometryDigestBefore": "04950f9ae9d2e4080360b5c243f74c9bd0b3dcca36824125d2058214207ce913",
+    "validationResult": "accepted",
+    "chain": "completed",
+    "geometryInset": 0.2,
+    "geometryDigestAfter": "04950f9ae9d2e4080360b5c243f74c9bd0b3dcca36824125d2058214207ce913",
+    "geometryMutationCount": 0
+  },
+  "liveModelCall": {
+    "provider": "groq",
+    "model": "qwen/qwen3.6-27b",
+    "usage": {
+      "inputTokens": 2393,
+      "outputTokens": 138
+    },
+    "generatedAt": "2026-08-23T14:08:25+00:00",
+    "note": "Region is the live model output. Geometry inset/registration was replayed locally without a second provider call."
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "scanId": "public-stray-8653a2142b",
+  "status": "complete",
+  "label": "Public Stray sample 8653a2142b",
+  "classification": "public_sample",
+  "sourcePath": "samples/stray/raw/8653a2142b",
+  "sourceType": "stray_scanner",
+  "connector": "StrayScannerConnector",
+  "stages": [
+    {
+      "name": "upload_received",
+      "state": "complete",
+      "detail": "copied 829 files onto this machine as 8653a2142b",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:27+00:00"
+    },
+    {
+      "name": "source_detected",
+      "state": "complete",
+      "detail": "recognised as stray_scanner",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:27+00:00"
+    },
+    {
+      "name": "connector_validation",
+      "state": "complete",
+      "detail": "69 frames retained, 0 excluded",
+      "startedAt": "2026-08-23T19:30:27+00:00",
+      "finishedAt": "2026-08-23T19:30:49+00:00"
+    },
+    {
+      "name": "frame_alignment",
+      "state": "complete",
+      "detail": "matched by timestamp within 50 ms",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:49+00:00"
+    },
+    {
+      "name": "normalized_capture",
+      "state": "complete",
+      "detail": "NORMALIZED_CAPTURE_VALID",
+      "startedAt": "2026-08-23T19:30:49+00:00",
+      "finishedAt": "2026-08-23T19:30:50+00:00"
+    },
+    {
+      "name": "geometry",
+      "state": "complete",
+      "detail": "11 wall candidates, floor=yes, ceiling=yes",
+      "startedAt": "2026-08-23T19:30:50+00:00",
+      "finishedAt": "2026-08-23T19:30:55+00:00"
+    },
+    {
+      "name": "canonical_model",
+      "state": "complete",
+      "detail": "9 surfaces, 11 measurements",
+      "startedAt": "2026-08-23T19:30:55+00:00",
+      "finishedAt": "2026-08-23T19:30:55+00:00"
+    },
+    {
+      "name": "floorplan",
+      "state": "complete",
+      "detail": "generated from spatial_model.json",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:55+00:00"
+    },
+    {
+      "name": "model_3d",
+      "state": "complete",
+      "detail": "9 named surfaces",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:55+00:00"
+    },
+    {
+      "name": "benchmark",
+      "state": "not_applicable",
+      "detail": "Not published in the public catalog.",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:55+00:00"
+    },
+    {
+      "name": "ai_review",
+      "state": "complete",
+      "detail": "9 findings",
+      "startedAt": "2026-08-23T19:30:55+00:00",
+      "finishedAt": "2026-08-23T19:30:58+00:00"
+    },
+    {
+      "name": "loss_preview",
+      "state": "complete",
+      "detail": "Not published in the public catalog.",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:58+00:00"
+    },
+    {
+      "name": "complete",
+      "state": "complete",
+      "detail": "all stages finished",
+      "startedAt": null,
+      "finishedAt": "2026-08-23T19:30:58+00:00"
+    }
+  ],
+  "currentStage": "complete",
+  "failureClass": null,
+  "error": null,
+  "createdAt": "2026-08-23T19:30:27+00:00",
+  "updatedAt": "2026-08-23T19:30:58+00:00",
+  "summary": {
+    "modelSha256": "73cfca3da104b9079e0b40c14c8cbdeb928c7ffa577c30e12f8f0664fc350350",
+    "surfaceCount": 9,
+    "evidenceViews": 3,
+    "roomLength_m": 5.90773,
+    "roomWidth_m": 4.192505,
+    "roomHeight_m": 2.671629,
+    "floorArea_m2": 21.392849,
+    "observedPerimeterFraction": 0.7122,
+    "aiStatus": "completed",
+    "lossPreviewStatus": "development_fixture_unresolved",
+    "normalizedFrameCount": 69,
+    "accuracyClaim": "none",
+    "accuracyReason": "No independent tape or laser ground truth is available for this public Stray sample.",
+    "aiFindingCount": 0
+  },
+  "publishedExample": true
+}

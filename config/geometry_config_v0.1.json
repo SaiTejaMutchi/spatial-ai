@@ -1,0 +1,351 @@
+{
+  "configId": "geometry_config_v0.1",
+  "schemaVersion": "0.1",
+  "calibrated": false,
+  "frozen": true,
+  "frozenAt": "2026-08-23T07:00:12+00:00",
+  "tuningPolicy": {
+    "primaryTuningScene": "47333462",
+    "secondaryValidationScene": "41418135",
+    "sweepsPerformed": [
+      {
+        "date": "2026-08-23",
+        "type": "bounded_estimator_investigation",
+        "wasAParameterSweep": false,
+        "trigger": "The public development reference reported a -2.61 cm room-height miss against a 1.5 cm assignment gate, which is the objective criterion the geometry tuning stop rule names.",
+        "whatWasDone": "Reference correspondence was tested first and could not be established, so the FARO value was ruled out as a tuning target. Four reference-independent estimators were then compared against each other on fit diagnostics.",
+        "outcome": "All estimators agreed within 4 mm. Furniture was shown not to have biased support selection on either scene. Three changes were adopted on diagnostic merit (structural plan-coverage selection, robust trimmed refit, plane-offset separation) and one rejected (shared parallel normal). Room height moved 1.5 mm.",
+        "tunedTowardReference": false,
+        "record": "docs/height_estimator_investigation.md"
+      }
+    ],
+    "rule": "Start from the documented values below. Run at most one predetermined small sweep, on PRIMARY_TUNING only, and only when an objective public-reference or fit-diagnostic criterion fails. Never sweep to improve appearance. SECONDARY_VALIDATION runs unchanged.",
+    "sceneSpecificConstantsForbidden": true
+  },
+  "notes": [
+    "Every value below is a documented default, a published sensor characteristic, or a stated engineering constraint. None was chosen because it improved a scene.",
+    "No value in this file may be derived from tape measurements or from the secondary validation scene."
+  ],
+  "parameters": {
+    "depth_min_m": {
+      "value": 0.3,
+      "units": "m",
+      "rationale": "Excludes near-field returns from the operator's own hand or body, which are not room structure. Well below the closest observed valid depth on either fixture (0.40 m), so it discards no room evidence.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "depth_max_m": {
+      "value": 5.0,
+      "units": "m",
+      "rationale": "Apple documents the iPhone LiDAR Scanner's effective range at approximately five metres; returns beyond it are progressively less reliable. Depth past this bound is dropped rather than trusted, and the discarded fraction is reported as a diagnostic.",
+      "sourceCategory": "sensor_characteristic",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_confidence_level": {
+      "value": 2,
+      "units": "ARKit ARConfidenceLevel ordinal",
+      "rationale": "ARKit publishes per-pixel depth confidence as low(0)/medium(1)/high(2). Metric structural geometry uses high-confidence depth only. This is stricter than StrayVisualizer's default of 1 and is the conservative choice; the retained fraction is reported so the cost is visible.",
+      "sourceCategory": "published_default",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "voxel_size_m": {
+      "value": 0.01,
+      "units": "m",
+      "rationale": "Downsampling bound for plane fitting. Set an order of magnitude below the assignment's tightest Track A gate (1.5 cm ceiling height) so voxelization cannot dominate the error budget, while still bounding memory and runtime.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "gravity_agreement_tolerance_deg": {
+      "value": 10.0,
+      "units": "degrees",
+      "rationale": "Maximum angle permitted between a source's declared gravity axis and the axis independently estimated from camera poses. Wide enough to absorb handheld pose noise (observed 0.8 deg and 3.5 deg on the two fixtures), tight enough to catch a wrong or swapped axis convention.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_poses_for_gravity_estimate": {
+      "value": 20,
+      "units": "count",
+      "rationale": "Below this many poses the pose-derived gravity estimate is not trustworthy, so the declared source axis is used and the absence of an independent cross-check is recorded rather than hidden.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "plane_inlier_distance_m": {
+      "value": 0.03,
+      "units": "m",
+      "rationale": "Perpendicular distance within which a point counts as supporting a plane. Set to roughly the depth noise a handheld LiDAR phone shows on a flat indoor surface at room range, so genuine surface points are captured without absorbing furniture standing against a wall. The realised RMS residual is reported per plane so this bound can be audited rather than trusted.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "horizontal_normal_max_deviation_deg": {
+      "value": 15.0,
+      "units": "degrees",
+      "rationale": "Maximum tilt from the canonical up axis for a plane to be classified horizontal (floor or ceiling). Generous enough to tolerate residual gravity-alignment error, which the frame cross-check bounds at well under 5 degrees, while excluding genuinely sloped surfaces.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "vertical_normal_max_deviation_deg": {
+      "value": 15.0,
+      "units": "degrees",
+      "rationale": "Maximum deviation from vertical for a plane to be classified as a wall. Mirrors the horizontal tolerance so the two classes are symmetric and no plane can satisfy both.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "height_histogram_bin_m": {
+      "value": 0.01,
+      "units": "m",
+      "rationale": "Bin width for the height histogram that locates floor and ceiling. Matches the point-cloud voxel size, so the histogram resolves structure exactly as finely as the cloud supports and no finer.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_horizontal_support_fraction": {
+      "value": 0.005,
+      "units": "fraction of points",
+      "rationale": "A height slab must hold at least this share of all points to be considered a floor or ceiling candidate. Deliberately low: it rejects noise while still accepting a floor largely hidden by furniture. Observed densest slabs on the fixtures are several times this value.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_room_height_m": {
+      "value": 1.8,
+      "units": "m",
+      "rationale": "Floor-to-ceiling separations below this are implausible for a habitable room and are rejected rather than reported. Chosen from ordinary residential construction, not from either fixture.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "max_room_height_m": {
+      "value": 4.5,
+      "units": "m",
+      "rationale": "Upper plausibility bound on floor-to-ceiling separation, guarding against a ceiling candidate landing on a stairwell void or an outdoor return.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "floor_ceiling_exclusion_margin_m": {
+      "value": 0.15,
+      "units": "m",
+      "rationale": "Points within this distance of the fitted floor or ceiling are withheld from wall detection, so a floor's own returns cannot vote for a spurious wall. Comfortably larger than the plane inlier distance and smaller than a skirting-to-worktop gap.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "wall_vote_voxel_size_m": {
+      "value": 0.05,
+      "units": "m",
+      "rationale": "Coarser voxel used only for the wall-direction vote. Voting needs the shape of the room, not its fine detail; the walls that the vote proposes are refitted against the full-resolution cloud.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "wall_angle_step_deg": {
+      "value": 1.0,
+      "units": "degrees",
+      "rationale": "Angular resolution of the wall-orientation search over the half circle. One degree corresponds to about 5 cm of drift across a 3 m wall, below the plane inlier distance, so a finer sweep could not change which points are inliers.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "wall_offset_bin_m": {
+      "value": 0.02,
+      "units": "m",
+      "rationale": "Bin width for wall offset within each orientation. Smaller than the plane inlier distance so two distinct parallel walls cannot share a bin.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_wall_height_m": {
+      "value": 1.0,
+      "units": "m",
+      "rationale": "A wall candidate must show at least this much vertical extent among its supporting points. Discriminates architecture from low furniture without demanding full floor-to-ceiling visibility, which furniture and occlusion routinely deny.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_wall_length_m": {
+      "value": 0.8,
+      "units": "m",
+      "rationale": "Minimum horizontal run for a wall candidate. Below this a fragment cannot usefully bound a room and is more likely a cabinet face or door leaf.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_wall_coverage_fraction": {
+      "value": 0.25,
+      "units": "fraction",
+      "rationale": "Minimum occupied fraction of a wall candidate's own bounding rectangle, measured on an occupancy grid. Rejects candidates that are a scatter of unrelated points lying near one geometric plane by coincidence.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "wall_merge_angle_deg": {
+      "value": 5.0,
+      "units": "degrees",
+      "rationale": "Two wall candidates whose normals differ by less than this and which are also within the merge distance describe one surface and are merged. Set below the smallest architecturally meaningful corner while absorbing fit noise.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "wall_merge_distance_m": {
+      "value": 0.1,
+      "units": "m",
+      "rationale": "Offset tolerance for merging near-parallel wall candidates. Approximately the thickness of an interior partition, so two genuinely different walls are not merged into one.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "plane_coverage_cell_m": {
+      "value": 0.1,
+      "units": "m",
+      "rationale": "Cell size of the occupancy grid used to measure how much of a plane is actually observed rather than merely bounded. Coarse enough that ordinary depth dropout does not read as absence.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_floor_interior_fraction": {
+      "value": 0.95,
+      "units": "fraction",
+      "rationale": "A wall candidate joins the room envelope only if at least this share of the fitted floor's points lie on its interior side. A boundary wall has essentially the whole floor inside it; a wardrobe front or partition standing within the room cuts a visible part of the floor away. This separates the two on evidence rather than on appearance.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "envelope_boundary_tolerance_m": {
+      "value": 0.05,
+      "units": "m",
+      "rationale": "Slack allowed when testing whether floor points fall on a wall's interior side, absorbing depth noise and the floor's own fit residual so a genuine boundary wall is not disqualified by a few scattered returns just outside it.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "envelope_min_edge_length_m": {
+      "value": 0.1,
+      "units": "m",
+      "rationale": "Polygon edges shorter than this are degenerate artefacts of intersecting near-parallel half-planes and are dropped rather than reported as wall segments.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "envelope_parallel_merge_angle_deg": {
+      "value": 10.0,
+      "units": "degrees",
+      "rationale": "Wall candidates whose inward normals point within this angle of one another describe the same side of the room. One representative is kept, chosen by evidence strength rather than by which plane sits furthest in.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_grid_cell_m": {
+      "value": 0.05,
+      "units": "m",
+      "rationale": "Cell size of the occupancy grid laid over a wall when searching for gaps. Fine enough to resolve a door jamb, coarse enough that ordinary depth dropout does not read as a hole.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_min_width_m": {
+      "value": 0.4,
+      "units": "m",
+      "rationale": "Narrowest gap considered a possible opening. Below this no door or usable window exists, so a narrower gap is depth dropout or occlusion rather than architecture.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_min_height_m": {
+      "value": 0.4,
+      "units": "m",
+      "rationale": "Shortest gap considered a possible opening, matching the width bound for the same reason.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_max_width_m": {
+      "value": 3.0,
+      "units": "m",
+      "rationale": "Widest gap still treated as a single opening. Anything wider is more plausibly an unobserved span of wall or a missing wall than one door or window.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_max_interior_occupancy": {
+      "value": 0.1,
+      "units": "fraction",
+      "rationale": "A candidate gap must be almost empty of wall returns. Above this share of occupied cells the region is a poorly observed piece of wall, not a hole through it.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_border_support_fraction": {
+      "value": 0.5,
+      "units": "fraction",
+      "rationale": "Share of the wall cells immediately to the left, to the right, and above a candidate gap that must carry support. The plan requires wall evidence around an opening. The strip below is deliberately excluded: beneath a doorway there is floor rather than wall, so counting it would penalise every door. A gap without supported wall on its sides and top is the edge of the observed region, not a hole through the wall.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "opening_seethrough_margin_m": {
+      "value": 0.1,
+      "units": "m",
+      "rationale": "Depth beyond a wall plane past which a return counts as seen through the wall rather than on it. Used only as a diagnostic that distinguishes a genuine hole from an occluded patch; it never by itself resolves an opening.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "min_structural_plan_coverage": {
+      "value": 0.3,
+      "units": "fraction of the room's plan footprint",
+      "rationale": "A floor or ceiling candidate must occupy at least this share of the room's occupied plan cells. Structural surfaces span the room; a bed, table, or shelf spans a fraction of it. Selecting the lowest and highest horizontal peaks alone is vulnerable: a low platform or a suspended fixture would be chosen over the real surface. On the development fixtures the furniture clusters measure 21-27% plan coverage against 63% for the floor and 44% for the ceiling, so the bound separates them with margin while remaining a structural-plausibility rule rather than a fitted value.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "plane_trim_quantile": {
+      "value": 0.9,
+      "units": "fraction",
+      "rationale": "Share of inliers retained at each robust refit of a structural plane. Discarding the worst tenth by residual and refitting removes clutter lying within the inlier band - skirting, cornice, objects against the surface - which otherwise drags the fit. Measured effect on the primary fixture: floor RMS 1.25 -> 0.75 cm, ceiling 1.03 -> 0.52 cm.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "plane_trim_iterations": {
+      "value": 3,
+      "units": "count",
+      "rationale": "Number of trim-and-refit passes. Three is enough for the residual to settle on the development fixtures; more passes would keep eroding genuine surface points.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "evidence_min_surface_visibility": {
+      "value": 0.15,
+      "units": "fraction of a surface's points",
+      "rationale": "A frame earns a surface only when at least this share of that surface's own supporting points project inside the image. Low enough that a wall seen obliquely still counts, high enough that a few stray points clipping the frame edge do not.",
+      "sourceCategory": "engineering_constraint",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "evidence_max_views": {
+      "value": 8,
+      "units": "count",
+      "rationale": "Upper bound on evidence frames, set by the Spatial AI Verifier contract in the plan, which specifies 3-8 RGB evidence frames.",
+      "sourceCategory": "assignment",
+      "tuningSceneIds": [],
+      "calibrated": false
+    },
+    "evidence_min_views": {
+      "value": 3,
+      "units": "count",
+      "rationale": "Lower bound from the same contract. Below three frames the verifier cannot cross-check what it sees.",
+      "sourceCategory": "assignment",
+      "tuningSceneIds": [],
+      "calibrated": false
+    }
+  }
+}

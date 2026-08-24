@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-ai.local/schema/visible_condition_v0.1.json",
+  "title": "Visible Condition Grounding response 0.1",
+  "description": "AI may propose a visible condition and an image region. additionalProperties is false so a model cannot smuggle a metric quantity.",
+  "type": "object",
+  "required": ["status", "conditionClass", "surfaceId", "evidenceFrameIds", "reason"],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "enum": ["supported", "no_supported_condition", "insufficient_evidence"]
+    },
+    "conditionClass": {
+      "enum": ["staining", "discoloration", "cracking", "scorching",
+               "moisture_like", "other_visible_anomaly", "none"]
+    },
+    "surfaceId": {"type": "string", "minLength": 1},
+    "evidenceFrameIds": {
+      "type": "array", "minItems": 1, "items": {"type": "string"}
+    },
+    "region": {
+      "type": "object",
+      "required": ["x0", "y0", "x1", "y1"],
+      "additionalProperties": false,
+      "properties": {
+        "x0": {"type": "number"},
+        "y0": {"type": "number"},
+        "x1": {"type": "number"},
+        "y1": {"type": "number"}
+      }
+    },
+    "reason": {"type": "string", "minLength": 1, "maxLength": 600},
+    "model": {"type": ["string", "null"]},
+    "provider": {"type": ["string", "null"]},
+    "usage": {"type": ["object", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "supported"}}, "required": ["status"]},
+      "then": {"required": ["region"]}
+    }
+  ]
+}

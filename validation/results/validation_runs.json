@@ -1,0 +1,888 @@
+{
+  "generatedUtc": "2026-08-23T21:43:48+00:00",
+  "runs": [
+    {
+      "validation_id": "V01",
+      "dataset": "Locally authored synthetic room fixtures",
+      "dataset_role": "Exact implementation correctness",
+      "source_modality": "synthetic depth + exact poses",
+      "scene_id": null,
+      "held_out": "n/a (ground truth known before execution)",
+      "reference_source": "exact, authored before the run",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": null,
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [
+        "room_length",
+        "room_width",
+        "room_height",
+        "floor_area",
+        "wall plane positions",
+        "yaw invariance"
+      ],
+      "results": {
+        "pytestSummary": "99 passed in 53.43s",
+        "returnCode": 0
+      },
+      "verdict": "PASS",
+      "known_ambiguity": [],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "Regression only. Exact synthetic ground truth evidences that the implementation recovers what it was given; it evidences nothing about real-world accuracy or generalization.",
+      "date": "2026-08-23T21:42:44+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V02",
+      "dataset": "ARKitScenes",
+      "dataset_role": "Public Apple mobile RGB-D geometry validation",
+      "source_modality": "mobile RGB-D + intrinsics + trajectory",
+      "scene_id": "47333462",
+      "held_out": "no - 47333462 is the primary tuning scene",
+      "reference_source": "ARKitScenes FARO laser_scanner_point_clouds visit 467138",
+      "reference_extraction_version": "reference_extraction_v0.1",
+      "prediction_freeze_artifact": "/private/tmp/claude-501/-Users-saitejamutchi-Desktop-spatial-ai/74e72e0e-319e-4f94-87f4-4c81b7da01af/scratchpad/arkF/geom/spatial_model.json",
+      "reference_loaded_after_prediction_freeze": "yes - the model is written and hashed before the FARO clouds are read",
+      "metrics_evaluated": [
+        "floor_area",
+        "room_height",
+        "room_length",
+        "room_width"
+      ],
+      "results": {
+        "reference-room-height": {
+          "type": "room_height",
+          "model_m": 2.610371,
+          "reference_m": 2.635,
+          "absoluteError_cm": 2.4629,
+          "assignmentGate": "at most 1.5 cm",
+          "result": "fail"
+        },
+        "reference-room-length": {
+          "type": "room_length",
+          "model_m": 5.47558,
+          "reference_m": null,
+          "absoluteError_cm": null,
+          "assignmentGate": "at most 1% or 2 cm, whichever is larger",
+          "result": "not_comparable"
+        },
+        "reference-room-width": {
+          "type": "room_width",
+          "model_m": 3.178463,
+          "reference_m": null,
+          "absoluteError_cm": null,
+          "assignmentGate": "at most 1% or 2 cm, whichever is larger",
+          "result": "not_comparable"
+        },
+        "reference-floor-area": {
+          "type": "floor_area",
+          "model_m": 16.001907,
+          "reference_m": null,
+          "absoluteError_cm": null,
+          "assignmentGate": "at most 2% per room",
+          "result": "not_comparable"
+        },
+        "referenceCorrespondence": {
+          "established": false,
+          "plausibleSeparationRange_m": [
+            2.61,
+            2.67
+          ],
+          "plausiblePairingCount": 6
+        },
+        "crossSceneExecution": {
+          "41418135": {
+            "surfaces": 7,
+            "measurements_m": {
+              "wall_length": 1.701758,
+              "room_length": 6.87078,
+              "room_width": 3.659876,
+              "room_height": 2.427252,
+              "floor_area": 20.473185
+            },
+            "referenceAvailable": false,
+            "note": "The frozen configuration executes on a second scene. No laser reference is published locally for it, so this is evidence against overfitting, not evidence of accuracy."
+          }
+        }
+      },
+      "verdict": "PARTIAL",
+      "known_ambiguity": [
+        "Reference correspondence between the ARKit session frame and the FARO visit frame is NOT ESTABLISHED. Only gravity-invariant height is compared.",
+        "47333462 is the primary tuning scene, so this is a development reference and not held-out evidence.",
+        "The reference itself is not a single number. 6 floor and ceiling pairings in the FARO cloud are plausible, separated by 2.610 m to 2.670 m, and the model's 2.610371 m falls inside that range. The recorded error is against one chosen pairing, so it is a bound on disagreement rather than a measured error."
+      ],
+      "files_generated": [
+        "validation/results/v02_arkitscenes/development_reference_benchmark.json",
+        "validation/results/v02_arkitscenes/development_reference_benchmark.md"
+      ],
+      "parameter_changes_after_run": "none",
+      "conclusion": "Development reference only - reference correspondence not established. Height 2.610371 m against 2.635 m reference, error 2.4629 cm against a at most 1.5 cm gate: fail. 3 room-dimension metrics remain NOT COMPARABLE and no room accuracy percentage is derived from unmatched FARO data.",
+      "date": "2026-08-23T21:43:38+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V02B",
+      "dataset": "Apple CA-1M / Cubify Anything (val split, held out)",
+      "dataset_role": "Public mobile RGB-D geometry accuracy in registered laser space",
+      "source_modality": "ARKitScenes mobile RGB-D and odometry; CA-1M laser reference",
+      "scene_id": null,
+      "held_out": "yes - ARKitScenes Validation split; the configuration was frozen against Training scene 47333462",
+      "reference_source": "CA-1M FARO-rendered depth and laser-registered poses",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": "validation/results/ca1m/ca1m_multiscene.json",
+      "reference_loaded_after_prediction_freeze": "yes - each prediction is hashed before any gt/ asset is opened, and a test enforces that ordering",
+      "metrics_evaluated": [
+        "room_height",
+        "floor/ceiling/wall surface distance",
+        "coverage",
+        "alignment residual"
+      ],
+      "results": {
+        "capturesEvaluated": 5,
+        "roomHeightAbsoluteError_cm": {
+          "n": 5,
+          "mean": 3.03,
+          "median": 3.254,
+          "p90": 4.539,
+          "worst": 4.741
+        },
+        "roomHeightSignedError_cm": {
+          "n": 5,
+          "mean": -3.03,
+          "median": -3.254,
+          "p90": -1.35,
+          "worst": -0.918,
+          "allSameSign": true,
+          "note": "Sign is kept because a bias and a scatter are different defects. A consistent sign across independent captures points at the estimator, not at noise."
+        },
+        "roomHeightGate": {
+          "gate": "at most 1.5 cm",
+          "passed": 1,
+          "failed": 4,
+          "passRate": 0.2
+        },
+        "surfaceMedianDistance_cm_byType": {
+          "ceiling": {
+            "n": 1,
+            "mean": 0.911,
+            "median": 0.911,
+            "p90": 0.911,
+            "worst": 0.911
+          },
+          "floor": {
+            "n": 1,
+            "mean": 0.964,
+            "median": 0.964,
+            "p90": 0.964,
+            "worst": 0.964
+          },
+          "wall": {
+            "n": 1,
+            "mean": 14.646,
+            "median": 14.646,
+            "p90": 14.646,
+            "worst": 14.646
+          }
+        },
+        "failures": {
+          "surfacesWithoutLaserSupport": 4,
+          "capturesWithoutHeightReference": 0
+        }
+      },
+      "verdict": "PARTIAL",
+      "known_ambiguity": [
+        "CA-1M publishes no mobile camera pose, so the trajectory comes from ARKitScenes Validation for the same capture. CA-1M supplies ground truth only.",
+        "Surface distances need the ARKit-to-laser transform, which holds on only 1 of 5 captures because CA-1M orients frames upright and the camera roll can change mid-capture. They are withheld on the rest rather than reported.",
+        "Room height is measured inside the laser frame and compared with an internal model scalar, so it carries none of that alignment error."
+      ],
+      "files_generated": [
+        "validation/results/ca1m/ca1m_multiscene.json",
+        "validation/manifests/ca1m_heldout_manifest.json"
+      ],
+      "parameter_changes_after_run": "none",
+      "conclusion": "Room height validated on 5 held-out captures against laser-derived reference: median 3.254 cm, worst 4.741 cm, 1 of 5 within the 1.5 cm gate. The signed error is the same sign on every capture (median -3.254 cm), which is a systematic under-measurement rather than scatter, and it agrees in sign with the ARKitScenes FARO result. Surface distances remain NOT COMPARABLE on most captures. No geometry parameter was changed in response to any of it.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V06",
+      "dataset": "Public Stray sample 8653a2142b",
+      "dataset_role": "Real Stray-format interoperability and reconstruction",
+      "source_modality": "Stray Scanner export (depth, confidence, rgb.mp4, odometry)",
+      "scene_id": "8653a2142b",
+      "held_out": "n/a",
+      "reference_source": "none found / none attached",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": "/private/tmp/claude-501/-Users-saitejamutchi-Desktop-spatial-ai/74e72e0e-319e-4f94-87f4-4c81b7da01af/scratchpad/final_stray/geom/spatial_model.json",
+      "reference_loaded_after_prediction_freeze": "n/a - no reference exists",
+      "metrics_evaluated": [
+        "reconstruction completeness",
+        "frame resolution outcome"
+      ],
+      "results": {
+        "surfaces": 9,
+        "surfacesByType": {
+          "wall": 7,
+          "floor": 1,
+          "ceiling": 1
+        },
+        "inferredSurfaces": 2,
+        "measurements_m": {
+          "wall_length": 3.655874,
+          "room_length": 5.90773,
+          "room_width": 4.192505,
+          "room_height": 2.671629,
+          "floor_area": 21.392849
+        },
+        "frameResolution": {
+          "outcome": "verified",
+          "axis": "+y",
+          "basis": "declared_verified"
+        },
+        "modelSha256": "0eed6d7fc7aac656191e446a841e82559263e48cd8b744f54c0e7b8061f7361c"
+      },
+      "verdict": "PASS",
+      "known_ambiguity": [
+        "No independent measurement exists for this capture, so every dimension above is unvalidated output, not a validated quantity."
+      ],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "PASS for interoperability: a real Stray export parses, normalizes, resolves its vertical axis, and reconstructs a closed room. NOT COMPARABLE for accuracy, because no independent reference is attached. The dimensions recorded here must never be quoted as accuracy evidence.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "A01",
+      "dataset": "Synthetic opening semantic fixture",
+      "dataset_role": "AI classification + grounding",
+      "source_modality": "rendered frames with authored labels",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "samples/ai_semantic_eval/manifest.json labels",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": "output/ai_semantic_benchmark.json",
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [
+        "semantic class accuracy",
+        "surface binding correctness"
+      ],
+      "results": {
+        "model": "qwen/qwen3.6-27b",
+        "provider": "groq",
+        "generatedUtc": "2026-08-23T14:00:45+00:00",
+        "cases": [
+          {
+            "caseId": "case-door-001",
+            "datasetLabel": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION",
+            "candidateId": "candidate-001",
+            "surfaceId": "wall-001",
+            "heldOutLabel": "door",
+            "imageOnly": {
+              "kinds": [
+                "door"
+              ],
+              "error": null,
+              "boundToCandidate": false,
+              "producedMetricEntity": false,
+              "raw": {
+                "visibleOpenings": [
+                  {
+                    "kind": "door",
+                    "description": "A closed brown door with a round doorknob, set in a light-colored wall."
+                  }
+                ],
+                "usage": {
+                  "inputTokens": 1979,
+                  "outputTokens": 46
+                },
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq"
+              }
+            },
+            "spatialGrounded": {
+              "semanticClass": "door",
+              "evidenceStatus": "supported",
+              "reason": "The image crop clearly shows a brown door with a visible handle and frame, confirming the candidate is a door.",
+              "semanticCorrect": true,
+              "boundToCandidate": true,
+              "promoted": true,
+              "unsupportedPromotion": false,
+              "geometryOwnedQuantity": true,
+              "promotedRecord": {
+                "id": "candidate-001",
+                "surfaceId": "wall-001",
+                "type": "door",
+                "observationState": "directly_observed",
+                "dimensions": {
+                  "width_m": 0.9,
+                  "height_m": 2.1,
+                  "sillHeight_m": 0.0
+                },
+                "producer": "geometry_pipeline",
+                "aiSemanticClass": "door",
+                "aiEvidenceStatus": "supported"
+              },
+              "diagnostics": {
+                "promptVersion": "opening_resolver_v0.1",
+                "promptSha256": "e5746b8217c7da2f41a29d58b93e87aa4265feca80b0fc3a3dbb1f96432372ba",
+                "schemaSha256": "85efffdd615ab77c0eb9f0876b3b24b7fb0e8f228c7ea950177e7f00108c67f3",
+                "aiModelConfigHash": "7cc3515e45a7210ac1798101f42d6112e39059373bd044c447f0a9609003411b",
+                "grounding": "nominated_crop_only",
+                "generatedAt": "2026-08-23T13:56:31+00:00",
+                "validationResult": "accepted",
+                "promoted": true
+              },
+              "resolution": {
+                "candidateId": "candidate-001",
+                "surfaceId": "wall-001",
+                "semanticClass": "door",
+                "evidenceStatus": "supported",
+                "evidenceFrameIds": [
+                  "crop"
+                ],
+                "reason": "The image crop clearly shows a brown door with a visible handle and frame, confirming the candidate is a door.",
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq",
+                "usage": {
+                  "inputTokens": 1215,
+                  "outputTokens": 99
+                }
+              }
+            }
+          },
+          {
+            "caseId": "case-window-001",
+            "datasetLabel": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION",
+            "candidateId": "candidate-002",
+            "surfaceId": "wall-002",
+            "heldOutLabel": "window",
+            "imageOnly": {
+              "kinds": [
+                "window",
+                "window"
+              ],
+              "error": null,
+              "boundToCandidate": false,
+              "producedMetricEntity": false,
+              "raw": {
+                "visibleOpenings": [
+                  {
+                    "kind": "window",
+                    "description": "A four-pane window with a dark frame, centered in the upper portion of the image."
+                  },
+                  {
+                    "kind": "window",
+                    "description": "A partial view of a similar four-pane window visible in the lower right corner."
+                  }
+                ],
+                "usage": {
+                  "inputTokens": 1979,
+                  "outputTokens": 75
+                },
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq"
+              }
+            },
+            "spatialGrounded": {
+              "semanticClass": "window",
+              "evidenceStatus": "supported",
+              "reason": "The image clearly shows a framed glass structure with muntins (grid pattern), which is visually consistent with a window.",
+              "semanticCorrect": true,
+              "boundToCandidate": true,
+              "promoted": true,
+              "unsupportedPromotion": false,
+              "geometryOwnedQuantity": true,
+              "promotedRecord": {
+                "id": "candidate-002",
+                "surfaceId": "wall-002",
+                "type": "window",
+                "observationState": "directly_observed",
+                "dimensions": {
+                  "width_m": 1.2,
+                  "height_m": 1.4,
+                  "sillHeight_m": 0.9
+                },
+                "producer": "geometry_pipeline",
+                "aiSemanticClass": "window",
+                "aiEvidenceStatus": "supported"
+              },
+              "diagnostics": {
+                "promptVersion": "opening_resolver_v0.1",
+                "promptSha256": "e5746b8217c7da2f41a29d58b93e87aa4265feca80b0fc3a3dbb1f96432372ba",
+                "schemaSha256": "85efffdd615ab77c0eb9f0876b3b24b7fb0e8f228c7ea950177e7f00108c67f3",
+                "aiModelConfigHash": "7cc3515e45a7210ac1798101f42d6112e39059373bd044c447f0a9609003411b",
+                "grounding": "nominated_crop_only",
+                "generatedAt": "2026-08-23T13:57:54+00:00",
+                "validationResult": "accepted",
+                "promoted": true
+              },
+              "resolution": {
+                "candidateId": "candidate-002",
+                "surfaceId": "wall-002",
+                "semanticClass": "window",
+                "evidenceStatus": "supported",
+                "evidenceFrameIds": [
+                  "crop"
+                ],
+                "reason": "The image clearly shows a framed glass structure with muntins (grid pattern), which is visually consistent with a window.",
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq",
+                "usage": {
+                  "inputTokens": 2238,
+                  "outputTokens": 96
+                }
+              }
+            }
+          },
+          {
+            "caseId": "case-occlusion-001",
+            "datasetLabel": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION",
+            "candidateId": "candidate-003",
+            "surfaceId": "wall-003",
+            "heldOutLabel": "occlusion",
+            "imageOnly": {
+              "kinds": [
+                "none"
+              ],
+              "error": null,
+              "boundToCandidate": false,
+              "producedMetricEntity": false,
+              "raw": {
+                "visibleOpenings": [
+                  {
+                    "kind": "none",
+                    "description": "No doors, windows, or openings are visible in the photograph."
+                  }
+                ],
+                "usage": {
+                  "inputTokens": 1979,
+                  "outputTokens": 41
+                },
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq"
+              }
+            },
+            "spatialGrounded": {
+              "semanticClass": "insufficient_evidence",
+              "evidenceStatus": "insufficient_evidence",
+              "reason": "The provided image crop is extremely low resolution and pixelated. It shows a dark rectangular shape against a light background, but the lack of detail prevents the identification of specific features such as door handles, window panes, or frame profiles. The geometry suggests a door or window, but the visual evidence is too ambiguous to confirm the semantic class.",
+              "semanticCorrect": false,
+              "boundToCandidate": true,
+              "promoted": false,
+              "unsupportedPromotion": false,
+              "geometryOwnedQuantity": false,
+              "promotedRecord": null,
+              "diagnostics": {
+                "promptVersion": "opening_resolver_v0.1",
+                "promptSha256": "e5746b8217c7da2f41a29d58b93e87aa4265feca80b0fc3a3dbb1f96432372ba",
+                "schemaSha256": "85efffdd615ab77c0eb9f0876b3b24b7fb0e8f228c7ea950177e7f00108c67f3",
+                "aiModelConfigHash": "7cc3515e45a7210ac1798101f42d6112e39059373bd044c447f0a9609003411b",
+                "grounding": "nominated_crop_only",
+                "generatedAt": "2026-08-23T13:59:21+00:00",
+                "validationResult": "accepted",
+                "promoted": false,
+                "abstention": true
+              },
+              "resolution": {
+                "candidateId": "candidate-003",
+                "surfaceId": "wall-003",
+                "semanticClass": "insufficient_evidence",
+                "evidenceStatus": "insufficient_evidence",
+                "evidenceFrameIds": [
+                  "crop"
+                ],
+                "reason": "The provided image crop is extremely low resolution and pixelated. It shows a dark rectangular shape against a light background, but the lack of detail prevents the identification of specific features such as door handles, window panes, or frame profiles. The geometry suggests a door or window, but the visual evidence is too ambiguous to confirm the semantic class.",
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq",
+                "usage": {
+                  "inputTokens": 1727,
+                  "outputTokens": 146
+                }
+              }
+            }
+          },
+          {
+            "caseId": "case-empty-001",
+            "datasetLabel": "SYNTHETIC_RENDER_SEMANTIC_EVALUATION",
+            "candidateId": "candidate-004",
+            "surfaceId": "wall-004",
+            "heldOutLabel": "scan_gap",
+            "imageOnly": {
+              "kinds": [
+                "uncertain"
+              ],
+              "error": null,
+              "boundToCandidate": false,
+              "producedMetricEntity": false,
+              "raw": {
+                "visibleOpenings": [
+                  {
+                    "kind": "uncertain",
+                    "description": "A faint, rectangular outline is visible on the wall, but it is too indistinct to determine if it is a door, window, or decorative molding."
+                  }
+                ],
+                "usage": {
+                  "inputTokens": 1979,
+                  "outputTokens": 61
+                },
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq"
+              }
+            },
+            "spatialGrounded": {
+              "semanticClass": "door",
+              "evidenceStatus": "supported",
+              "reason": "The crop clearly displays the vertical stile and horizontal rail of a door frame, confirming the presence of a door within the nominated region.",
+              "semanticCorrect": false,
+              "boundToCandidate": true,
+              "promoted": true,
+              "unsupportedPromotion": true,
+              "geometryOwnedQuantity": true,
+              "promotedRecord": {
+                "id": "candidate-004",
+                "surfaceId": "wall-004",
+                "type": "door",
+                "observationState": "directly_observed",
+                "dimensions": {
+                  "width_m": 0.8,
+                  "height_m": 1.5,
+                  "sillHeight_m": 0.5
+                },
+                "producer": "geometry_pipeline",
+                "aiSemanticClass": "door",
+                "aiEvidenceStatus": "supported"
+              },
+              "diagnostics": {
+                "promptVersion": "opening_resolver_v0.1",
+                "promptSha256": "e5746b8217c7da2f41a29d58b93e87aa4265feca80b0fc3a3dbb1f96432372ba",
+                "schemaSha256": "85efffdd615ab77c0eb9f0876b3b24b7fb0e8f228c7ea950177e7f00108c67f3",
+                "aiModelConfigHash": "7cc3515e45a7210ac1798101f42d6112e39059373bd044c447f0a9609003411b",
+                "grounding": "nominated_crop_only",
+                "generatedAt": "2026-08-23T14:00:14+00:00",
+                "validationResult": "accepted",
+                "promoted": true
+              },
+              "resolution": {
+                "candidateId": "candidate-004",
+                "surfaceId": "wall-004",
+                "semanticClass": "door",
+                "evidenceStatus": "supported",
+                "evidenceFrameIds": [
+                  "crop"
+                ],
+                "reason": "The crop clearly displays the vertical stile and horizontal rail of a door frame, confirming the presence of a door within the nominated region.",
+                "model": "qwen/qwen3.6-27b",
+                "provider": "groq",
+                "usage": {
+                  "inputTokens": 2238,
+                  "outputTokens": 98
+                }
+              }
+            }
+          }
+        ],
+        "summary": {
+          "cases": 4,
+          "spatialSemanticAccuracy": 0.5,
+          "spatialCandidateBindingRate": 1.0,
+          "geometryOwnedQuantityRate": 0.75,
+          "unsupportedPromotionCount": 1,
+          "insufficientEvidenceCount": 1,
+          "imageOnlyMetricEntityCount": 0
+        }
+      },
+      "verdict": "PARTIAL",
+      "known_ambiguity": [
+        "The fixture is rendered, not photographed, so this scores the model on synthetic imagery only.",
+        "Success is not defined as Spatial-Grounded achieving higher raw classification accuracy. Higher raw accuracy is neither assumed nor required."
+      ],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "Image-only AI may recognize the same visual object or condition. Spatial grounding does not claim to make the VLM intrinsically smarter. Its value is that the interpretation is bound to a stable physical entity and can be deterministically registered, measured, traced, and audited.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "A03",
+      "dataset": "Development condition fixture",
+      "dataset_role": "AI to spatial registration",
+      "source_modality": "development fixture with an overlaid synthetic stain",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "samples/ai_condition_eval/labels.json",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": "output/visible_condition.json",
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [
+        "condition class",
+        "bound surface id",
+        "registration state"
+      ],
+      "results": {
+        "expectedSurfaceId": null,
+        "boundSurfaceId": "wall-002",
+        "bindingCorrect": null,
+        "registrationStatus": "registered",
+        "quantityProducer": "geometry_pipeline",
+        "isRealDamageEvidence": false
+      },
+      "verdict": "PARTIAL",
+      "known_ambiguity": [
+        "The stain is overlaid, not real damage, so this evaluates grounding mechanics and not condition-detection accuracy."
+      ],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "Grounding mechanics only: the check is that an AI region binds to the correct surface and that any physical quantity stays geometry-produced. It is not evidence that the model detects real damage.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "A02",
+      "dataset": "ARKitScenes live AI review",
+      "dataset_role": "Real-image AI execution",
+      "source_modality": "real RGB frames",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "none - the frames carry no semantic labels",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": null,
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [],
+      "results": {},
+      "verdict": "NOT COMPARABLE",
+      "known_ambiguity": [],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "The model runs on real frames and produces findings, but no labels exist for them, so nothing is scored. Execution is not accuracy.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V03",
+      "dataset": "Redwood Indoor LiDAR-RGBD",
+      "dataset_role": "see ledger section 3",
+      "source_modality": "not available",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "High-end laser reference",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": null,
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [],
+      "results": {},
+      "verdict": "BLOCKED",
+      "known_ambiguity": [],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "The dataset is not present on this machine.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V04",
+      "dataset": "TUM RGB-D",
+      "dataset_role": "see ledger section 3",
+      "source_modality": "not available",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "Trajectory ground truth",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": null,
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [],
+      "results": {},
+      "verdict": "BLOCKED",
+      "known_ambiguity": [],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "The dataset is not present on this machine. This is the validation that would test pose and transform handling directly, which is where the repaired frame defect lived.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V05",
+      "dataset": "ScanNet",
+      "dataset_role": "see ledger section 3",
+      "source_modality": "not available",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "Reconstruction reference",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": null,
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [],
+      "results": {},
+      "verdict": "BLOCKED",
+      "known_ambiguity": [],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "Optional, and the ledger says not to spend final-submission time here before V07 exists.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    },
+    {
+      "validation_id": "V07",
+      "dataset": "Final self-captured iPhone Stray + tape",
+      "dataset_role": "see ledger section 3",
+      "source_modality": "not available",
+      "scene_id": null,
+      "held_out": "no",
+      "reference_source": "Independent tape measurements",
+      "reference_extraction_version": null,
+      "prediction_freeze_artifact": null,
+      "reference_loaded_after_prediction_freeze": "n/a",
+      "metrics_evaluated": [],
+      "results": {},
+      "verdict": "BLOCKED",
+      "known_ambiguity": [],
+      "files_generated": [],
+      "parameter_changes_after_run": "none",
+      "conclusion": "No self-captured iPhone export and no tape measurements exist yet. This is the only end-to-end Track A accuracy benchmark, and it is P0.",
+      "date": "2026-08-23T21:43:48+00:00",
+      "pipeline": {
+        "git": {
+          "commit": null,
+          "dirty": true,
+          "note": "This repository is not committed; hashes below identify the configuration and modules instead."
+        },
+        "frozen": {
+          "state": "PARAMETERS_FROZEN",
+          "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+          "allChecksPassed": true,
+          "frozenAt": "2026-08-23T07:00:12+00:00"
+        },
+        "python": "3.12.2"
+      }
+    }
+  ]
+}

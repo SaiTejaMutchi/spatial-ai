@@ -1,0 +1,591 @@
+{
+  "generatedUtc": "2026-08-23T21:41:22+00:00",
+  "manifestId": "ca1m_heldout_v0.1",
+  "manifestFrozenUtc": "2026-08-23T21:06:25+00:00",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "heldOut": true,
+  "claimBoundary": "Geometry was evaluated on held-out real Apple mobile RGB-D captures against independently laser-scanner-derived ground truth in registered laser space. This is not a Stray production-path claim, and it validates no opening or tape-measure gate.",
+  "aggregate": {
+    "capturesEvaluated": 5,
+    "roomHeightAbsoluteError_cm": {
+      "n": 5,
+      "mean": 3.03,
+      "median": 3.254,
+      "p90": 4.539,
+      "worst": 4.741
+    },
+    "roomHeightSignedError_cm": {
+      "n": 5,
+      "mean": -3.03,
+      "median": -3.254,
+      "p90": -1.35,
+      "worst": -0.918,
+      "allSameSign": true,
+      "note": "Sign is kept because a bias and a scatter are different defects. A consistent sign across independent captures points at the estimator, not at noise."
+    },
+    "roomHeightGate": {
+      "gate": "at most 1.5 cm",
+      "passed": 1,
+      "failed": 4,
+      "passRate": 0.2
+    },
+    "surfaceMedianDistance_cm_byType": {
+      "ceiling": {
+        "n": 1,
+        "mean": 0.911,
+        "median": 0.911,
+        "p90": 0.911,
+        "worst": 0.911
+      },
+      "floor": {
+        "n": 1,
+        "mean": 0.964,
+        "median": 0.964,
+        "p90": 0.964,
+        "worst": 0.964
+      },
+      "wall": {
+        "n": 1,
+        "mean": 14.646,
+        "median": 14.646,
+        "p90": 14.646,
+        "worst": 14.646
+      }
+    },
+    "failures": {
+      "surfacesWithoutLaserSupport": 4,
+      "capturesWithoutHeightReference": 0
+    },
+    "coverage": {
+      "meanUnregisteredGtFraction": 0.1091
+    },
+    "alignment": {
+      "rotationResidualP90_deg": {
+        "n": 5,
+        "mean": 3.607,
+        "median": 3.839,
+        "p90": 4.793,
+        "worst": 4.99
+      },
+      "note": "The mobile trajectory is ARKit odometry and the reference poses are registered per frame, so this residual is the capture's own drift. Errors at or below this scale are not separable from it."
+    }
+  },
+  "captures": [
+    {
+      "captureId": "45662921",
+      "heldOut": true,
+      "predictionSha256": "829df18aaafab303193c6a18e49fbac89d868223dc04f7593d8e1250e8037277",
+      "predictionFreezeRecord": {
+        "captureId": "45662921",
+        "predictionSha256": "829df18aaafab303193c6a18e49fbac89d868223dc04f7593d8e1250e8037277",
+        "predictionFrozenUtc": "2026-08-23T21:34:06+00:00",
+        "note": "Written before any CA-1M gt/ asset was opened."
+      },
+      "groundTruthReadUtc": "2026-08-23T21:41:17+00:00",
+      "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+      "surfaceDistancesComparable": false,
+      "surfaceDistancesNotComparableReason": "the ARKit-to-laser alignment residual is 3.8 deg over 4% of matched frames. A surface distance measured through that transform would describe the alignment, not the geometry.",
+      "roomHeightMethodNote": "Measured in laser space and compared with an internal model scalar, so neither side passes through the ARKit-to-laser alignment.",
+      "alignment": {
+        "solvedFrom": "published ARKit pose and CA-1M laser pose for the same timestamp; never fitted to the prediction",
+        "pairsUsed": 41,
+        "pairsAvailable": 1134,
+        "inlierFraction": 0.0362,
+        "rotationResidualP90_deg": 3.8393,
+        "translationResidualP90_m": 1.2879,
+        "directionCheck": {
+          "cameraFrameDepth_m": 1.691,
+          "cameraFramePoint": [
+            0.5648,
+            -0.0522,
+            1.691
+          ],
+          "laserSpacePoint": [
+            2.872,
+            1.7227,
+            -29.4058
+          ],
+          "canonicalPoint": [
+            -1.0033,
+            -2.4007,
+            -5.9428
+          ],
+          "heightAboveCanonicalFloor_m": -2.4007
+        }
+      },
+      "coverage": {
+        "framesUsed": 60,
+        "pixelStride": 2,
+        "pixelsConsidered": 2949120,
+        "pixelsUnregistered": 391242,
+        "unregisteredFraction": 0.1327,
+        "pointsUsed": 2557878
+      },
+      "storeyHeightFromLaser": {
+        "established": true,
+        "frame": "laser scanner (gravity-aligned, +z up)",
+        "alignmentFree": true,
+        "floorBandCentre_m": -32.0954,
+        "ceilingBandCentre_m": -28.7668,
+        "storeyHeight_m": 3.3287,
+        "floorPlanePoints": 180239,
+        "ceilingPlanePoints": 52151,
+        "floorCeilingTilt_deg": 0.337
+      },
+      "alignmentUncertainty": {
+        "rotationResidualP90_deg": 3.8393,
+        "impliedHorizontalBandSmear_cm": 85.58,
+        "note": "The laser reference is carried into the prediction's frame by a transform solved from pose pairs. Its rotation residual tilts the cloud, which smears the horizontal floor and ceiling bands by roughly the figure above across the room. Errors of that order are not separable from alignment."
+      },
+      "roomHeightError": {
+        "model_m": 3.281294,
+        "laserReference_m": 3.3287,
+        "absoluteError_cm": 4.741,
+        "assignmentGate": "at most 1.5 cm",
+        "signedError_cm": -4.741,
+        "result": "fail"
+      },
+      "surfaceDistances": [],
+      "failures": {
+        "surfacesWithoutLaserSupport": 0,
+        "surfaceIds": []
+      },
+      "measurements_m": {
+        "wall_length": 1.750473,
+        "room_length": 7.741375,
+        "room_width": 3.885483,
+        "room_height": 3.281294,
+        "floor_area": 28.516627
+      }
+    },
+    {
+      "captureId": "47115543",
+      "heldOut": true,
+      "predictionSha256": "c5cf2f1ec3a244b9cab90e6296e7b1d1e0e6180fe5460c253275023e18aa3470",
+      "predictionFreezeRecord": {
+        "captureId": "47115543",
+        "predictionSha256": "c5cf2f1ec3a244b9cab90e6296e7b1d1e0e6180fe5460c253275023e18aa3470",
+        "predictionFrozenUtc": "2026-08-23T21:35:58+00:00",
+        "note": "Written before any CA-1M gt/ asset was opened."
+      },
+      "groundTruthReadUtc": "2026-08-23T21:41:18+00:00",
+      "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+      "surfaceDistancesComparable": false,
+      "surfaceDistancesNotComparableReason": "the ARKit-to-laser alignment residual is 5.0 deg over 3% of matched frames. A surface distance measured through that transform would describe the alignment, not the geometry.",
+      "roomHeightMethodNote": "Measured in laser space and compared with an internal model scalar, so neither side passes through the ARKit-to-laser alignment.",
+      "alignment": {
+        "solvedFrom": "published ARKit pose and CA-1M laser pose for the same timestamp; never fitted to the prediction",
+        "pairsUsed": 18,
+        "pairsAvailable": 696,
+        "inlierFraction": 0.0259,
+        "rotationResidualP90_deg": 4.9898,
+        "translationResidualP90_m": 1.4789,
+        "directionCheck": {
+          "cameraFrameDepth_m": 2.747,
+          "cameraFramePoint": [
+            0.1127,
+            -0.0596,
+            2.747
+          ],
+          "laserSpacePoint": [
+            0.0802,
+            -2.7721,
+            52.327
+          ],
+          "canonicalPoint": [
+            0.2014,
+            -1.3616,
+            0.1913
+          ],
+          "heightAboveCanonicalFloor_m": -1.3616
+        }
+      },
+      "coverage": {
+        "framesUsed": 60,
+        "pixelStride": 2,
+        "pixelsConsidered": 2949120,
+        "pixelsUnregistered": 500210,
+        "unregisteredFraction": 0.1696,
+        "pointsUsed": 2448910
+      },
+      "storeyHeightFromLaser": {
+        "established": true,
+        "frame": "laser scanner (gravity-aligned, +z up)",
+        "alignmentFree": true,
+        "floorBandCentre_m": 50.5443,
+        "ceilingBandCentre_m": 53.6243,
+        "storeyHeight_m": 3.0832,
+        "floorPlanePoints": 137271,
+        "ceilingPlanePoints": 86327,
+        "floorCeilingTilt_deg": 0.195
+      },
+      "alignmentUncertainty": {
+        "rotationResidualP90_deg": 4.9898,
+        "impliedHorizontalBandSmear_cm": 87.77,
+        "note": "The laser reference is carried into the prediction's frame by a transform solved from pose pairs. Its rotation residual tilts the cloud, which smears the horizontal floor and ceiling bands by roughly the figure above across the room. Errors of that order are not separable from alignment."
+      },
+      "roomHeightError": {
+        "model_m": 3.040841,
+        "laserReference_m": 3.0832,
+        "absoluteError_cm": 4.236,
+        "assignmentGate": "at most 1.5 cm",
+        "signedError_cm": -4.236,
+        "result": "fail"
+      },
+      "surfaceDistances": [],
+      "failures": {
+        "surfacesWithoutLaserSupport": 0,
+        "surfaceIds": []
+      },
+      "measurements_m": {
+        "wall_length": 4.039522,
+        "room_length": 4.757275,
+        "room_width": 4.040953,
+        "room_height": 3.040841,
+        "floor_area": 17.195202
+      }
+    },
+    {
+      "captureId": "45261143",
+      "heldOut": true,
+      "predictionSha256": "ce1345e07acf49eb5ef9a9bb72f7b0b661ba2364b2ec8eda04d92760d7152fa4",
+      "predictionFreezeRecord": {
+        "captureId": "45261143",
+        "predictionSha256": "ce1345e07acf49eb5ef9a9bb72f7b0b661ba2364b2ec8eda04d92760d7152fa4",
+        "predictionFrozenUtc": "2026-08-23T21:37:48+00:00",
+        "note": "Written before any CA-1M gt/ asset was opened."
+      },
+      "groundTruthReadUtc": "2026-08-23T21:41:19+00:00",
+      "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+      "surfaceDistancesComparable": false,
+      "surfaceDistancesNotComparableReason": "the ARKit-to-laser alignment residual is 4.5 deg over 2% of matched frames. A surface distance measured through that transform would describe the alignment, not the geometry.",
+      "roomHeightMethodNote": "Measured in laser space and compared with an internal model scalar, so neither side passes through the ARKit-to-laser alignment.",
+      "alignment": {
+        "solvedFrom": "published ARKit pose and CA-1M laser pose for the same timestamp; never fitted to the prediction",
+        "pairsUsed": 16,
+        "pairsAvailable": 660,
+        "inlierFraction": 0.0242,
+        "rotationResidualP90_deg": 4.498,
+        "translationResidualP90_m": 1.3998,
+        "directionCheck": {
+          "cameraFrameDepth_m": 2.225,
+          "cameraFramePoint": [
+            -0.5618,
+            0.0004,
+            2.225
+          ],
+          "laserSpacePoint": [
+            -1.6726,
+            0.3987,
+            65.0504
+          ],
+          "canonicalPoint": [
+            -0.5863,
+            1.6397,
+            -0.351
+          ],
+          "heightAboveCanonicalFloor_m": 1.6397
+        }
+      },
+      "coverage": {
+        "framesUsed": 60,
+        "pixelStride": 2,
+        "pixelsConsidered": 2949120,
+        "pixelsUnregistered": 251250,
+        "unregisteredFraction": 0.0852,
+        "pointsUsed": 2697870
+      },
+      "storeyHeightFromLaser": {
+        "established": true,
+        "frame": "laser scanner (gravity-aligned, +z up)",
+        "alignmentFree": true,
+        "floorBandCentre_m": 64.8697,
+        "ceilingBandCentre_m": 67.7684,
+        "storeyHeight_m": 2.9022,
+        "floorPlanePoints": 147796,
+        "ceilingPlanePoints": 58090,
+        "floorCeilingTilt_deg": 0.217
+      },
+      "alignmentUncertainty": {
+        "rotationResidualP90_deg": 4.498,
+        "impliedHorizontalBandSmear_cm": 34.71,
+        "note": "The laser reference is carried into the prediction's frame by a transform solved from pose pairs. Its rotation residual tilts the cloud, which smears the horizontal floor and ceiling bands by roughly the figure above across the room. Errors of that order are not separable from alignment."
+      },
+      "roomHeightError": {
+        "model_m": 2.882206,
+        "laserReference_m": 2.9022,
+        "absoluteError_cm": 1.999,
+        "assignmentGate": "at most 1.5 cm",
+        "signedError_cm": -1.999,
+        "result": "fail"
+      },
+      "surfaceDistances": [],
+      "failures": {
+        "surfacesWithoutLaserSupport": 0,
+        "surfaceIds": []
+      },
+      "measurements_m": {
+        "wall_length": 4.280623,
+        "room_length": 4.65775,
+        "room_width": 4.262838,
+        "room_height": 2.882206,
+        "floor_area": 17.840566
+      }
+    },
+    {
+      "captureId": "45261615",
+      "heldOut": true,
+      "predictionSha256": "b297e2447c76fbad0987091cceb1c2a8fe358aa9ccaba79e1fdb70c3f3807c14",
+      "predictionFreezeRecord": {
+        "captureId": "45261615",
+        "predictionSha256": "b297e2447c76fbad0987091cceb1c2a8fe358aa9ccaba79e1fdb70c3f3807c14",
+        "predictionFrozenUtc": "2026-08-23T21:39:37+00:00",
+        "note": "Written before any CA-1M gt/ asset was opened."
+      },
+      "groundTruthReadUtc": "2026-08-23T21:41:20+00:00",
+      "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+      "surfaceDistancesComparable": false,
+      "surfaceDistancesNotComparableReason": "the ARKit-to-laser alignment residual is 3.4 deg over 3% of matched frames. A surface distance measured through that transform would describe the alignment, not the geometry.",
+      "roomHeightMethodNote": "Measured in laser space and compared with an internal model scalar, so neither side passes through the ARKit-to-laser alignment.",
+      "alignment": {
+        "solvedFrom": "published ARKit pose and CA-1M laser pose for the same timestamp; never fitted to the prediction",
+        "pairsUsed": 14,
+        "pairsAvailable": 518,
+        "inlierFraction": 0.027,
+        "rotationResidualP90_deg": 3.433,
+        "translationResidualP90_m": 1.2744,
+        "directionCheck": {
+          "cameraFrameDepth_m": 1.95,
+          "cameraFramePoint": [
+            0.357,
+            -0.0,
+            1.95
+          ],
+          "laserSpacePoint": [
+            0.8397,
+            0.7511,
+            210.8429
+          ],
+          "canonicalPoint": [
+            0.2551,
+            0.4124,
+            -4.1338
+          ],
+          "heightAboveCanonicalFloor_m": 0.4124
+        }
+      },
+      "coverage": {
+        "framesUsed": 60,
+        "pixelStride": 2,
+        "pixelsConsidered": 2949120,
+        "pixelsUnregistered": 115063,
+        "unregisteredFraction": 0.039,
+        "pointsUsed": 2834057
+      },
+      "storeyHeightFromLaser": {
+        "established": true,
+        "frame": "laser scanner (gravity-aligned, +z up)",
+        "alignmentFree": true,
+        "floorBandCentre_m": 210.6594,
+        "ceilingBandCentre_m": 213.0476,
+        "storeyHeight_m": 2.3845,
+        "floorPlanePoints": 203149,
+        "ceilingPlanePoints": 90558,
+        "floorCeilingTilt_deg": 0.278
+      },
+      "alignmentUncertainty": {
+        "rotationResidualP90_deg": 3.433,
+        "impliedHorizontalBandSmear_cm": 109.2,
+        "note": "The laser reference is carried into the prediction's frame by a transform solved from pose pairs. Its rotation residual tilts the cloud, which smears the horizontal floor and ceiling bands by roughly the figure above across the room. Errors of that order are not separable from alignment."
+      },
+      "roomHeightError": {
+        "model_m": 2.351957,
+        "laserReference_m": 2.3845,
+        "absoluteError_cm": 3.254,
+        "assignmentGate": "at most 1.5 cm",
+        "signedError_cm": -3.254,
+        "result": "fail"
+      },
+      "surfaceDistances": [],
+      "failures": {
+        "surfacesWithoutLaserSupport": 0,
+        "surfaceIds": []
+      },
+      "measurements_m": {
+        "wall_length": 2.913371,
+        "room_length": 4.456579,
+        "room_width": 3.836757,
+        "room_height": 2.351957,
+        "floor_area": 14.936188
+      }
+    },
+    {
+      "captureId": "42897545",
+      "heldOut": true,
+      "predictionSha256": "7c0fe4f89e0d4013e0641eef6b21cac76a5b011192b8b0da717dc409484928bf",
+      "predictionFreezeRecord": {
+        "captureId": "42897545",
+        "predictionSha256": "7c0fe4f89e0d4013e0641eef6b21cac76a5b011192b8b0da717dc409484928bf",
+        "predictionFrozenUtc": "2026-08-23T21:41:17+00:00",
+        "note": "Written before any CA-1M gt/ asset was opened."
+      },
+      "groundTruthReadUtc": "2026-08-23T21:41:21+00:00",
+      "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+      "surfaceDistancesComparable": true,
+      "surfaceDistancesNotComparableReason": null,
+      "roomHeightMethodNote": "Measured in laser space and compared with an internal model scalar, so neither side passes through the ARKit-to-laser alignment.",
+      "alignment": {
+        "solvedFrom": "published ARKit pose and CA-1M laser pose for the same timestamp; never fitted to the prediction",
+        "pairsUsed": 320,
+        "pairsAvailable": 335,
+        "inlierFraction": 0.9552,
+        "rotationResidualP90_deg": 1.2763,
+        "translationResidualP90_m": 0.0456,
+        "directionCheck": {
+          "cameraFrameDepth_m": 0.84,
+          "cameraFramePoint": [
+            -0.5023,
+            -0.0267,
+            0.84
+          ],
+          "laserSpacePoint": [
+            0.6178,
+            0.2647,
+            275.0142
+          ],
+          "canonicalPoint": [
+            1.5859,
+            -0.9539,
+            0.324
+          ],
+          "heightAboveCanonicalFloor_m": -0.9539
+        }
+      },
+      "coverage": {
+        "framesUsed": 60,
+        "pixelStride": 2,
+        "pixelsConsidered": 2949120,
+        "pixelsUnregistered": 351184,
+        "unregisteredFraction": 0.1191,
+        "pointsUsed": 2597936
+      },
+      "storeyHeightFromLaser": {
+        "established": true,
+        "frame": "laser scanner (gravity-aligned, +z up)",
+        "alignmentFree": true,
+        "floorBandCentre_m": 274.3774,
+        "ceilingBandCentre_m": 276.656,
+        "storeyHeight_m": 2.2786,
+        "floorPlanePoints": 112038,
+        "ceilingPlanePoints": 94126,
+        "floorCeilingTilt_deg": 0.428
+      },
+      "alignmentUncertainty": {
+        "rotationResidualP90_deg": 1.2763,
+        "impliedHorizontalBandSmear_cm": 5.87,
+        "note": "The laser reference is carried into the prediction's frame by a transform solved from pose pairs. Its rotation residual tilts the cloud, which smears the horizontal floor and ceiling bands by roughly the figure above across the room. Errors of that order are not separable from alignment."
+      },
+      "roomHeightError": {
+        "model_m": 2.269418,
+        "laserReference_m": 2.2786,
+        "absoluteError_cm": 0.918,
+        "assignmentGate": "at most 1.5 cm",
+        "signedError_cm": -0.918,
+        "result": "pass"
+      },
+      "surfaceDistances": [
+        {
+          "surfaceId": "wall-001",
+          "type": "wall",
+          "observationState": "inferred",
+          "scored": false,
+          "laserPointsInBand": 0,
+          "reason": "this surface carries no fitted plane; it is an inferred closure, and there is nothing to measure a distance to"
+        },
+        {
+          "surfaceId": "wall-002",
+          "type": "wall",
+          "observationState": "inferred",
+          "scored": false,
+          "laserPointsInBand": 0,
+          "reason": "this surface carries no fitted plane; it is an inferred closure, and there is nothing to measure a distance to"
+        },
+        {
+          "surfaceId": "wall-003",
+          "type": "wall",
+          "observationState": "inferred",
+          "scored": false,
+          "laserPointsInBand": 0,
+          "reason": "this surface carries no fitted plane; it is an inferred closure, and there is nothing to measure a distance to"
+        },
+        {
+          "surfaceId": "wall-004",
+          "type": "wall",
+          "observationState": "directly_observed",
+          "laserPointsInBand": 112848,
+          "bandHalfWidth_m": 0.25,
+          "restrictedToRoomFootprint": true,
+          "median_cm": 14.646,
+          "mean_cm": 14.211,
+          "p90_cm": 23.066,
+          "max_cm": 25.0,
+          "signedMedian_cm": 14.646,
+          "scored": true
+        },
+        {
+          "surfaceId": "wall-005",
+          "type": "wall",
+          "observationState": "inferred",
+          "scored": false,
+          "laserPointsInBand": 0,
+          "reason": "this surface carries no fitted plane; it is an inferred closure, and there is nothing to measure a distance to"
+        },
+        {
+          "surfaceId": "floor-001",
+          "type": "floor",
+          "observationState": "directly_observed",
+          "laserPointsInBand": 418253,
+          "bandHalfWidth_m": 0.25,
+          "restrictedToRoomFootprint": true,
+          "median_cm": 0.964,
+          "mean_cm": 2.973,
+          "p90_cm": 10.956,
+          "max_cm": 25.0,
+          "signedMedian_cm": -0.481,
+          "scored": true
+        },
+        {
+          "surfaceId": "ceiling-001",
+          "type": "ceiling",
+          "observationState": "directly_observed",
+          "laserPointsInBand": 385575,
+          "bandHalfWidth_m": 0.25,
+          "restrictedToRoomFootprint": true,
+          "median_cm": 0.911,
+          "mean_cm": 3.094,
+          "p90_cm": 11.983,
+          "max_cm": 25.0,
+          "signedMedian_cm": 0.72,
+          "scored": true
+        }
+      ],
+      "failures": {
+        "surfacesWithoutLaserSupport": 4,
+        "surfaceIds": [
+          "wall-001",
+          "wall-002",
+          "wall-003",
+          "wall-005"
+        ]
+      },
+      "measurements_m": {
+        "wall_length": 2.559212,
+        "room_length": 4.267963,
+        "room_width": 2.797034,
+        "room_height": 2.269418,
+        "floor_area": 11.671235
+      }
+    }
+  ],
+  "notEvaluated": []
+}

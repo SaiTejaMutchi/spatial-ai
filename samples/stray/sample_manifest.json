@@ -1,0 +1,51 @@
+{
+  "classification": "public_integration_samples",
+  "rawDataTracked": false,
+  "samples": [
+    {
+      "id": "8653a2142b",
+      "source": "https://github.com/gisbi-kim/strayscanner-ros2bag-converter",
+      "sourceMember": "sample_data/8653a2142b.zip",
+      "localPath": "samples/stray/raw/8653a2142b",
+      "available": true,
+      "depthFrames": 412,
+      "confidenceFrames": 412,
+      "sizeKiB": 43224,
+      "sha256": {
+        "odometry.csv": "4cc949f6dedea4ddb3d657025c04363e65fdfa4f665d244c7f384d3ffb297958",
+        "camera_matrix.csv": "2bd185e8a0a7074c40caaa6d687fdc919a59307411c34a523758f8bf4431217c",
+        "rgb.mp4": "a8e6ebff860f6923617e55cf49f811d5e92f1e77f3d1e941ce909bda89ebce51"
+      },
+      "connectorValidation": "NORMALIZED_CAPTURE_VALID",
+      "geometryValidation": "GEOMETRY_RECONSTRUCTED",
+      "frameResolution": {
+        "outcome": "verified",
+        "axis": "+y",
+        "basis": "declared_verified",
+        "note": "The source declaration is confirmed against the observed floor and ceiling, on both halves of the sampled frames independently."
+      },
+      "geometryResult": {
+        "connectorStride": 6,
+        "geometryStride": 1,
+        "surfaces": 9,
+        "inferredSurfaces": 2,
+        "roomHeightM": 2.672,
+        "roomLengthM": 5.908,
+        "roomWidthM": 4.193,
+        "floorAreaM2": 21.393,
+        "observedPerimeterFraction": 0.71,
+        "openingsResolved": 0,
+        "openingsUnresolved": 1,
+        "accuracyClaimed": false,
+        "note": "No tape or laser reference exists for this capture, so no error is claimed. These numbers evidence that a real Stray export reconstructs, not that it measures correctly."
+      }
+    },
+    {
+      "id": "dinosaur",
+      "source": "https://github.com/kekeblom/StrayVisualizer",
+      "download": "https://stray-data.nyc3.digitaloceanspaces.com/datasets/dinosaur.tar.gz",
+      "available": false,
+      "retrievalResult": "HTTP 404 on 2026-08-23"
+    }
+  ]
+}

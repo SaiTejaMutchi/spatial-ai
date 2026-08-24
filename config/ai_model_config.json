@@ -1,0 +1,79 @@
+{
+  "configId": "ai_model_config_v0.1",
+  "AI_MODEL_APPROVED": true,
+  "approval": {
+    "approvedBy": "operator",
+    "approvedAt": "2026-08-23",
+    "statement": "The operator supplied and approved Groq with qwen/qwen3.6-27b. The agent did not select a provider or model. Credentials are read only from GROQ_API_KEY and are never committed."
+  },
+  "provider": "groq",
+  "model": "qwen/qwen3.6-27b",
+  "apiMode": "openai_compatible_chat_completions_json_object_multimodal",
+  "supportedProviders": {
+    "anthropic": {
+      "sdk": "anthropic (official Python SDK)",
+      "exampleModel": "claude-opus-5",
+      "note": "Implemented client path retained. A different provider still requires a new operator approval and a new freeze."
+    },
+    "groq": {
+      "sdk": "Groq OpenAI-compatible HTTP API (urllib; no extra SDK required)",
+      "exampleModel": "qwen/qwen3.6-27b",
+      "envVar": "GROQ_API_KEY",
+      "note": "Operator-approved live path. Key from GROQ_API_KEY only. No GROQ_MODEL override."
+    }
+  },
+  "boundedUses": [
+    "Judge whether proposed walls and openings are visually consistent with the evidence frames.",
+    "Report whether a named surface appears partially occluded.",
+    "Report whether an apparent opening could instead be incomplete coverage or occlusion.",
+    "Name a broad, visually plausible room type.",
+    "Name the entity IDs that need human review, and why.",
+    "Classify a nominated opening-candidate region with registered multi-view evidence.",
+    "Propose a visible condition and a registered image region; never a metric quantity."
+  ],
+  "prohibitedUses": [
+    "Creating, deleting, resizing, repositioning, or relabelling canonical geometry.",
+    "Emitting or altering any dimension, transform, floor area, or measurement.",
+    "Producing square footage, linear extent, or any restoration quantity.",
+    "Overwriting benchmark references or benchmark results.",
+    "Writing into production damage[] or scope[].",
+    "Silently substituting a different provider or model."
+  ],
+    "imagesPerRequest": 1,
+    "imagesPerRequestRationale": "engineering_constraint. Groq documents a 3-image model cap, and this POC further caps at 3. A measured 3-image request on the operator-approved model returned HTTP 413: on_demand TPM Limit 8000, Requested ~12734. One image per request is the largest payload that fits that limit. Three registered views remain selected; only the first is sent in a single Groq call. On-disk evidence is unchanged.",
+  "retryPolicy": {
+    "http429": "honour Retry-After, cap wait at 30s, at most 4 attempts",
+    "timeoutSeconds": 90,
+    "timeoutRetry": "one bounded retry, then fail closed",
+    "otherHttpErrors": "fail closed immediately",
+    "requestImageEncoding": "JPEG long-edge 128px, quality 50; on-disk PNG evidence is unchanged. Engineering constraint: Groq on_demand TPM is 8000 and three full-resolution PNG frames exceeded it (HTTP 413, requested ~13k tokens).",
+    "source": "https://console.groq.com/docs/rate-limits"
+  },
+  "promptVersions": {
+    "spatialVerifier": "prompts/spatial_verifier_v0.1.txt",
+    "lossProposal": "prompts/loss_proposal_v0.1.txt",
+    "openingResolver": "prompts/opening_resolver_v0.1.txt",
+    "openingImageOnly": "prompts/opening_image_only_v0.1.txt",
+    "visibleCondition": "prompts/visible_condition_v0.1.txt"
+  },
+  "responseSchema": "schema/ai_assessment.schema.json",
+  "expectedLatencyClass": "seconds to tens of seconds for one request with 3 images",
+  "expectedCostClass": "single-request, low; one call per scan review",
+  "dataHandling": {
+    "developmentFrames": "Public ARKitScenes frames. No personal content is expected.",
+    "finalCaptureFrames": "Private interior photographs of a real bedroom. These must not be sent to any provider without explicit operator approval recorded above, because approval here is also the disclosure that private imagery leaves the machine.",
+    "retentionNote": "Whatever retention the approved provider applies becomes the retention for those frames. That is part of what the operator is approving.",
+    "credentialNote": "GROQ_API_KEY is read from the local environment. It is never written into this file, never logged, and never committed."
+  },
+  "fallbackBehaviour": "not_run",
+  "onAccessFailure": "Record the failure verbatim, emit not_run, leave geometry and every measurement untouched, and let the pipeline continue. AI is never on the critical path for Artifacts 1-11. No substitute provider or model is selected.",
+  "decisionRecord": {
+    "whyThisModel": "The operator supplied and approved Groq qwen/qwen3.6-27b. The agent did not choose it. Groq documents this model as multimodal with image input, JSON mode, and a request image cap that this POC further restricts to 3.",
+    "alternativesConsidered": "Not evaluated by the agent. No second model and no model-comparison project is permitted. A different provider or model requires a new operator approval.",
+    "whySufficientForTheBoundedTask": "The task is a visual consistency judgement over at most three registered frames against a compact geometry summary, with a strict output schema and no authority over any number. The approved model is documented as accepting images and JSON mode.",
+    "whatItIsNotTrustedToDo": "Anything in prohibitedUses. Geometry owns every metric value; the verifier may only append an assessment.",
+    "whatPrivateDataCouldBeSent": "Up to 3 RGB frames of the scanned room plus a compact JSON summary of surface IDs, types, dimensions, and observation states. No raw depth, no point cloud, no capture bundle, and no API key.",
+    "whatHappensIfAccessFails": "See onAccessFailure. The verifier fails closed."
+  },
+  "runHistory": []
+}

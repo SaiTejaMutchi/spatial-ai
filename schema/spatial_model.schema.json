@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-ai.local/schema/spatial_model_v0.1.json",
+  "title": "Spatial model 0.1",
+  "description": "The canonical, insurance-facing system of record for one scanned space. Geometry owns every metric value here; AI may append assessments but never alter dimensions, transforms, or measurements.",
+  "type": "object",
+  "required": ["schemaVersion", "modelId", "scan", "coordinateSystem", "rooms",
+               "surfaces", "openings", "measurements", "evidence", "aiAssessments",
+               "damage", "scope", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "modelId": {"type": "string", "minLength": 1},
+    "scan": {
+      "type": "object",
+      "required": ["id", "capturedAt", "device", "units", "classification"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "capturedAt": {"type": ["string", "null"]},
+        "device": {"type": "string"},
+        "units": {"const": "meters"},
+        "classification": {
+          "enum": ["public_development_fixture", "final_private_capture",
+                   "baseline_fallback"]
+        }
+      }
+    },
+    "coordinateSystem": {
+      "type": "object",
+      "required": ["source", "upAxis", "planAxes", "handedness"],
+      "additionalProperties": true,
+      "properties": {
+        "source": {"const": "canonical"},
+        "upAxis": {"const": "y"},
+        "planAxes": {"type": "array", "items": {"enum": ["x", "z"]}, "minItems": 2,
+                     "maxItems": 2},
+        "handedness": {"const": "right"}
+      }
+    },
+    "rooms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "footprint", "observationState", "confidence"],
+        "additionalProperties": true,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "footprint": {
+            "type": "array", "minItems": 3,
+            "items": {"$ref": "#/$defs/planPoint"}
+          },
+          "footprintEdgeStates": {
+            "type": "array", "items": {"$ref": "#/$defs/observationState"}
+          },
+          "observationState": {"$ref": "#/$defs/observationState"},
+          "confidence": {"$ref": "#/$defs/confidence"}
+        }
+      }
+    },
+    "surfaces": {"type": "array", "items": {"$ref": "#/$defs/surface"}},
+    "openings": {"type": "array", "items": {"$ref": "#/$defs/opening"}},
+    "measurements": {"type": "array", "items": {"$ref": "#/$defs/measurement"}},
+    "evidence": {"type": "array"},
+    "aiAssessments": {"type": "array"},
+    "damage": {"type": "array"},
+    "scope": {"type": "array"},
+    "provenance": {"type": "object"}
+  },
+  "$defs": {
+    "planPoint": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {"type": "number"}
+    },
+    "observationState": {
+      "enum": ["directly_observed", "partially_observed", "inferred", "unresolved"]
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["label", "calibrated", "method", "inputs", "ruleTriggered"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {"enum": ["low", "medium", "high", "unresolved"]},
+        "calibrated": {"const": false},
+        "method": {"type": "string", "minLength": 1},
+        "rulesVersion": {"type": "string"},
+        "inputs": {"type": "object"},
+        "ruleTriggered": {"type": "string", "minLength": 1}
+      }
+    },
+    "surface": {
+      "type": "object",
+      "required": ["id", "roomId", "type", "dimensions", "plane", "observationState",
+                   "confidence", "provenance", "damage"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "roomId": {"type": "string", "minLength": 1},
+        "type": {"enum": ["wall", "floor", "ceiling"]},
+        "dimensions": {
+          "type": "object",
+          "required": ["width_m", "height_m"],
+          "properties": {
+            "width_m": {"type": "number", "exclusiveMinimum": 0},
+            "height_m": {"type": "number", "exclusiveMinimum": 0}
+          }
+        },
+        "plane": {
+          "type": "object",
+          "required": ["normal", "offset_m"],
+          "properties": {
+            "normal": {"type": "array", "minItems": 3, "maxItems": 3,
+                       "items": {"type": "number"}},
+            "offset_m": {"type": "number"}
+          }
+        },
+        "observationState": {"$ref": "#/$defs/observationState"},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "provenance": {
+          "type": "object",
+          "required": ["geometrySource", "algorithm", "geometryConfigId",
+                       "geometryConfigHash"],
+          "properties": {
+            "geometrySource": {
+              "enum": ["apple_arkitscenes_fixture", "unity_arkit_mesh", "stray_rgbd",
+                       "apple_roomplan", "geometry_pipeline", "vision_model",
+                       "user_reference", "derived_calculation"]
+            },
+            "algorithm": {"type": "string", "minLength": 1},
+            "geometryConfigId": {"type": "string"},
+            "geometryConfigHash": {"type": "string"}
+          }
+        },
+        "damage": {"type": "array"}
+      }
+    },
+    "opening": {
+      "type": "object",
+      "required": ["id", "surfaceId", "type", "observationState", "confidence",
+                   "provenance"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "surfaceId": {"type": ["string", "null"]},
+        "type": {"enum": ["door", "window", "opening", "unresolved"]},
+        "dimensions": {
+          "type": ["object", "null"],
+          "properties": {
+            "width_m": {"type": "number", "exclusiveMinimum": 0},
+            "height_m": {"type": "number", "exclusiveMinimum": 0}
+          }
+        },
+        "observationState": {"$ref": "#/$defs/observationState"},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "provenance": {"type": "object"}
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "required": ["id", "type", "value_m", "unit", "producer", "observationState",
+                   "confidence"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {
+          "enum": ["room_length", "room_width", "room_height", "floor_area",
+                   "wall_length", "wall_height", "opening_width", "opening_height"]
+        },
+        "entityId": {"type": ["string", "null"]},
+        "value_m": {"type": ["number", "null"], "minimum": 0},
+        "unit": {"enum": ["m", "m2"]},
+        "producer": {"const": "geometry_pipeline"},
+        "referenceAvailable": {"type": "boolean"},
+        "observationState": {"$ref": "#/$defs/observationState"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    }
+  }
+}

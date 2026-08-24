@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-ai.local/schema/ai_assessment_v0.1.json",
+  "title": "Spatial AI Verifier assessment 0.1",
+  "description": "What the verifier is allowed to return. Notice what is absent: no dimension, no coordinate, no quantity of any kind. additionalProperties is false at every level so a model cannot smuggle a measurement into an unexpected field.",
+  "type": "object",
+  "required": ["status", "model", "promptVersion", "schemaVersion", "generatedAt",
+               "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "status": {"enum": ["completed", "not_run", "failed"]},
+    "notRunReason": {"type": ["string", "null"]},
+    "model": {"type": ["string", "null"]},
+    "provider": {"type": ["string", "null"]},
+    "promptVersion": {"type": "string"},
+    "generatedAt": {"type": ["string", "null"]},
+    "roomTypeHypothesis": {"type": ["string", "null"]},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["surfaceId", "status", "semanticAgreement", "reason",
+                     "evidenceFrameIds"],
+        "additionalProperties": false,
+        "properties": {
+          "surfaceId": {"type": "string", "minLength": 1},
+          "status": {
+            "enum": ["verified", "review_recommended", "occluded", "not_visible"]
+          },
+          "semanticAgreement": {"type": "boolean"},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 600},
+          "evidenceFrameIds": {
+            "type": "array", "minItems": 1, "items": {"type": "string"}
+          },
+          "occlusionDescription": {"type": ["string", "null"], "maxLength": 300},
+          "openingObservation": {
+            "enum": ["appears_to_be_an_opening", "appears_to_be_unbroken_wall",
+                     "cannot_tell", null]
+          }
+        }
+      }
+    },
+    "usage": {"type": ["object", "null"]}
+  }
+}

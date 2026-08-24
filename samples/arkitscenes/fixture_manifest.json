@@ -1,0 +1,108 @@
+{
+  "manifest_version": "0.1",
+  "generated_utc": "2026-08-23T01:34:24+00:00",
+  "generator": "pipeline/fixtures/fixture_manifest.py",
+  "classification": "public_development_fixture",
+  "dataset": {
+    "name": "ARKitScenes",
+    "owner": "Apple Inc.",
+    "repository": "https://github.com/apple/ARKitScenes",
+    "data_documentation": "https://github.com/apple/ARKitScenes/blob/main/DATA.md",
+    "asset_base_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1",
+    "url_scheme_source": "https://raw.githubusercontent.com/apple/ARKitScenes/main/download_data.py",
+    "license_note": "Apple ARKitScenes is released for research use under the terms stated in the upstream repository. Fixtures are consumed unmodified."
+  },
+  "fixtures": [
+    {
+      "role": "PRIMARY_TUNING",
+      "scene_id": "47333462",
+      "visit_id": "467138",
+      "fold": "Training",
+      "sky_direction": "Left",
+      "selection_rationale": "Selected first and retained under the discovery stop rule: all core modalities decode, the 60 s handheld trajectory spans 7.28 x 3.00 x 4.10 m of room-scale structure, and metadata.csv marks has_laser_scanner_point_clouds=True so an independent non-ARKit reference exists for this exact visit.",
+      "tuning_permission": "This is the only scene on which the single predetermined geometry sweep permitted by the plan may be run.",
+      "asset_urls": {
+        "scene_dir": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/{lowres_wide,lowres_depth,confidence,lowres_wide_intrinsics}.zip",
+        "trajectory": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/lowres_wide.traj",
+        "arkit_mesh": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/47333462_3dod_mesh.ply",
+        "laser_reference_dir": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/467138/{190170,190171,190172}{.ply,_pose.txt}"
+      },
+      "assets": {
+        "scene_dir": {
+          "present": true,
+          "file_count": 14444,
+          "total_bytes": 399403358,
+          "tree_sha256": "ccc28eee21d4caaff8283c7f389d3fe78975585e0eaf2f87af6ba783ede367e2",
+          "path": "samples/arkitscenes/raw/Training/47333462",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/{lowres_wide,lowres_depth,confidence,lowres_wide_intrinsics}.zip"
+        },
+        "trajectory": {
+          "present": true,
+          "file_count": 1,
+          "total_bytes": 59655,
+          "tree_sha256": "353a743efa50c613117b43941aa63d100fe8c2b6d2f18ac59dd8ba4afe5a0ecd",
+          "path": "samples/arkitscenes/raw/Training/47333462/lowres_wide.traj",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/lowres_wide.traj"
+        },
+        "arkit_mesh": {
+          "present": true,
+          "file_count": 1,
+          "total_bytes": 17607687,
+          "tree_sha256": "0b8dbd396211decd558b10f76d7d56f49662ae30ed614561c6dca7f9b5dfaa14",
+          "path": "samples/arkitscenes/raw/Training/47333462/47333462_3dod_mesh.ply",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/47333462/47333462_3dod_mesh.ply"
+        },
+        "laser_reference_dir": {
+          "present": true,
+          "file_count": 6,
+          "total_bytes": 5580381613,
+          "tree_sha256": "c21e783c7565dc1e422a46d8c853980dab6074319e599fc04edce7bbb590f5a9",
+          "path": "samples/arkitscenes/laser_scanner_point_clouds/467138",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/467138/{190170,190171,190172}{.ply,_pose.txt}"
+        }
+      },
+      "total_bytes": 5979784971
+    },
+    {
+      "role": "SECONDARY_VALIDATION",
+      "scene_id": "41418135",
+      "visit_id": "416418",
+      "fold": "Training",
+      "sky_direction": "Up",
+      "selection_rationale": "Chosen by a predetermined deterministic rule rather than by inspection: the lowest video_id in raw/metadata.csv with fold=Training, has_laser_scanner_point_clouds=True, is_in_threedod=True, and a visit_id different from the primary. No scene was previewed, compared, or swapped for a better-looking result.",
+      "tuning_permission": "NO_TUNING. This scene is run once with the frozen configuration produced on PRIMARY_TUNING. It must never influence a parameter value.",
+      "asset_urls": {
+        "scene_dir": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/{lowres_wide,lowres_depth,confidence,lowres_wide_intrinsics}.zip",
+        "trajectory": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/lowres_wide.traj",
+        "arkit_mesh": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/41418135_3dod_mesh.ply"
+      },
+      "assets": {
+        "scene_dir": {
+          "present": true,
+          "file_count": 12860,
+          "total_bytes": 333535881,
+          "tree_sha256": "0932a51891fcaecb2a541b87426ebd95085c9cbb6338119dc28b48edd8d2c16d",
+          "path": "samples/arkitscenes/raw/Training/41418135",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/{lowres_wide,lowres_depth,confidence,lowres_wide_intrinsics}.zip"
+        },
+        "trajectory": {
+          "present": true,
+          "file_count": 1,
+          "total_bytes": 52237,
+          "tree_sha256": "320069a33fedff2ef1e212b94ebb2998daf273ae30b6eef7eada0a7abc0205ba",
+          "path": "samples/arkitscenes/raw/Training/41418135/lowres_wide.traj",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/lowres_wide.traj"
+        },
+        "arkit_mesh": {
+          "present": true,
+          "file_count": 1,
+          "total_bytes": 27241005,
+          "tree_sha256": "2a5c8df19f382b3dc82a9f33fc16ff89f15e3197c24a3fb266ef56262b510982",
+          "path": "samples/arkitscenes/raw/Training/41418135/41418135_3dod_mesh.ply",
+          "source_url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/Training/41418135/41418135_3dod_mesh.ply"
+        }
+      },
+      "total_bytes": 333535881
+    }
+  ]
+}
