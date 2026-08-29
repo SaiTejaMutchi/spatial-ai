@@ -6,6 +6,9 @@
 # Internal documentation — never publish
 docs/*
 !docs/status_report.md
+!docs/error_analysis.md
+!docs/limitations.md
+!docs/checklist.md
 
 # Secrets and local environment
 .env

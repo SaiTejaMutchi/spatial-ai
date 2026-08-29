@@ -7,8 +7,16 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .errors import PipelineExecutionError, SpatialModelNotFoundError, SurfaceNotFoundError
+from .errors import (
+    PipelineExecutionError,
+    SpatialAIError,
+    SpatialModelNotFoundError,
+    SurfaceNotFoundError,
+    UnsupportedSchemaVersionError,
+)
 from .surface import Surface
+
+SUPPORTED_SCHEMA_VERSIONS = {"v0.1", "v0.2", "0.1", "0.2"}
 
 
 @dataclass
@@ -28,6 +36,12 @@ class Space:
         self._model = model_data
         self._path = Path(result_path) if result_path else None
 
+        version = self._model.get("schemaVersion") or self._model.get("schema_version")
+        if version and str(version).lower() not in SUPPORTED_SCHEMA_VERSIONS:
+            raise UnsupportedSchemaVersionError(
+                f"Unsupported schemaVersion '{version}'. Supported versions: {sorted(SUPPORTED_SCHEMA_VERSIONS)}"
+            )
+
         surfaces_raw = self._model.get("surfaces", [])
         evidence_raw = self._model.get("evidence", [])
         if not evidence_raw:
@@ -37,7 +51,13 @@ class Space:
             ai_raw = self._model.get("ai_assessments", [])
 
         self._surfaces = [
-            Surface(data=s, evidence_views=evidence_raw, ai_assessments=ai_raw)
+            Surface(
+                data=s,
+                evidence_views=evidence_raw,
+                ai_assessments=ai_raw,
+                path=self._path,
+                full_model=self._model,
+            )
             for s in surfaces_raw
         ]
         self._surfaces_by_id = {s.id: s for s in self._surfaces}

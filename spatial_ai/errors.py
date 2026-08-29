@@ -11,6 +11,10 @@ class SpatialModelNotFoundError(SpatialAIError, FileNotFoundError):
     """Raised when a spatial_model.json file or directory cannot be found."""
 
 
+class UnsupportedSchemaVersionError(SpatialAIError, ValueError):
+    """Raised when an unsupported schemaVersion is encountered in spatial_model.json."""
+
+
 class SurfaceNotFoundError(SpatialAIError, KeyError):
     """Raised when a requested surface ID does not exist in the spatial model."""
 

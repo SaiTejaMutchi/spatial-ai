@@ -1,4 +1,4 @@
-"""Executable test for Python code snippets in README.md."""
+"""Executable test verifying Python code snippets in README.md."""
 
 from pathlib import Path
 import pytest
@@ -9,20 +9,22 @@ SAMPLE_PATH = REPO_ROOT / "samples" / "public_results" / "public-stray-8653a2142
 
 
 def test_readme_quickstart_python_snippet():
-    """Executes the Python quickstart code snippet from README.md."""
+    """Executes the Python quickstart code snippet from README.md and asserts metric output agreement."""
     space = Space.load(SAMPLE_PATH)
 
     # Inspect room metrics
     dims = space.dimensions
     assert isinstance(dims, dict)
-    assert dims["length_m"] > 0
-    assert dims["area_sq_m"] > 0
+    assert round(dims["length_m"], 2) == 5.91
+    assert round(dims["width_m"], 2) == 4.19
+    assert round(dims["height_m"], 2) == 2.67
+    assert round(dims["area_sq_m"], 2) == 21.39
 
     # List physical entities
     surfaces = space.surfaces
-    assert len(surfaces) > 0
+    assert len(surfaces) == 9
     for surface in surfaces:
-        assert surface.surface_id != ""
+        assert surface.id != ""
 
     # Query a specific wall and its registered visual evidence
     wall = space.surface("wall-002")
@@ -45,6 +47,6 @@ def test_readme_python_sdk_reference_snippet():
     wall = space.surface("wall-002")
     assert wall is not None
     assert wall.type == "wall"
-    assert "width_m" in wall.measurements
-    assert "height_m" in wall.measurements
+    assert "width_m" in wall.dimensions
+    assert "height_m" in wall.dimensions
     assert isinstance(wall.evidence, list)

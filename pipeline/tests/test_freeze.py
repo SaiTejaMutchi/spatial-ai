@@ -124,5 +124,5 @@ def test_the_readme_makes_no_final_accuracy_claim():
 def test_the_readme_reports_the_failing_gate():
     """A README that omitted the miss would be the wrong kind of packaging."""
     text = (REPO_ROOT / "README.md").read_text()
-    assert "2.46 cm" in text
-    assert "misses" in text.lower()
+    assert "3.06 cm" in text
+    assert "failed" in text.lower() or "misses" in text.lower()

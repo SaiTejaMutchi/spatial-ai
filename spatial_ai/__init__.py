@@ -3,7 +3,13 @@
 Turn mobile RGB-D/LiDAR captures into persistent physical entities AI can query, inspect, and reason over.
 """
 
-from .errors import PipelineExecutionError, SpatialAIError, SpatialModelNotFoundError, SurfaceNotFoundError
+from .errors import (
+    PipelineExecutionError,
+    SpatialAIError,
+    SpatialModelNotFoundError,
+    SurfaceNotFoundError,
+    UnsupportedSchemaVersionError,
+)
 from .space import Space, StructuredQueryResult
 from .surface import Surface
 
@@ -15,4 +21,5 @@ __all__ = [
     "SpatialModelNotFoundError",
     "SurfaceNotFoundError",
     "PipelineExecutionError",
+    "UnsupportedSchemaVersionError",
 ]

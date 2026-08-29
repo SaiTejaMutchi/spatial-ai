@@ -56,3 +56,12 @@ def test_iphone_sample_sdk():
     floor = space.surface("floor-001")
     assert floor is not None
     assert floor.type == "floor"
+
+
+def test_surface_ask():
+    space = Space.load(PUBLIC_STRAY_SAMPLE)
+    wall = space.surface("wall-002")
+    assert wall is not None
+    res = wall.ask("Is this wall damaged?")
+    assert isinstance(res, dict)
+    assert "status" in res

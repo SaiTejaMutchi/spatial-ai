@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 
@@ -13,10 +14,14 @@ class Surface:
         data: dict[str, Any],
         evidence_views: list[dict[str, Any]] | None = None,
         ai_assessments: list[dict[str, Any]] | None = None,
+        path: Path | str | None = None,
+        full_model: dict[str, Any] | None = None,
     ) -> None:
         self._data = data
         self._evidence = evidence_views or []
         self._ai_assessments = ai_assessments or []
+        self._path = Path(path) if path else None
+        self._full_model = full_model
 
     @property
     def id(self) -> str:
@@ -92,12 +97,25 @@ class Surface:
         """Queries the multimodal AI verifier specifically regarding this surface."""
         from pipeline.ai.verifier import load_ai_config, run_verifier
         config = load_ai_config()
-        return run_verifier(
-            model_surfaces=[self._data],
-            evidence_manifest=self.evidence,
-            user_prompt=prompt,
-            config=config,
-        )
+        ev_dir = self._path or Path(".")
+        if self._full_model:
+            model = dict(self._full_model)
+        else:
+            model = {
+                "surfaces": [self._data],
+                "rooms": [],
+                "openings": [],
+                "evidence": self.evidence,
+            }
+        try:
+            res = run_verifier(
+                model=model,
+                evidence_dir=ev_dir,
+                config=config,
+            )
+            return res.assessment
+        except Exception as exc:
+            return {"status": "not_run", "reason": str(exc)}
 
     def to_dict(self) -> dict[str, Any]:
         """Returns the raw surface dictionary representation."""

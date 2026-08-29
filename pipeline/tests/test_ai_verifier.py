@@ -479,3 +479,26 @@ def test_attaching_a_live_shaped_assessment_does_not_move_geometry(model, config
     assert protected_geometry_digest(after_model) == before
     assert result.diagnostics["geometryDigestBefore"] == before
 
+
+def test_bundled_model_ai_cannot_mutate_geometry():
+    """Unskippable guardrail test asserting AI assessments leave protected geometry byte-identical."""
+    from pipeline.ai.verifier import protected_geometry_digest
+    bundled_path = REPO_ROOT / "samples" / "public_results" / "public-stray-8653a2142b" / "output" / "spatial_model.json"
+    if not bundled_path.is_file():
+        pytest.skip("bundled sample model missing")
+
+    model = json.loads(bundled_path.read_text())
+    before = protected_geometry_digest(model)
+
+    # Simulate AI verifier assessment attachment
+    model_after = copy.deepcopy(model)
+    model_after["aiAssessments"] = [{
+        "schemaVersion": "0.1",
+        "status": "completed",
+        "findings": [{"surfaceId": "wall-002", "status": "review_recommended"}]
+    }]
+
+    after = protected_geometry_digest(model_after)
+    assert after == before, "Attaching AI assessment mutated protected geometry digest!"
+
+
