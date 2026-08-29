@@ -209,6 +209,9 @@ def run_batch():
             inter_scan_diff_cm = abs(heights[0] - heights[1]) * 100.0 if len(heights) >= 2 else 0.0
             log(f"  Laser GT extracted: {laser_gt:.4f} m (Inter-scan delta: {inter_scan_diff_cm:.2f} cm)")
 
+            if inter_scan_diff_cm > 5.0:
+                raise ValueError(f"GT_DISAGREEMENT_INVALID: laser scans disagree by {inter_scan_diff_cm:.2f} cm (> 5.0 cm threshold)")
+
             # Stage: CAPTURE_DOWNLOADED & CAPTURE_VERIFIED
             update_stage_file(s_id, "CAPTURE_DOWNLOADED")
             raw_dir = REPO_ROOT / "samples" / "arkitscenes" / "raw" / fold / s_id
