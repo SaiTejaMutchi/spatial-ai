@@ -4,7 +4,8 @@
 .vscode/
 
 # Internal documentation — never publish
-docs/
+docs/*
+!docs/status_report.md
 
 # Secrets and local environment
 .env

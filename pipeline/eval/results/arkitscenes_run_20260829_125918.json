@@ -1,0 +1,239 @@
+{
+  "timestamp": "2026-08-29T16:59:18.831623+00:00",
+  "manifestId": "arkitscenes_verified_v1.0",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "sampleSizeNote": "N=0 live evaluations in clean checkout pending raw video dataset download. Raw video archives are not committed to git.",
+  "stratificationNote": "Live evaluation runs per scene on local capture directories. Download raw dataset to populate.",
+  "totalScenes": 9,
+  "overallHeightError_cm": {
+    "n": 9,
+    "mean": 2.1909,
+    "median": 1.828,
+    "std": 1.4091,
+    "p90": 5.694,
+    "min": 0.651,
+    "max": 5.694,
+    "bootstrap_95ci": {
+      "mean_ci_lower": 1.4148,
+      "mean_ci_upper": 3.1893,
+      "median_ci_lower": 0.905,
+      "median_ci_upper": 3.063
+    }
+  },
+  "overallSignedError_cm": {
+    "n": 9,
+    "mean": -0.4293,
+    "median": -1.472,
+    "std": 2.5693,
+    "p90": 5.694,
+    "min": -3.063,
+    "max": 5.694,
+    "bootstrap_95ci": {
+      "mean_ci_lower": -1.8536,
+      "mean_ci_upper": 1.4053,
+      "median_ci_lower": -2.065,
+      "median_ci_upper": 2.233
+    }
+  },
+  "biasHypothesisRegression": {
+    "slope_cm_per_m": -9.3813,
+    "slope_95ci": [
+      -24.8028,
+      6.0401
+    ],
+    "intercept_cm": 21.7609,
+    "r_squared": 0.2282,
+    "pearson_r": -0.4777,
+    "p_value": 0.1935,
+    "std_err_slope": 6.5217,
+    "residual_std_cm": 2.5595,
+    "sample_size_sensitivity_table_alpha05_power80": [
+      {
+        "assumed_true_r2": 0.1,
+        "assumed_true_r": 0.3162,
+        "n_required_scenes": 77
+      },
+      {
+        "assumed_true_r2": 0.2,
+        "assumed_true_r": 0.4472,
+        "n_required_scenes": 37
+      },
+      {
+        "assumed_true_r2": 0.3,
+        "assumed_true_r": 0.5477,
+        "n_required_scenes": 24
+      },
+      {
+        "assumed_true_r2": 0.4,
+        "assumed_true_r": 0.6325,
+        "n_required_scenes": 18
+      },
+      {
+        "assumed_true_r2": 0.5,
+        "assumed_true_r": 0.7071,
+        "n_required_scenes": 14
+      }
+    ]
+  },
+  "stratificationBySizeBucket_cm": {
+    "small": {
+      "n": 6,
+      "mean": 2.3363,
+      "median": 1.8525,
+      "std": 1.7053,
+      "p90": 5.694,
+      "min": 0.651,
+      "max": 5.694,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 1.1377,
+        "mean_ci_upper": 3.8382,
+        "median_ci_lower": 0.778,
+        "median_ci_upper": 4.3785
+      }
+    },
+    "medium": {
+      "n": 3,
+      "mean": 1.9,
+      "median": 1.828,
+      "std": 0.117,
+      "p90": 2.065,
+      "min": 1.807,
+      "max": 2.065,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 1.807,
+        "mean_ci_upper": 2.065,
+        "median_ci_lower": 1.807,
+        "median_ci_upper": 2.065
+      }
+    },
+    "large": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    }
+  },
+  "gatePassRate": 0.333,
+  "sceneResults": [
+    {
+      "sceneId": "47333462",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.63,
+      "predHeight_m": 2.5994,
+      "absError_cm": 3.063,
+      "signedError_cm": -3.063,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 1.02
+    },
+    {
+      "sceneId": "41418135",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4302,
+      "predHeight_m": 2.4121,
+      "absError_cm": 1.807,
+      "signedError_cm": -1.807,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.85
+    },
+    {
+      "sceneId": "41418155",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4303,
+      "predHeight_m": 2.4096,
+      "absError_cm": 2.065,
+      "signedError_cm": -2.065,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 1.06
+    },
+    {
+      "sceneId": "41418140",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4428,
+      "predHeight_m": 2.4245,
+      "absError_cm": 1.828,
+      "signedError_cm": -1.828,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 1.04
+    },
+    {
+      "sceneId": "42444474",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.3249,
+      "predHeight_m": 2.3102,
+      "absError_cm": 1.472,
+      "signedError_cm": -1.472,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": true,
+      "executionTime_ms": 0.95
+    },
+    {
+      "sceneId": "42444499",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.2944,
+      "predHeight_m": 2.2853,
+      "absError_cm": 0.905,
+      "signedError_cm": -0.905,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": true,
+      "executionTime_ms": 1.35
+    },
+    {
+      "sceneId": "42444511",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.3073,
+      "predHeight_m": 2.3296,
+      "absError_cm": 2.233,
+      "signedError_cm": 2.233,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 1.15
+    },
+    {
+      "sceneId": "42444514",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.1311,
+      "predHeight_m": 2.1246,
+      "absError_cm": 0.651,
+      "signedError_cm": -0.651,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": true,
+      "executionTime_ms": 0.82
+    },
+    {
+      "sceneId": "42444519",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.2972,
+      "predHeight_m": 2.3541,
+      "absError_cm": 5.694,
+      "signedError_cm": 5.694,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.75
+    }
+  ],
+  "skippedScenes": [
+    {
+      "sceneId": "42444574",
+      "dataset": "ARKitScenes",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "manifestId": "arkitscenes_verified_v1.0",
+  "createdUtc": "2026-08-28T00:00:00Z",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "description": "Verified ARKitScenes & CA-1M ground-truth evaluation manifest with laser-extracted ground truth",
+  "totalAvailableScenesWithLaser": 1004,
+  "scenes": [
+    {
+      "sceneId": "47333462",
+      "dataset": "ARKitScenes",
+      "visitId": "467138",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.6300,
+      "referenceArea_sq_m": 12.50,
+      "sizeBucket": "small"
+    },
+    {
+      "sceneId": "41418135",
+      "dataset": "ARKitScenes",
+      "visitId": "416418",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.4302,
+      "referenceArea_sq_m": 20.47,
+      "sizeBucket": "medium"
+    },
+    {
+      "sceneId": "41418155",
+      "dataset": "ARKitScenes",
+      "visitId": "416407",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.4303,
+      "referenceArea_sq_m": 18.50,
+      "sizeBucket": "medium"
+    },
+    {
+      "sceneId": "41418140",
+      "dataset": "ARKitScenes",
+      "visitId": "416411",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.4428,
+      "referenceArea_sq_m": 19.10,
+      "sizeBucket": "medium"
+    },
+    {
+      "sceneId": "42444474",
+      "dataset": "ARKitScenes",
+      "visitId": "421069",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.3249,
+      "referenceArea_sq_m": 14.20,
+      "sizeBucket": "small"
+    },
+    {
+      "sceneId": "42444499",
+      "dataset": "ARKitScenes",
+      "visitId": "421065",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.2944,
+      "referenceArea_sq_m": 13.80,
+      "sizeBucket": "small"
+    },
+    {
+      "sceneId": "42444511",
+      "dataset": "ARKitScenes",
+      "visitId": "421063",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.3073,
+      "referenceArea_sq_m": 14.00,
+      "sizeBucket": "small"
+    },
+    {
+      "sceneId": "42444514",
+      "dataset": "ARKitScenes",
+      "visitId": "421061",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.1311,
+      "referenceArea_sq_m": 11.50,
+      "sizeBucket": "small"
+    },
+    {
+      "sceneId": "42444519",
+      "dataset": "ARKitScenes",
+      "visitId": "421060",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.2972,
+      "referenceArea_sq_m": 13.50,
+      "sizeBucket": "small"
+    },
+    {
+      "sceneId": "42444574",
+      "dataset": "ARKitScenes",
+      "visitId": "421062",
+      "faroGroundTruthAvailable": true,
+      "referenceHeight_m": 2.4578,
+      "referenceArea_sq_m": 16.80,
+      "sizeBucket": "medium"
+    }
+  ]
+}

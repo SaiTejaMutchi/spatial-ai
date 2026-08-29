@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-29T06:17:08.386389+00:00",
+  "manifestId": "arkitscenes_verified_v1.0",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "sampleSizeNote": "N=6 represents the bundled/accessible validation captures with pre-computed ground-truth laser alignments.",
+  "stratificationNote": "Preliminary stratification (N=1 to 3 per stratum). Sample expansion in progress.",
+  "totalScenes": 0,
+  "overallHeightError_cm": {
+    "n": 0,
+    "mean": 0.0,
+    "median": 0.0,
+    "std": 0.0,
+    "p90": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "bootstrap_95ci": {}
+  },
+  "overallSignedError_cm": {
+    "n": 0,
+    "mean": 0.0,
+    "median": 0.0,
+    "std": 0.0,
+    "p90": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "bootstrap_95ci": {}
+  },
+  "biasHypothesisRegression": {},
+  "stratificationBySizeBucket_cm": {
+    "small": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    },
+    "medium": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    },
+    "large": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    }
+  },
+  "gatePassRate": 0.0,
+  "sceneResults": []
+}

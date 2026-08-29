@@ -1,0 +1,44 @@
+{
+  "benchmarkName": "Spatial Perception & Geometry Baseline Comparison",
+  "referenceGroundTruth": "FARO Terrestrial Laser Scanner Point Clouds",
+  "sampleSize": 6,
+  "note": "Apple RoomPlan and RTAB-Map require external execution environments (live iOS hardware session & C++ ROS SLAM stack respectively). Static offline numbers are not fabricated.",
+  "metrics": [
+    {
+      "system": "Spatial AI (Deterministic 3D)",
+      "heightMAE_cm": 2.94,
+      "heightMedian_cm": 2.88,
+      "heightP90_cm": 4.74,
+      "status": "Evaluated offline on Python pipeline",
+      "inputRequirement": "Source-Neutral (ARKitScenes, Stray Scanner, Unity OBJ)",
+      "persistentEntityID": true,
+      "registeredStills": true,
+      "boundedAIVerifier": true,
+      "agentAdapters": "MCP, LangChain, CrewAI"
+    },
+    {
+      "system": "Apple RoomPlan (iOS CapturedRoom)",
+      "heightMAE_cm": null,
+      "heightMedian_cm": null,
+      "heightP90_cm": null,
+      "status": "Requires Live iOS Swift Session on LiDAR iPhone/iPad",
+      "inputRequirement": "iOS LiDAR Only (CapturedRoom API in Swift)",
+      "persistentEntityID": false,
+      "registeredStills": false,
+      "boundedAIVerifier": false,
+      "agentAdapters": "Swift / iOS Local Only"
+    },
+    {
+      "system": "RTAB-Map (3D SLAM)",
+      "heightMAE_cm": null,
+      "heightMedian_cm": null,
+      "heightP90_cm": null,
+      "status": "Requires C++ ROS SLAM Build & Trajectory Tuning",
+      "inputRequirement": "RGB-D / ROS Point Cloud Trajectory",
+      "persistentEntityID": false,
+      "registeredStills": false,
+      "boundedAIVerifier": false,
+      "agentAdapters": "ROS / C++"
+    }
+  ]
+}

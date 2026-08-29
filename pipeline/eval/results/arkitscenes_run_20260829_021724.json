@@ -1,0 +1,200 @@
+{
+  "timestamp": "2026-08-29T06:17:24.226427+00:00",
+  "manifestId": "arkitscenes_verified_v1.0",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "sampleSizeNote": "N=6 represents the bundled/accessible validation captures with pre-computed ground-truth laser alignments.",
+  "stratificationNote": "Preliminary stratification (N=1 to 3 per stratum). Sample expansion in progress.",
+  "totalScenes": 6,
+  "overallHeightError_cm": {
+    "n": 6,
+    "mean": 134.2058,
+    "median": 136.829,
+    "std": 45.9893,
+    "p90": 191.39,
+    "min": 68.294,
+    "max": 191.39,
+    "bootstrap_95ci": {
+      "mean_ci_lower": 97.802,
+      "mean_ci_upper": 169.0897,
+      "median_ci_lower": 80.5685,
+      "median_ci_upper": 185.22
+    }
+  },
+  "overallSignedError_cm": {
+    "n": 6,
+    "mean": 134.2058,
+    "median": 136.829,
+    "std": 45.9893,
+    "p90": 191.39,
+    "min": 68.294,
+    "max": 191.39,
+    "bootstrap_95ci": {
+      "mean_ci_lower": 97.802,
+      "mean_ci_upper": 169.0897,
+      "median_ci_lower": 80.5685,
+      "median_ci_upper": 185.22
+    }
+  },
+  "biasHypothesisRegression": {
+    "slope_cm_per_m": -114.9347,
+    "slope_95ci": [
+      -136.4048,
+      -93.4645
+    ],
+    "intercept_cm": 447.9621,
+    "r_squared": 0.9822,
+    "pearson_r": -0.9911,
+    "p_value": 0.0001,
+    "std_err_slope": 7.733,
+    "residual_std_cm": 7.5116,
+    "sample_size_sensitivity_table_alpha05_power80": [
+      {
+        "assumed_true_r2": 0.1,
+        "assumed_true_r": 0.3162,
+        "n_required_scenes": 77
+      },
+      {
+        "assumed_true_r2": 0.2,
+        "assumed_true_r": 0.4472,
+        "n_required_scenes": 37
+      },
+      {
+        "assumed_true_r2": 0.3,
+        "assumed_true_r": 0.5477,
+        "n_required_scenes": 24
+      },
+      {
+        "assumed_true_r2": 0.4,
+        "assumed_true_r": 0.6325,
+        "n_required_scenes": 18
+      },
+      {
+        "assumed_true_r2": 0.5,
+        "assumed_true_r": 0.7071,
+        "n_required_scenes": 14
+      }
+    ]
+  },
+  "stratificationBySizeBucket_cm": {
+    "small": {
+      "n": 2,
+      "mean": 185.22,
+      "median": 185.22,
+      "std": 6.17,
+      "p90": 191.39,
+      "min": 179.05,
+      "max": 191.39,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 179.05,
+        "mean_ci_upper": 191.39,
+        "median_ci_lower": 179.05,
+        "median_ci_upper": 191.39
+      }
+    },
+    "medium": {
+      "n": 3,
+      "mean": 122.167,
+      "median": 110.944,
+      "std": 29.6081,
+      "p90": 162.714,
+      "min": 92.843,
+      "max": 162.714,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 92.843,
+        "mean_ci_upper": 162.714,
+        "median_ci_lower": 92.843,
+        "median_ci_upper": 162.714
+      }
+    },
+    "large": {
+      "n": 1,
+      "mean": 68.294,
+      "median": 68.294,
+      "std": 0.0,
+      "p90": 68.294,
+      "min": 68.294,
+      "max": 68.294,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 68.294,
+        "mean_ci_upper": 68.294,
+        "median_ci_lower": 68.294,
+        "median_ci_upper": 68.294
+      }
+    }
+  },
+  "gatePassRate": 0.0,
+  "sceneResults": [
+    {
+      "sceneId": "47333462",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.402,
+      "predHeight_m": 4.1925,
+      "absError_cm": 179.05,
+      "signedError_cm": 179.05,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.63
+    },
+    {
+      "sceneId": "45662921",
+      "dataset": "CA-1M",
+      "sizeBucket": "large",
+      "refHeight_m": 3.3287,
+      "predHeight_m": 4.0116,
+      "absError_cm": 68.294,
+      "signedError_cm": 68.294,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 1.41
+    },
+    {
+      "sceneId": "47115543",
+      "dataset": "CA-1M",
+      "sizeBucket": "medium",
+      "refHeight_m": 3.0832,
+      "predHeight_m": 4.0116,
+      "absError_cm": 92.843,
+      "signedError_cm": 92.843,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.52
+    },
+    {
+      "sceneId": "45261143",
+      "dataset": "CA-1M",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.9022,
+      "predHeight_m": 4.0116,
+      "absError_cm": 110.944,
+      "signedError_cm": 110.944,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.47
+    },
+    {
+      "sceneId": "45261615",
+      "dataset": "CA-1M",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.3845,
+      "predHeight_m": 4.0116,
+      "absError_cm": 162.714,
+      "signedError_cm": 162.714,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.46
+    },
+    {
+      "sceneId": "42897545",
+      "dataset": "CA-1M",
+      "sizeBucket": "small",
+      "refHeight_m": 2.2786,
+      "predHeight_m": 4.1925,
+      "absError_cm": 191.39,
+      "signedError_cm": 191.39,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.36
+    }
+  ]
+}

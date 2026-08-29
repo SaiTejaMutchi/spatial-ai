@@ -1,0 +1,194 @@
+{
+  "timestamp": "2026-08-29T06:13:04.257153+00:00",
+  "manifestId": "arkitscenes_verified_v1.0",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "sampleSizeNote": "N=6 represents the bundled/accessible validation captures with pre-computed ground-truth laser alignments.",
+  "stratificationNote": "Preliminary stratification (N=1 to 3 per stratum). Sample expansion in progress.",
+  "totalScenes": 6,
+  "overallHeightError_cm": {
+    "n": 6,
+    "mean": 2.9413,
+    "median": 2.877,
+    "std": 1.3032,
+    "p90": 4.741,
+    "min": 0.918,
+    "max": 4.741,
+    "bootstrap_95ci": {
+      "mean_ci_lower": 1.9148,
+      "mean_ci_upper": 3.952,
+      "median_ci_lower": 1.4585,
+      "median_ci_upper": 4.4885
+    }
+  },
+  "overallSignedError_cm": {
+    "n": 6,
+    "mean": -2.108,
+    "median": -2.6265,
+    "std": 2.4302,
+    "p90": 2.5,
+    "min": -4.741,
+    "max": 2.5,
+    "bootstrap_95ci": {
+      "mean_ci_lower": -3.8678,
+      "mean_ci_upper": -0.0263,
+      "median_ci_lower": -4.4885,
+      "median_ci_upper": 0.791
+    }
+  },
+  "biasHypothesisRegression": {
+    "slope_cm_per_m": -4.1988,
+    "slope_95ci": [
+      -10.3956,
+      1.9979
+    ],
+    "intercept_cm": 9.3543,
+    "r_squared": 0.4694,
+    "pearson_r": -0.6852,
+    "p_value": 0.1331,
+    "std_err_slope": 2.2319,
+    "residual_std_cm": 2.168,
+    "sample_size_sensitivity_table_alpha05_power80": [
+      {
+        "assumed_true_r2": 0.1,
+        "assumed_true_r": 0.3162,
+        "n_required_scenes": 77
+      },
+      {
+        "assumed_true_r2": 0.2,
+        "assumed_true_r": 0.4472,
+        "n_required_scenes": 37
+      },
+      {
+        "assumed_true_r2": 0.3,
+        "assumed_true_r": 0.5477,
+        "n_required_scenes": 24
+      },
+      {
+        "assumed_true_r2": 0.4,
+        "assumed_true_r": 0.6325,
+        "n_required_scenes": 18
+      },
+      {
+        "assumed_true_r2": 0.5,
+        "assumed_true_r": 0.7071,
+        "n_required_scenes": 14
+      }
+    ]
+  },
+  "stratificationBySizeBucket_cm": {
+    "small": {
+      "n": 2,
+      "mean": 1.709,
+      "median": 1.709,
+      "std": 0.791,
+      "p90": 2.5,
+      "min": 0.918,
+      "max": 2.5,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 0.918,
+        "mean_ci_upper": 2.5,
+        "median_ci_lower": 0.918,
+        "median_ci_upper": 2.5
+      }
+    },
+    "medium": {
+      "n": 3,
+      "mean": 3.163,
+      "median": 3.254,
+      "std": 0.9155,
+      "p90": 4.236,
+      "min": 1.999,
+      "max": 4.236,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 1.999,
+        "mean_ci_upper": 4.236,
+        "median_ci_lower": 1.999,
+        "median_ci_upper": 4.236
+      }
+    },
+    "large": {
+      "n": 1,
+      "mean": 4.741,
+      "median": 4.741,
+      "std": 0.0,
+      "p90": 4.741,
+      "min": 4.741,
+      "max": 4.741,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 4.741,
+        "mean_ci_upper": 4.741,
+        "median_ci_lower": 4.741,
+        "median_ci_upper": 4.741
+      }
+    }
+  },
+  "gatePassRate": 0.167,
+  "sceneResults": [
+    {
+      "sceneId": "47333462",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.402,
+      "predHeight_m": 2.427,
+      "absError_cm": 2.5,
+      "signedError_cm": 2.5,
+      "area_sq_m": 11.92,
+      "passedGate1_5cm": false
+    },
+    {
+      "sceneId": "45662921",
+      "dataset": "CA-1M",
+      "sizeBucket": "large",
+      "refHeight_m": 3.3287,
+      "predHeight_m": 3.281294,
+      "absError_cm": 4.741,
+      "signedError_cm": -4.741,
+      "area_sq_m": 28.516627,
+      "passedGate1_5cm": false
+    },
+    {
+      "sceneId": "47115543",
+      "dataset": "CA-1M",
+      "sizeBucket": "medium",
+      "refHeight_m": 3.0832,
+      "predHeight_m": 3.040841,
+      "absError_cm": 4.236,
+      "signedError_cm": -4.236,
+      "area_sq_m": 17.195202,
+      "passedGate1_5cm": false
+    },
+    {
+      "sceneId": "45261143",
+      "dataset": "CA-1M",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.9022,
+      "predHeight_m": 2.882206,
+      "absError_cm": 1.999,
+      "signedError_cm": -1.999,
+      "area_sq_m": 17.840566,
+      "passedGate1_5cm": false
+    },
+    {
+      "sceneId": "45261615",
+      "dataset": "CA-1M",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.3845,
+      "predHeight_m": 2.351957,
+      "absError_cm": 3.254,
+      "signedError_cm": -3.254,
+      "area_sq_m": 14.936188,
+      "passedGate1_5cm": false
+    },
+    {
+      "sceneId": "42897545",
+      "dataset": "CA-1M",
+      "sizeBucket": "small",
+      "refHeight_m": 2.2786,
+      "predHeight_m": 2.269418,
+      "absError_cm": 0.918,
+      "signedError_cm": -0.918,
+      "area_sq_m": 11.671235,
+      "passedGate1_5cm": true
+    }
+  ]
+}

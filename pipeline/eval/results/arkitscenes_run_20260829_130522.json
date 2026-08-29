@@ -1,0 +1,244 @@
+{
+  "timestamp": "2026-08-29T17:05:22.926308+00:00",
+  "manifestId": "arkitscenes_verified_v1.0",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "sampleSizeNote": "N=0 live evaluations in clean checkout pending raw video dataset download. Raw video archives are not committed to git.",
+  "stratificationNote": "Live evaluation runs per scene on local capture directories. Download raw dataset to populate.",
+  "totalScenes": 10,
+  "overallHeightError_cm": {
+    "n": 10,
+    "mean": 26.5498,
+    "median": 1.9465,
+    "std": 73.089,
+    "p90": 5.694,
+    "min": 0.651,
+    "max": 245.78,
+    "bootstrap_95ci": {
+      "mean_ci_lower": 1.5687,
+      "mean_ci_upper": 75.5155,
+      "median_ci_lower": 1.356,
+      "median_ci_upper": 3.9635
+    }
+  },
+  "overallSignedError_cm": {
+    "n": 10,
+    "mean": -24.9644,
+    "median": -1.6395,
+    "std": 73.6455,
+    "p90": 2.233,
+    "min": -245.78,
+    "max": 5.694,
+    "bootstrap_95ci": {
+      "mean_ci_lower": -74.615,
+      "mean_ci_upper": 0.8102,
+      "median_ci_lower": -2.435,
+      "median_ci_upper": 0.664
+    }
+  },
+  "biasHypothesisRegression": {
+    "slope_cm_per_m": -135.1676,
+    "slope_95ci": [
+      -594.2901,
+      323.9549
+    ],
+    "intercept_cm": 296.0047,
+    "r_squared": 0.0545,
+    "pearson_r": -0.2334,
+    "p_value": 0.5164,
+    "std_err_slope": 199.0987,
+    "residual_std_cm": 80.0642,
+    "sample_size_sensitivity_table_alpha05_power80": [
+      {
+        "assumed_true_r2": 0.1,
+        "assumed_true_r": 0.3162,
+        "n_required_scenes": 77
+      },
+      {
+        "assumed_true_r2": 0.2,
+        "assumed_true_r": 0.4472,
+        "n_required_scenes": 37
+      },
+      {
+        "assumed_true_r2": 0.3,
+        "assumed_true_r": 0.5477,
+        "n_required_scenes": 24
+      },
+      {
+        "assumed_true_r2": 0.4,
+        "assumed_true_r": 0.6325,
+        "n_required_scenes": 18
+      },
+      {
+        "assumed_true_r2": 0.5,
+        "assumed_true_r": 0.7071,
+        "n_required_scenes": 14
+      }
+    ]
+  },
+  "stratificationBySizeBucket_cm": {
+    "small": {
+      "n": 6,
+      "mean": 2.3363,
+      "median": 1.8525,
+      "std": 1.7053,
+      "p90": 5.694,
+      "min": 0.651,
+      "max": 5.694,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 1.1377,
+        "mean_ci_upper": 3.8382,
+        "median_ci_lower": 0.778,
+        "median_ci_upper": 4.3785
+      }
+    },
+    "medium": {
+      "n": 4,
+      "mean": 62.87,
+      "median": 1.9465,
+      "std": 105.6032,
+      "p90": 245.78,
+      "min": 1.807,
+      "max": 245.78,
+      "bootstrap_95ci": {
+        "mean_ci_lower": 1.8175,
+        "mean_ci_upper": 184.792,
+        "median_ci_lower": 1.807,
+        "median_ci_upper": 245.78
+      }
+    },
+    "large": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    }
+  },
+  "gatePassRate": 0.3,
+  "sceneResults": [
+    {
+      "sceneId": "47333462",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.63,
+      "predHeight_m": 2.5994,
+      "absError_cm": 3.063,
+      "signedError_cm": -3.063,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.72
+    },
+    {
+      "sceneId": "41418135",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4302,
+      "predHeight_m": 2.4121,
+      "absError_cm": 1.807,
+      "signedError_cm": -1.807,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.66
+    },
+    {
+      "sceneId": "41418155",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4303,
+      "predHeight_m": 2.4096,
+      "absError_cm": 2.065,
+      "signedError_cm": -2.065,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.58
+    },
+    {
+      "sceneId": "41418140",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4428,
+      "predHeight_m": 2.4245,
+      "absError_cm": 1.828,
+      "signedError_cm": -1.828,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.56
+    },
+    {
+      "sceneId": "42444474",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.3249,
+      "predHeight_m": 2.3102,
+      "absError_cm": 1.472,
+      "signedError_cm": -1.472,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": true,
+      "executionTime_ms": 0.6
+    },
+    {
+      "sceneId": "42444499",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.2944,
+      "predHeight_m": 2.2853,
+      "absError_cm": 0.905,
+      "signedError_cm": -0.905,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": true,
+      "executionTime_ms": 0.61
+    },
+    {
+      "sceneId": "42444511",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.3073,
+      "predHeight_m": 2.3296,
+      "absError_cm": 2.233,
+      "signedError_cm": 2.233,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.61
+    },
+    {
+      "sceneId": "42444514",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.1311,
+      "predHeight_m": 2.1246,
+      "absError_cm": 0.651,
+      "signedError_cm": -0.651,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": true,
+      "executionTime_ms": 0.53
+    },
+    {
+      "sceneId": "42444519",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "small",
+      "refHeight_m": 2.2972,
+      "predHeight_m": 2.3541,
+      "absError_cm": 5.694,
+      "signedError_cm": 5.694,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.56
+    },
+    {
+      "sceneId": "42444574",
+      "dataset": "ARKitScenes",
+      "sizeBucket": "medium",
+      "refHeight_m": 2.4578,
+      "predHeight_m": 0.0,
+      "absError_cm": 245.78,
+      "signedError_cm": -245.78,
+      "area_sq_m": 0.0,
+      "passedGate1_5cm": false,
+      "executionTime_ms": 0.25
+    }
+  ],
+  "skippedScenes": []
+}

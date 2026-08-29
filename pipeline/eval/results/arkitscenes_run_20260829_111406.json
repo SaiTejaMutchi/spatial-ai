@@ -1,0 +1,101 @@
+{
+  "timestamp": "2026-08-29T15:14:06.383861+00:00",
+  "manifestId": "arkitscenes_verified_v1.0",
+  "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
+  "sampleSizeNote": "N=0 live evaluations in clean checkout pending raw video dataset download. Raw video archives are not committed to git.",
+  "stratificationNote": "Live evaluation runs per scene on local capture directories. Download raw dataset to populate.",
+  "totalScenes": 0,
+  "overallHeightError_cm": {
+    "n": 0,
+    "mean": 0.0,
+    "median": 0.0,
+    "std": 0.0,
+    "p90": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "bootstrap_95ci": {}
+  },
+  "overallSignedError_cm": {
+    "n": 0,
+    "mean": 0.0,
+    "median": 0.0,
+    "std": 0.0,
+    "p90": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "bootstrap_95ci": {}
+  },
+  "biasHypothesisRegression": {},
+  "stratificationBySizeBucket_cm": {
+    "small": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    },
+    "medium": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    },
+    "large": {
+      "n": 0,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "p90": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "bootstrap_95ci": {}
+    }
+  },
+  "gatePassRate": 0.0,
+  "sceneResults": [],
+  "skippedScenes": [
+    {
+      "sceneId": "47333462",
+      "dataset": "ARKitScenes",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    },
+    {
+      "sceneId": "45662921",
+      "dataset": "CA-1M",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    },
+    {
+      "sceneId": "47115543",
+      "dataset": "CA-1M",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    },
+    {
+      "sceneId": "45261143",
+      "dataset": "CA-1M",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    },
+    {
+      "sceneId": "45261615",
+      "dataset": "CA-1M",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    },
+    {
+      "sceneId": "42897545",
+      "dataset": "CA-1M",
+      "reason": "MISSING_LOCAL_CAPTURE_INPUTS",
+      "note": "Raw video captures not committed to git; download raw dataset to execute live."
+    }
+  ]
+}
