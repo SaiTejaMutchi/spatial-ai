@@ -60,7 +60,7 @@ def get_cdn_content_length(url: str) -> int:
     with urllib.request.urlopen(req, timeout=30) as resp:
         return int(resp.headers.get('Content-Length'))
 
-def get_candidate_scenes():
+def get_candidate_scenes(initial_visit_ids: set):
     visit_to_scans = {}
     mapping_csv = REPO_ROOT / "samples" / "arkitscenes" / "laser_scanner_point_clouds_mapping.csv"
     if mapping_csv.is_file():
@@ -76,7 +76,7 @@ def get_candidate_scenes():
 
     raw_csv = REPO_ROOT / "samples" / "arkitscenes" / "raw_metadata.csv"
     candidates = []
-    seen = set()
+    seen_visits = set(initial_visit_ids)
     if raw_csv.is_file():
         with open(raw_csv) as f:
             reader = csv.DictReader(f)
@@ -85,10 +85,10 @@ def get_candidate_scenes():
                     vid = row['video_id']
                     v_id = row['visit_id']
                     fold = row['fold']
-                    if vid not in seen:
-                        seen.add(vid)
+                    if v_id not in seen_visits:
+                        seen_visits.add(v_id)
                         scans = visit_to_scans.get(v_id, [])
-                        if scans:
+                        if len(scans) >= 2:
                             candidates.append({
                                 'scene_id': vid,
                                 'visit_id': v_id,
@@ -142,8 +142,9 @@ def run_batch():
 
     log(f"Starting batch execution. Current clean N = {len(results)}. Target clean N >= 30.")
 
-    candidates = get_candidate_scenes()
-    log(f"Discovered {len(candidates)} total candidate scenes from metadata CSVs.")
+    candidates = get_candidate_scenes(processed_visit_ids)
+    log(f"Discovered {len(candidates)} total UNIQUE candidate scenes (unique physical rooms) from metadata CSVs.")
+
 
     clean_n = len(results)
     completed_count = len(results) - 10
