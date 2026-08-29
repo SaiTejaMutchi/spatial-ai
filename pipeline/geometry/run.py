@@ -60,9 +60,17 @@ def run_geometry(
     planes = extract_planes(cloud, config)
 
     if planes.floor is None:
+        total_pts = cloud.points.shape[0] if cloud.points is not None else 0
+        tot_frames = cloud.diagnostics.get("total_frames", 0)
+        contrib_frames = cloud.diagnostics.get("contributing_frames", 0)
+        floor_cands = planes.diagnostics.get("floor_candidates", [])
+        max_inliers = max([c.get("inlier_count", 0) for c in floor_cands]) if floor_cands else 0
+        min_req_inliers = planes.diagnostics.get("min_horizontal_inliers_required", 0)
         raise ValueError(
-            "GEOMETRY_GENERALIZATION_FAILURE: no floor plane could be fitted, so no "
-            "room envelope or measurement can be derived from this capture")
+            f"GEOMETRY_GENERALIZATION_FAILURE: no floor plane could be fitted. "
+            f"Diagnostics: total_points={total_pts}, total_frames={tot_frames}, "
+            f"contributing_frames={contrib_frames}, max_floor_candidate_inliers={max_inliers}, "
+            f"min_required_inliers={min_req_inliers}")
 
     inlier_distance = config.get("plane_inlier_distance_m")
     on_floor = np.abs(
