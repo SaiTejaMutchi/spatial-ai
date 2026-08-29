@@ -364,21 +364,26 @@ def run_batch():
     log("Executing baseline comparison (RTAB-Map / python baseline)...")
     run_baseline_comparison()
 
-    # Aggregate Statistics Calculation
-    abs_errors = [r["abs_error_cm"] for r in results]
-    signed_errors = [r["signed_error_cm"] for r in results]
-    ref_heights = [r["laser_gt_m"] for r in results]
-    gate_passes = sum(1 for r in results if r["gate_passed"])
+    # Collect failed scenes from batch_progress.jsonl
+    failed_scenes = []
+    if progress_file.is_file():
+        with open(progress_file) as f:
+            for line in f:
+                if line.strip():
+                    rec = json.loads(line)
+                    if rec.get("status") == "failed":
+                        failed_scenes.append(rec)
 
-    stats = compute_statistics(abs_errors)
-    regression = compute_bias_regression(ref_heights, signed_errors)
+    total_attempted = completed_count + len(failed_scenes)
+    overall_success_rate = round(clean_n / (10 + total_attempted), 4) if (10 + total_attempted) > 0 else 0.0
 
     consolidated_results = {
         "dataset": "ARKitScenes",
         "clean_n": clean_n,
         "completed": completed_count,
-        "failed": failed_count,
-        "skipped": skipped_count,
+        "failed": len(failed_scenes),
+        "total_candidates_attempted": total_attempted,
+        "overall_success_rate": overall_success_rate,
         "aggregate": {
             "mae_cm": stats["mean"],
             "median_cm": stats["median"],
@@ -390,9 +395,11 @@ def run_batch():
             "bootstrap_95ci": stats["bootstrap_95ci"]
         },
         "bias_regression": regression,
+        "failedScenes": failed_scenes,
         "scenes": results,
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     }
+
 
     latest_run_path = REPO_ROOT / "pipeline" / "eval" / "results" / "latest_run.json"
     latest_run_path.write_text(json.dumps(consolidated_results, indent=2))
