@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spatial-ai"
+version = "0.2.0"
+description = "Give AI a memory of the physical world. Mobile RGB-D / LiDAR persistent spatial memory & 3D geometry engine."
+readme = "README.md"
+authors = [
+    { name = "Sai Teja Mutchi", email = "87144045+SaiTejaMutchi@users.noreply.github.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["spatial-ai", "lidar", "rgb-d", "3d-reconstruction", "computer-vision", "mcp", "ai-agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+pipeline = [
+    "numpy>=1.26,<2.5",
+    "pillow>=10.0",
+    "scipy>=1.10.0",
+    "opencv-python>=4.8",
+    "jsonschema>=4.0",
+]
+service = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "starlette>=0.27.0",
+    "python-multipart>=0.0.9",
+    "httpx>=0.24.0",
+]
+mcp = [
+    "mcp>=1.0.0",
+]
+all = [
+    "spatial-ai[pipeline,service,mcp]",
+    "pytest>=7.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/SaiTejaMutchi/spatial-ai"
+Repository = "https://github.com/SaiTejaMutchi/spatial-ai.git"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["spatial_ai*"]

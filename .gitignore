@@ -23,6 +23,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
+*.egg-info/
 node_modules/
 
 # Spatial POC generated/private data
