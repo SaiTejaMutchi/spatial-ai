@@ -125,6 +125,7 @@ def run_batch():
     # Initialize results list with initial 10 clean scenes
     results = list(INITIAL_10_SCENES)
     processed_scene_ids = {s["scene_id"] for s in results}
+    processed_visit_ids = {s["visit_id"] for s in results}
     
     # Read any prior progress from batch_progress.jsonl if restarting
     progress_file = REPO_ROOT / "batch_progress.jsonl"
@@ -134,6 +135,8 @@ def run_batch():
                 if line.strip():
                     rec = json.loads(line)
                     processed_scene_ids.add(rec["scene_id"])
+                    if "visit_id" in rec:
+                        processed_visit_ids.add(rec["visit_id"])
                     if rec.get("status") == "success" and rec not in results:
                         results.append(rec)
 
@@ -157,7 +160,7 @@ def run_batch():
         fold = cand["fold"]
         scans = cand["laser_scans"]
 
-        if s_id in processed_scene_ids:
+        if s_id in processed_scene_ids or v_id in processed_visit_ids:
             continue
 
         scene_num = len(results) + 1
