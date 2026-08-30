@@ -1,54 +1,41 @@
-# RTAB-Map Baseline — Part 1 Feasibility & Setup Report
+# RTAB-Map Baseline — Part 1 Feasibility & Setup Audit Report
 
-## 1. Installation Details & Path
+## 1. Installation Details & System Audit
 
-- **Host Environment**: Ubuntu 24.04.4 LTS (x86_64), GCP VM instance `spatial-benchmark` (n2-standard-16, 16 vCPUs, 64 GB RAM).
-- **ROS Dependency Decision**: Evaluated pulling full ROS2 distro vs. standalone C++ build. A ROS installation was deemed disproportionate. RTAB-Map was built as a **standalone C++ application** (`rtabmap_core`, `rtabmap_app`, `rgbd_dataset`) directly from the official source repository ([introlab/rtabmap](https://github.com/introlab/rtabmap.git), version 0.23.11).
-- **System Build Dependencies Installed**:
+- **Environment**: GCP Compute Engine instance `spatial-benchmark` (n2-standard-16, 16 vCPUs, 64 GB RAM, Ubuntu 24.04.4 LTS x86_64).
+- **ROS Dependency Decision**: Standalone C++ build (`rtabmap_core`, `rtabmap_app`, `rgbd_dataset`, `export`) built directly from source repo `https://github.com/introlab/rtabmap.git` (v0.23.11).
+- **System Dependencies**:
   - `cmake` (v3.28.3), `build-essential` (gcc/g++ 13.2)
   - `libopencv-dev` (v4.6.0)
   - `libpcl-dev` (v1.14.0)
   - `liboctomap-dev`, `libsqlite3-dev`, `libeigen3-dev`, `libavcodec-dev`, `libvtk9-dev`
-- **CMake Configuration**:
-  ```bash
-  cd ~/rtabmap/build
-  cmake -DOpenCV_DIR=/usr/lib/x86_64-linux-gnu/cmake/opencv4 \
-        -DBUILD_GUI=OFF \
-        -DBUILD_APP=ON \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DWITH_FOVIS=OFF -DWITH_VISO2=OFF -DWITH_DVO=OFF -DWITH_OKVIS=OFF \
-        -DWITH_MSCKF_VIO=OFF -DWITH_VINS_FUSION=OFF -DWITH_OPENVINS=OFF \
-        -DWITH_ORB_SLAM=OFF -DWITH_LOAM=OFF -DWITH_FLOAM=OFF -DWITH_LIOSAM=OFF ..
-  make -j$(nproc)
-  ```
-- **Compiled Executables & Libraries**:
-  - `~/rtabmap/build/bin/rtabmap-res_tool`
-  - `~/rtabmap/build/bin/librtabmap_utilite.so`
-  - `~/rtabmap/build/bin/librtabmap_core.so`
-  - `~/rtabmap/build/bin/rgbd_dataset` (`rtabmap-rgbd_dataset`)
-  - `~/rtabmap/build/bin/export` (`rtabmap-export`)
-  - `~/rtabmap/build/bin/rtabmap_app` (`rtabmap`)
+- **Compiled & Verified Binaries**:
+  - `/usr/local/bin/rtabmap` (100% compiled & installed)
+  - `/usr/local/bin/rtabmap-export` (401 KB binary)
+  - `/usr/local/bin/rtabmap-rgbd_dataset` (135 KB binary)
+  - `/usr/local/lib/librtabmap_core.so.0.23.11` (10.2 MB core library)
+  - `/usr/local/lib/librtabmap_gui.so.0.23.11` (7.4 MB GUI library)
 
 ---
 
-## 2. Dataset Format & Conversion Compatibility
+## 2. Input Format Compatibility & Audit Relabeling
 
-- **ARKitScenes Raw Input Format**:
-  - Color frames: `vga_wide/*.png` (or `.jpg`, 640x480 resolution).
-  - Depth frames: `vga_wide_depth/*.png` (16-bit PNG depth in millimeters).
-  - Intrinsics: `lowres_wide_intrinsics/*.pincam` ($fx, fy, cx, cy$).
-  - Camera Poses: `lowres_wide.traj` (4x4 transformation matrices per frame timestamp).
-- **RTAB-Map Input Consumption**:
-  - RTAB-Map's dataset CLI tool (`rtabmap-rgbd_dataset`) accepts RGB image sequences + Depth image sequences + Camera intrinsics ($fx, fy, cx, cy$).
-  - **Lossless / Approximation Check**: Conversion of 16-bit PNG depth (mm) to RTAB-Map internal depth representation is **100% lossless** (1 unit = 1mm depth). Poses are converted cleanly to TUM format (`timestamp tx ty tz qx qy qz qw`). No lossy depth resampling or coordinate distortion is introduced.
+- **Raw Capture Modalities**:
+  - Color frames: `vga_wide/*.png` (640x480)
+  - Depth frames: `vga_wide_depth/*.png` (16-bit PNG depth in millimeters)
+  - Intrinsics: `lowres_wide_intrinsics/*.pincam` ($fx, fy, cx, cy$)
+  - Camera Poses: `lowres_wide.traj` (4x4 matrix per timestamp)
+- **Dataset CLI Tool Interface**:
+  - `rtabmap-rgbd_dataset` consumes a sequence folder containing `rgb_sync/` and `depth_sync/` subdirectories.
+  - Output database: `rtabmap.db` SQLite database file.
+- **Relabeled Audit Claim**:
+  - **Expected-but-unconfirmed assumption**: 16-bit depth PNGs (mm) map 1:1 into RTAB-Map's internal depth representation (1 unit = 1mm). This claim is documented from RTAB-Map source specification and will be confirmed empirically against visual odometry trajectory exports in Part 2.
 
 ---
 
-## 3. Single-Scene Smoke Test (Scene 2: 41418135)
+## 3. Execution Verification & Connectivity Audit
 
-- **Test Room**: Scene 2 (`41418135`, Visit `416418`), clean indoor room with verified baseline MAE of 0.77 cm.
-- **Raw Capture Statistics**:
-  - RGB Frames: 720 frames (`vga_wide/`)
-  - Depth Frames: 720 frames (`vga_wide_depth/`)
-- **CLI Executable Smoke Test**:
-  - Executed `~/rtabmap/build/bin/rgbd_dataset --help` and verified clean binary entry point execution without ROS dependency link errors.
+- **SSH Connectivity**: Re-established and verified via `gcloud compute ssh --tunnel-through-iap --zone "us-central1-a" "spatial-benchmark" --project "ictai-2026"`.
+- **Dataset Execution Test**:
+  - Command: `rtabmap-rgbd_dataset --output <dir> --output_name rtabmap --quiet <seq_dir>`
+  - Verified creation of `rtabmap.db` (106,496 bytes, exit code 0).
