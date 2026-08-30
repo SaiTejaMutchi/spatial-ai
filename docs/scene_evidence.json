@@ -1,0 +1,11 @@
+{
+  "command": "/home/saitejamutchi/rtabmap/build/bin/rtabmap-rgbd_dataset --output /home/saitejamutchi/spatial-ai/output/rtabmap_scene_test --output_name rtabmap --quiet /home/saitejamutchi/spatial-ai/output/rtabmap_scene_sequence",
+  "exit_code": 0,
+  "elapsed_sec": 0.17758607864379883,
+  "stdout": "ut name:     rtabmap\n   Skip frames:     0\n   Max time diff:   0.020000\nParameters:\n   Rtabmap/PublishRAMUsage=true\n   Rtabmap/WorkingDirectory=/home/saitejamutchi/spatial-ai/output/rtabmap_scene_test\nRTAB-Map version: 0.23.11\nERROR: Dataset rtabmap_scene_sequence is not supported. Update rgbd_dataset tool to include the right calibration parameter for this dataset!\n\u001b[31m[ERROR] (2026-08-30 05:12:58.254) CameraModel.cpp:502::save() Cannot save calibration to \"/home/saitejamutchi/spatial-ai/output/rtabmap_scene_sequence/camera.yaml\" because it is empty.\u001b[0m\n\u001b[31m[ERROR] (2026-08-30 05:12:58.298) CameraRGBDImages.cpp:65::init() Cameras don't have the same number of images (3831 vs 3829)\u001b[0m\n\u001b[31m[ERROR] (2026-08-30 05:12:58.298) main.cpp:520::main() Camera init failed!\u001b[0m\nSaving rtabmap database (with all statistics) to \"/home/saitejamutchi/spatial-ai/output/rtabmap_scene_test/rtabmap.db\"\nDo:\n $ rtabmap-databaseViewer /home/saitejamutchi/spatial-ai/output/rtabmap_scene_test/rtabmap.db\n\n",
+  "stderr": "",
+  "db_size_bytes": 0,
+  "ply_size_bytes": 0,
+  "extracted_height_m": null,
+  "completed_cleanly": false
+}

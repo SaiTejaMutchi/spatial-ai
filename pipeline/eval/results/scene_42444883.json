@@ -1,0 +1,16 @@
+{
+  "scene_num": 20,
+  "scene_id": "42444883",
+  "visit_id": "421264",
+  "fold": "Training",
+  "laser_gt_m": 2.4451,
+  "inter_scan_diff_cm": 0.19,
+  "pred_height_m": 2.4378,
+  "abs_error_cm": 0.73,
+  "signed_error_cm": -0.73,
+  "gate_passed": true,
+  "all_laser_bytes_ok": true,
+  "all_capture_bytes_ok": true,
+  "status": "success",
+  "timestamp": "2026-08-29T23:24:40Z"
+}

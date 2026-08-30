@@ -1,0 +1,8 @@
+{
+  "scene_id": "42444733",
+  "visit_id": "421267",
+  "laser_gt_m": 2.3442,
+  "status": "failed_geometry",
+  "note": "Laser ground-truth manually recorded for comparison table.",
+  "timestamp": "2026-08-30T05:52:00Z"
+}
