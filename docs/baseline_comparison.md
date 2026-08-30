@@ -17,7 +17,12 @@ All measurements are benchmarked directly against **FARO Terrestrial Laser Scann
 | **Apple RoomPlan (iOS Swift)** | **N/A** | **N/A** | **N/A** | **N/A** | **N/A** | Live iOS Hardware Session |
 
 > [!IMPORTANT]
-> **RTAB-Map Visual Odometry Tracking Failure**: Without pre-calculated trajectory injection (`lowres_wide.traj` / TUM poses) or hardware IMU fusion, RTAB-Map's uncalibrated feature tracker (`rtabmap-rgbd_dataset`) experienced scale collapse (`inliers=0/0` transitioning to short drift estimates $< 3.3\text{ cm}$) on raw ARKitScenes handheld RGB-D sequences, failing to reconstruct valid odometry poses or 3D point cloud maps.
+> **RTAB-Map Visual Odometry Tracking Failure**: Without pre-calculated trajectory injection (`lowres_wide.traj` / TUM poses) or hardware IMU fusion, RTAB-Map's uncalibrated feature tracker (`rtabmap-rgbd_dataset`) experienced scale collapse on raw ARKitScenes handheld RGB-D sequences, failing to reconstruct valid odometry poses or 3D point cloud maps.
+> 
+> The specific figures below (inliers=0/0→30/30, 3.29cm estimated motion) are recalled from the working conversation during this session's RTAB-Map investigation. The raw verbose log output was not preserved before VM deletion and cannot be independently re-verified. The qualitative finding — that RTAB-Map's default visual odometry failed to track this dataset even after correct calibration — is confirmed by the pipeline output artifacts that were preserved (rtabmap.db pose counts, cloud.ply spatial extents showing a ~10cm reconstruction of an 11m room), but the exact numeric log values should be treated as approximate recollection, not a verified quote.
+
+> [!NOTE]
+> **Scene 42444733 Pipeline Gap**: For scene `42444733` (visit `421267`), our spatial AI pipeline's geometry run failed midway and never produced a height prediction (as tracked in `batch_progress.jsonl`). Therefore, any earlier three-way comparisons (FARO Laser Scanner vs. RTAB-Map vs. VIO-script) involving this specific scene did not actually include a valid result from our deterministic 3D pipeline. The laser ground-truth height for this scene was `2.3442m` for reference.
 
 ---
 
