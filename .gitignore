@@ -9,6 +9,11 @@ docs/*
 !docs/error_analysis.md
 !docs/limitations.md
 !docs/checklist.md
+!docs/architecture.md
+!docs/baselines.md
+!docs/testing.md
+!docs/REPRODUCE.md
+!docs/data_provenance.md
 
 # Secrets and local environment
 .env
@@ -70,3 +75,6 @@ MR_01/
 # Local archives and scratch exports
 tmp/
 *.zip
+
+# Vendored Google Cloud SDK (364 MB). Present on some machines, never committed.
+gcloud_sdk/
