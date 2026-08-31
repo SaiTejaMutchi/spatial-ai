@@ -85,8 +85,8 @@ def build_report(
         "isFinalBenchmark": False,
         "statement": (
             "This is an independent public sanity check against survey-grade laser "
-            "data. It is not a tape-measure benchmark, and it "
-            "does not establish accuracy on any real capture."),
+            "data. It is not a tape-measure benchmark, and it does not establish "
+            "accuracy on any real capture."),
         "generatedUtc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "scene": {"id": scene_id, "role": scene_role,
                   "classification": model["scan"]["classification"]},
