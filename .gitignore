@@ -78,3 +78,13 @@ tmp/
 
 # Vendored Google Cloud SDK (364 MB). Present on some machines, never committed.
 gcloud_sdk/
+
+# Local gcloud CLI state
+gcloud_config/
+
+# Stray VM debug dumps
+vm_output.txt
+vm_find_output.txt
+
+# Throwaway experiment scripts, not part of the published project
+scratch/
