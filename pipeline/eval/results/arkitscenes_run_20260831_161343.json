@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-31T20:17:07.275792+00:00",
+  "timestamp": "2026-08-31T20:13:43.242404+00:00",
   "manifestId": "arkitscenes_verified_v1.0",
   "geometryConfigHash": "fb7900299311d51c610aecf9f42ffa1332297fe533ba11c05ed8c34ee959e0b0",
   "sampleSizeNote": "N=0 live evaluations in clean checkout pending raw video dataset download. Raw video archives are not committed to git.",
@@ -129,7 +129,7 @@
       "signedError_cm": -3.063,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.41
+      "executionTime_ms": 0.59
     },
     {
       "sceneId": "41418135",
@@ -141,7 +141,7 @@
       "signedError_cm": -1.807,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.42
+      "executionTime_ms": 0.98
     },
     {
       "sceneId": "41418155",
@@ -153,7 +153,7 @@
       "signedError_cm": -2.065,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.36
+      "executionTime_ms": 0.83
     },
     {
       "sceneId": "41418140",
@@ -165,7 +165,7 @@
       "signedError_cm": -1.828,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.34
+      "executionTime_ms": 0.69
     },
     {
       "sceneId": "42444474",
@@ -177,7 +177,7 @@
       "signedError_cm": -1.472,
       "area_sq_m": 0.0,
       "passedGate1_5cm": true,
-      "executionTime_ms": 0.35
+      "executionTime_ms": 0.88
     },
     {
       "sceneId": "42444499",
@@ -189,7 +189,7 @@
       "signedError_cm": -0.905,
       "area_sq_m": 0.0,
       "passedGate1_5cm": true,
-      "executionTime_ms": 0.35
+      "executionTime_ms": 0.97
     },
     {
       "sceneId": "42444511",
@@ -201,7 +201,7 @@
       "signedError_cm": 2.233,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.32
+      "executionTime_ms": 0.91
     },
     {
       "sceneId": "42444514",
@@ -213,7 +213,7 @@
       "signedError_cm": -0.651,
       "area_sq_m": 0.0,
       "passedGate1_5cm": true,
-      "executionTime_ms": 0.32
+      "executionTime_ms": 0.84
     },
     {
       "sceneId": "42444519",
@@ -225,7 +225,7 @@
       "signedError_cm": 5.694,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.33
+      "executionTime_ms": 0.81
     },
     {
       "sceneId": "42444574",
@@ -237,7 +237,7 @@
       "signedError_cm": -8.519,
       "area_sq_m": 0.0,
       "passedGate1_5cm": false,
-      "executionTime_ms": 0.3
+      "executionTime_ms": 0.94
     }
   ],
   "skippedScenes": []
